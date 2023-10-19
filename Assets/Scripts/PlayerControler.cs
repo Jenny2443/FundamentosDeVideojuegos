@@ -6,7 +6,7 @@ public class PlayerControler : MonoBehaviour
 {
     private new Rigidbody rigidbody;
 
-    public float movementSpeed;
+    public float movementSpeed = 1f;
     
     //Contador creado para test
     public int count = 0;
@@ -19,6 +19,8 @@ public class PlayerControler : MonoBehaviour
         movementSpeed = 1f;
         count = 1;
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -45,11 +47,13 @@ public class PlayerControler : MonoBehaviour
     //Funcion que toma los valores de movimiento y ejecuta el movimiento
     public Vector3 MovePlayer(float hor, float ver)
     {
+        //Debug.Log("Pos inicial: " + transform.position);
         Vector3 velocity = Vector3.zero;
 
         if(hor != 0 || ver != 0){
-            Vector3 direction = (transform.forward * ver + transform.right * hor).normalized;
-
+            //Vector3 direction = (transform.forward * ver + transform.right * hor).normalized;
+            Vector3 direction = (transform.forward * ver + transform.right * hor);
+            Debug.Log("Direction: " + direction);
             velocity = direction * movementSpeed;
         }
 
