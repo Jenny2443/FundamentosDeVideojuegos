@@ -11,6 +11,7 @@ public class PlayerMovementTest
 {
     private PlayerControler player;
     private GameObject playerObject;
+    
 
     [SetUp]
     public void SetUp()
@@ -47,22 +48,41 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerTestHorizontalPositive()
     {
-        yield return new WaitForSeconds(0.1f);
+        //Vector3 vectorEsperadoMax = new Vector3(2.5f, 0, 0);
+        //Vector3 vectorEsperadoMin = new Vector3(1.5f, 0, 0);
+        
+        Debug.Log("Pos inicial: " + player.transform.position);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(2, 0);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Vector3 valorEsperado = new Vector3(2, 0, 0);
+        
         Debug.Log("Movement: " + movement);
-        Debug.Log("Valor esperado: " + valorEsperado);
+        Debug.Log("Valor esperado max: " + 2.5f);
+        Debug.Log("Valor esperado min: " + 1.5f);
+        
+        //Assert.GreaterOrEqual(2.5f, movement.x);
+        //Assert.LessOrEqual(1.5f, movement.x);
+
+        
         Assert.AreEqual(valorEsperado, movement);
+        
+        //Assert.GreaterOrEqual(vectorEsperadoMin.x, movement.x);
+        //Assert.LessOrEqual(vectorEsperadoMax.x, movement.x);
     }
 
     //Test para comprobar que el jugador se mueve correctamente en el eje x (horizontal) positivo
     [UnityTest]
     public IEnumerator MovePlayerTestHorizontalNeg()
     {
-        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(-6, 0);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Vector3 valorEsperado = new Vector3(-6, 0, 0);
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -73,9 +93,12 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerTestForward()
     {
-        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, 7);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Vector3 valorEsperado = new Vector3(0, 0, 7);
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -86,13 +109,95 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerTestBackWards()
     {
-        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, -10);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Vector3 valorEsperado = new Vector3(0, 0, -10);
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
         Assert.AreEqual(valorEsperado, movement);
     }
     
+    //Test para comprobar que el jugador se mueve correctamente en diagonal derecha
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalRightBack()
+    {
+        Debug.Log("Pos inicial: " + player.transform.position);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(6, -8);
+        yield return new WaitForSeconds(1f);
+        Vector3 valorEsperado = new Vector3(6, 0, -8);
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.AreEqual(valorEsperado, movement);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal derecha atras
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalRight()
+    {
+        //Debug.Log("Pos inicial: " + player.transform.position);
+        //player.transform.position = new Vector3(0, 0, 0);
+        //Debug.Log("Pos tras 0: " + player.transform.position);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 movement = player.MovePlayer(5, 5);
+        yield return new WaitForSeconds(0.1f);
+        Vector3 valorEsperado = new Vector3(5, 0, 5);
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.AreEqual(valorEsperado, movement);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal izquierda
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalLeft()
+    {
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(-7, 7);
+        yield return new WaitForSeconds(1f);
+        Vector3 valorEsperado = new Vector3(-7, 0, 7);
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.AreEqual(valorEsperado, movement);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal izquierda atras
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalLeftBack()
+    {
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(-5, -10);
+        yield return new WaitForSeconds(1f);
+        Vector3 valorEsperado = new Vector3(-5, 0, -10);
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.AreEqual(valorEsperado, movement);
+    }
+    
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalLeftBackRango()
+    {
+        Vector3 vectorEsperadoMax = new Vector3(-6, 0, -11);
+        Vector3 vectorEsperadoMin = new Vector3(-4, 0, -9);
+        
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(-5, -10);
+        yield return new WaitForSeconds(1f);
+        Vector3 valorEsperado = new Vector3(-5, 0, -10);
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        //Assert.AreEqual(valorEsperado, movement);
+        
+    }
 }
