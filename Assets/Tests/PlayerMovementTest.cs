@@ -168,6 +168,8 @@ public class PlayerMovementTest
         Assert.AreEqual(valorEsperado, movement);
     }
     
+  
+    
     //Test para comprobar que el jugador se mueve correctamente en diagonal izquierda atras
     [UnityTest]
     public IEnumerator MovePlayerDiagonalLeftBack()
@@ -186,18 +188,155 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerDiagonalLeftBackRango()
     {
-        Vector3 vectorEsperadoMax = new Vector3(-6, 0, -11);
-        Vector3 vectorEsperadoMin = new Vector3(-4, 0, -9);
-        
+        Vector3 vectorEsperado = new Vector3(-5, 0, -10);
+
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
+
         Vector3 movement = player.MovePlayer(-5, -10);
+
+        float margenError = 1f;
+
+        bool dentroDelMargen = Mathf.Abs(movement.x - vectorEsperado.x) <= margenError
+                               && Mathf.Abs(movement.z - vectorEsperado.z) <= margenError;
+
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + vectorEsperado);
+
+        // Comprueba si el movimiento está dentro del margen de error en cada componente x y z
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal izquierda
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalLeftRango()
+    {
+        Vector3 valorEsperado = new Vector3(-7, 0, 7);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
-        Vector3 valorEsperado = new Vector3(-5, 0, -10);
+        Vector3 movement = player.MovePlayer(-7, 7);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError
+                               && Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
+        
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
-        //Assert.AreEqual(valorEsperado, movement);
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal derecha atras
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalRightRango()
+    {
+        Vector3 valorEsperado = new Vector3(5, 0, 5);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(5, 5);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError
+                               && Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
         
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en diagonal derecha
+    [UnityTest]
+    public IEnumerator MovePlayerDiagonalRightBackRango()
+    {
+        Vector3 valorEsperado = new Vector3(6, 0, -8);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(6, -8);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError
+                               && Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
+        
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
+    }
+
+    //Test para comprobar que el jugador se mueve correctamente en el eje z negativo hacia atras
+    [UnityTest]
+    public IEnumerator MovePlayerTestBackWardsRango()
+    {
+        Vector3 valorEsperado = new Vector3(0, 0, -10);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(0, -10);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+        
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en el eje x (horizontal) positivo
+    [UnityTest]
+    public IEnumerator MovePlayerTestHorizontalNegRango()
+    {
+        Vector3 valorEsperado = new Vector3(-6, 0, 0);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(-6, 0);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+        
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en el eje z positivo hacia delante
+    [UnityTest]
+    public IEnumerator MovePlayerTestForwardRango()
+    {
+        Vector3 valorEsperado = new Vector3(0, 0, 7);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(0, 7);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
+        
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
+    }
+    
+    //Test para comprobar que el jugador se mueve correctamente en el eje x (horizontal) positivo
+    [UnityTest]
+    public IEnumerator MovePlayerTestHorizontalPositiveRango()
+    {
+        //Vector3 vectorEsperadoMax = new Vector3(2.5f, 0, 0);
+        //Vector3 vectorEsperadoMin = new Vector3(1.5f, 0, 0);
+
+        Vector3 valorEsperado = new Vector3(2, 0, 0);
+        player.transform.position = new Vector3(0, 0, 0);
+        Debug.Log("Pos inicial: " + player.transform.position);
+        yield return new WaitForSeconds(1f);
+        Vector3 movement = player.MovePlayer(2, 0);
+        yield return new WaitForSeconds(1f);
+        float margenError = 1f;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+
+        Debug.Log("Movement: " + movement);
+        Debug.Log("Valor esperado: " + valorEsperado);
+        Assert.IsTrue(dentroDelMargen);
     }
 }
