@@ -17,13 +17,13 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float tiempoEntreLetras = 0.05f;
 
     // variable para saber si el jugador está en rango
-    private bool estaEnRango;
+    public bool estaEnRango;
     // variable para saber si el dialogo ha empezado
     private bool dialogoEmpezado;
     private int indice;
 
     void Update(){
-        // Si el jugador está en rango y si se presiona la tecla E y si el panel de diálogo no está activo
+        // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F))
         {
             if (!dialogoEmpezado)
@@ -43,7 +43,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void EmpezarDialogo(){
+    public void EmpezarDialogo(){
         // El diálogo ha empezado
         dialogoEmpezado = true; 
         // Activar el panel de diálogo
