@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float tiempoEntreLetras = 0.05f;
 
     // variable para saber si el jugador está en rango
-    private bool estaEnRango;
+    public bool estaEnRango = false;
     // variable para saber si el dialogo ha empezado
     private bool dialogoEmpezado;
     private int indice;
@@ -87,7 +87,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other){
+    public void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
             estaEnRango = true;
