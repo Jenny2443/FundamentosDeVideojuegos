@@ -17,7 +17,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float tiempoEntreLetras = 0.05f;
 
     // variable para saber si el jugador está en rango
-    public bool estaEnRango;
+    private bool estaEnRango;
     // variable para saber si el dialogo ha empezado
     private bool dialogoEmpezado;
     private int indice;
@@ -43,7 +43,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void EmpezarDialogo(){
+    private void EmpezarDialogo(){
         // El diálogo ha empezado
         dialogoEmpezado = true; 
         // Activar el panel de diálogo
