@@ -30,20 +30,23 @@ public class DialogueTest
         
         Debug.Log("Sifo creado: " + dialogue.transform.position);
     }
-
+    
     [UnityTest]
-    public IEnumerator PlayerEstaEnRango()
+    public IEnumerator EmpiezaDialogoTest()
     {
-        Debug.Log("Esta en rango 0: " + dialogue.estaEnRango);
+        bool dialogoEmpezadoTest = dialogue.dialogoEmpezado;
         dialogue.transform.position = new Vector3(5, 0, 0);
-        Debug.Log("Pos dialogo: " + dialogue.transform.position);
         player.transform.position = new Vector3(5, 0, 0);
-        Debug.Log("Pos player: " + player.transform.position);
-        
-        dialogue.OnTriggerEnter(player.gameObject.GetComponent<Collider>());
-        yield return new WaitForSeconds(0.1f);
-        Debug.Log("Esta en rango 1: " + dialogue.estaEnRango);
-        Assert.IsTrue(dialogue.estaEnRango);
+        Debug.Log("Player pos: " + player.transform.position);
+        Debug.Log("Sifo pos: " + dialogue.transform.position);
+
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Dialogo empezado 0: " + dialogue.dialogoEmpezado);
+        dialogue.EmpezarDialogo();
+        dialogoEmpezadoTest = dialogue.dialogoEmpezado;
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Dialogo empezado 1: " + dialogue.dialogoEmpezado);
+        Assert.IsTrue(dialogoEmpezadoTest);
     }
     
     // A Test behaves as an ordinary method

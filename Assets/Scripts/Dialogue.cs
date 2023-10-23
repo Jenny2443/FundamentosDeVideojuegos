@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -19,7 +20,7 @@ public class Dialogue : MonoBehaviour
     // variable para saber si el jugador está en rango
     public bool estaEnRango = false;
     // variable para saber si el dialogo ha empezado
-    private bool dialogoEmpezado;
+    public bool dialogoEmpezado;
     private int indice;
 
     void Update(){
@@ -43,7 +44,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void EmpezarDialogo(){
+    public void EmpezarDialogo(){
         // El diálogo ha empezado
         dialogoEmpezado = true; 
         // Activar el panel de diálogo
@@ -87,7 +88,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
             estaEnRango = true;

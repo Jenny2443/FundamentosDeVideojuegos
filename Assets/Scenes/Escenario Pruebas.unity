@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44664723, g: 0.49649256, b: 0.57486033, a: 1}
+  m_IndirectSpecularColor: {r: 0.44664735, g: 0.49649268, b: 0.57486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10793,6 +10793,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1047472510039900908, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
+      propertyPath: panelDialogo
+      value: 
+      objectReference: {fileID: 2012851519}
+    - target: {fileID: -1047472510039900908, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
+      propertyPath: textoDialogo
+      value: 
+      objectReference: {fileID: 322420284}
     - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -10849,7 +10857,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sifo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8969391516083087855, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -1047472510039900908, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -10884,7 +10897,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 1, z: 6}
+  m_Size: {x: 5, y: 2, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3306796374097967330
 MonoBehaviour:
@@ -10905,6 +10918,8 @@ MonoBehaviour:
   - 'Sifo: Me llamo Sifo'
   - 'Amy: Encantada!!'
   tiempoEntreLetras: 0.05
+  estaEnRango: 0
+  dialogoEmpezado: 0
 --- !u!1001 &3675537704366995090
 PrefabInstance:
   m_ObjectHideFlags: 0
