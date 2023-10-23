@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private GameObject panelDialogo;
     // Referencia al texto del diálogo para modificarlo
     [SerializeField] private TMP_Text textoDialogo;
+    // Referencia el texto Presiona F
+    [SerializeField] private TMP_Text textoPresiona;
 
     // string de las lineas de dialogo, textArea(min y max espacio vertical a mostrar): min 4 líneas, max: 6 líneas
     [SerializeField, TextArea(4,6)] private string[] lineasDialogo;
@@ -29,6 +31,7 @@ public class Dialogue : MonoBehaviour
         {
             if (!dialogoEmpezado)
             {
+                textoPresiona.gameObject.SetActive(false);
                 // Iniciar diálogo
                 EmpezarDialogo();
             }
@@ -93,6 +96,7 @@ public class Dialogue : MonoBehaviour
         {
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
+            textoPresiona.gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other){
@@ -100,6 +104,7 @@ public class Dialogue : MonoBehaviour
         {
             estaEnRango = false;
             Debug.Log("No se puede iniciar un dialogo");
+            textoPresiona.gameObject.SetActive(false);
         }
     }
 }
