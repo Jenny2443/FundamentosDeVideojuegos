@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8148172191023331590}
   - component: {fileID: 5326125105665635176}
   - component: {fileID: 6468271253441468696}
+  - component: {fileID: 1785641738970228134}
   m_Layer: 0
   m_Name: Disco pequeno
-  m_TagString: Untagged
+  m_TagString: "DiscoPeque\xF1o"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37435,3 +37436,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6717536569970895529}
   m_Mesh: {fileID: 0}
+--- !u!114 &1785641738970228134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717536569970895529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc842457366258645aa6d749ec5e414e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  itemIcon: {fileID: 0}
+  jugadorEnContacto: 0
+  sujeto: 0
+  enMano: {fileID: 0}

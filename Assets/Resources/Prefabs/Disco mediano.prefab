@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7182902312595604648}
   - component: {fileID: 405880991114761933}
   - component: {fileID: 9051498928216693710}
+  - component: {fileID: 6066783218335762491}
   m_Layer: 0
   m_Name: Disco mediano
-  m_TagString: Untagged
+  m_TagString: DiscoMediano
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44389,3 +44390,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4202331165335091106}
   m_Mesh: {fileID: 0}
+--- !u!114 &6066783218335762491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4202331165335091106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc842457366258645aa6d749ec5e414e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  itemIcon: {fileID: 0}
+  jugadorEnContacto: 0
+  sujeto: 0
+  enMano: {fileID: 0}

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8039445651689725810}
   - component: {fileID: 56461559312794201}
   - component: {fileID: 6013586677678716395}
+  - component: {fileID: -5013492259447142257}
   m_Layer: 0
   m_Name: Disco grande
-  m_TagString: Untagged
+  m_TagString: DiscoGrande
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50173,3 +50174,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2398898508358952942}
   m_Mesh: {fileID: 0}
+--- !u!114 &-5013492259447142257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398898508358952942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc842457366258645aa6d749ec5e414e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  itemIcon: {fileID: 0}
+  jugadorEnContacto: 0
+  sujeto: 0
+  enMano: {fileID: 0}

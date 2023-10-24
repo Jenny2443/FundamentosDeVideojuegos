@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DiscoGrande
+  - DiscoMediano
+  - DiscoPequeno
+  - "DiscoPeque\xF1o"
   layers:
   - Default
   - TransparentFX
