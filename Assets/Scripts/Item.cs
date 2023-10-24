@@ -9,11 +9,13 @@ public class Item : MonoBehaviour
 {
     public Inventory inventory;
     public Sprite itemIcon;
-    private bool jugadorEnContacto;
+    public bool jugadorEnContacto, sujeto;
+    public ItemEnMano enMano;
 
     void Start()
     {
         jugadorEnContacto = false;
+        sujeto = false;
     }
 
     void Update()
@@ -24,8 +26,8 @@ public class Item : MonoBehaviour
     private void Add()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && jugadorEnContacto == true)
-        {
-            this.gameObject.SetActive(false);
+        {  
+            enMano.PonerEnMano(this);
             inventory.clickes.SetActive(false);
             inventory.AddItem(this);
             jugadorEnContacto = false;
@@ -34,7 +36,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && sujeto == false)
         {
             inventory.clickes.SetActive(true);
             jugadorEnContacto = true;
