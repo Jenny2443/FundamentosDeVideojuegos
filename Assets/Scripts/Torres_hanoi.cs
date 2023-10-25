@@ -83,7 +83,7 @@ public class Torres_hanoi : MonoBehaviour
         int columna = -1;
         if (Input.GetKeyDown(KeyCode.F)) {
             columna = getColumn();
-            //inventory.AddItem(torre.Pop());
+            inventory.AddItem(torre.Pop());
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             columna = 4;

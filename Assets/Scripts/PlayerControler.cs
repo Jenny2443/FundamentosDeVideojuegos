@@ -6,7 +6,7 @@ public class PlayerControler : MonoBehaviour
 {
     private new Rigidbody rigidbody;
 
-    private float movementSpeed = 1f;
+    public float movementSpeed = 1f;
     
     //Contador creado para test
     public int count = 0;
@@ -16,7 +16,7 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        movementSpeed = 1f;
+        //movementSpeed = 1f;
         count = 1;
     }
 
