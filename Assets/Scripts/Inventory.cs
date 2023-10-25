@@ -128,6 +128,7 @@ public class Inventory : MonoBehaviour
             {
                 // Meter el item al inventario
                 inventory[i] = item;
+                enMano.PonerEnMano(inventory[i]);
 
                 //Meter la imagen al inventario
                 ui_inventory[i].GetComponent<Image>().color = transparencia;

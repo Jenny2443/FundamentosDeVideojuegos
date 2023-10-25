@@ -10,8 +10,6 @@ public class Item : MonoBehaviour
     public Inventory inventory;
     public Sprite itemIcon;
     public bool jugadorEnContacto, sujeto;
-    public ItemEnMano enMano;
-
     void Start()
     {
         jugadorEnContacto = false;
@@ -27,7 +25,6 @@ public class Item : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && jugadorEnContacto == true)
         {  
-            enMano.PonerEnMano(this);
             inventory.clickes.SetActive(false);
             inventory.AddItem(this);
             jugadorEnContacto = false;

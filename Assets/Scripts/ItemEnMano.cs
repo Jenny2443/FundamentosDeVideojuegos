@@ -20,7 +20,7 @@ public class ItemEnMano : MonoBehaviour
         if (pickedObject != null)
         {
             pickedObject.transform.position = posInit;
-            pickedObject.GetComponent <Rigidbody>().isKinematic = false;
+            //pickedObject.GetComponent <Rigidbody>().isKinematic = false;
             pickedObject.transform.SetParent(null);
             pickedObject.gameObject.SetActive(false);
             pickedObject.sujeto = false;
@@ -37,7 +37,7 @@ public class ItemEnMano : MonoBehaviour
             item.gameObject.SetActive(true);
             item.sujeto = true;
             pickedObject = item;
-            pickedObject.GetComponent<Rigidbody>().isKinematic = true;
+            //pickedObject.GetComponent<Rigidbody>().isKinematic = true;
             pickedObject.transform.position = handPoint.transform.position;
             pickedObject.transform.SetParent(handPoint.transform);
         }
