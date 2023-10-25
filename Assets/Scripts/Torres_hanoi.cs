@@ -53,12 +53,22 @@ public class Torres_hanoi : MonoBehaviour
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
         this.transform.GetChild(8).gameObject.SetActive(true);
-        torre[SP++] = discoMediano;
+        torre[SP] = discoMediano;
+        SP = SP < 2 ? SP + 1 : SP;
         Debug.Log("Introducido disco mediano");
-        torre[SP++] = discoGrande;
+        Debug.Log(SP);
+
+        torre[SP] = discoGrande;
+        SP = SP < 2 ? SP + 1 : SP;
         Debug.Log("Introducido disco grande");
+        Debug.Log(SP);
+
         torre[SP] = discoPequeno;
+        SP = SP < 2 ? SP + 1 : SP;
         Debug.Log("Introducido disco pequeño");
+        Debug.Log(SP);
+
+        estadoActual = 8;
 
     }
 
@@ -94,28 +104,39 @@ public class Torres_hanoi : MonoBehaviour
             switch (columna)
             {
                 case 0:
-                    torre[SP++] = discoGrande;
+                    torre[SP] = discoGrande;
+                    SP = SP < 2 ? SP + 1 : SP;
                     Debug.Log("Introducido disco grande");
+                    Debug.Log(SP);
                     break;
                 case 1:
-                    torre[SP++] = discoMediano;
+                    torre[SP] = discoMediano;
+                    SP = SP < 2 ? SP + 1 : SP;
                     Debug.Log("Introducido disco mediano");
+                    Debug.Log(SP);
                     break;
                 case 2:
-                    torre[SP++] = discoPequeno;
+                    torre[SP] = discoPequeno;
+                    SP = SP < 2 ? SP + 1 : SP;
                     Debug.Log("Introducido disco pequeño");
+                    Debug.Log(SP);
                     break;
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Pulsado el raton");
-            columna = 4;
-            torre[SP--] = null;
+            columna = 3;
+            Debug.Log(torre[SP].tag);
+            torre[SP].inventory.AddItem(torre[SP]);
+            torre[SP] = null;
+            SP = SP > 0 ? SP - 1 : SP;
             Debug.Log("Recogido el disco de arriba");
+            Debug.Log(SP);
 
         }
-        proximoEstado = columna != -1 ? matrizEstados[estadoActual, columna] : -1;
+
+        proximoEstado = columna > -1 ? matrizEstados[estadoActual, columna] : -1;
         if (proximoEstado != -1)
         {
             this.transform.GetChild(estadoActual).gameObject.SetActive(false);
