@@ -122,6 +122,7 @@ public class Torres_hanoi : MonoBehaviour
                     Debug.Log(SP);
                     break;
             }
+            inventory.RemoveItem(inventory.getNowActive());
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
