@@ -34,11 +34,12 @@ public class Torres_hanoi : MonoBehaviour
 
     int estadoActual, proximoEstado;
 
-    public GameObject discoGrande;
-    public GameObject discoPequeno;
-    public GameObject discoMediano;
+    public Item discoGrande;
+    public Item discoPequeno;
+    public Item discoMediano;
 
-    private Stack<GameObject> torre;
+    private Item[] torre = new Item[3];
+    private int SP = 0;
 
     public bool jugadorEnContacto;
 
@@ -47,20 +48,25 @@ public class Torres_hanoi : MonoBehaviour
     void Start()
     {
         //Dejamos el puzzle visualmente en el estado 8 para poder coger los 3 discos
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
         this.transform.GetChild(8).gameObject.SetActive(true);
-        torre.Push(discoMediano);
-        torre.Push(discoGrande);
-        torre.Push(discoPequeno);
+        torre[SP++] = discoMediano;
+        Debug.Log("Introducido disco mediano");
+        torre[SP++] = discoGrande;
+        Debug.Log("Introducido disco grande");
+        torre[SP] = discoPequeno;
+        Debug.Log("Introducido disco pequeño");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (jugadorEnContacto)
+            transicionar();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -78,18 +84,40 @@ public class Torres_hanoi : MonoBehaviour
         inventory.clickes.SetActive(false);
     }
 
-    int transicionar() 
+    int transicionar()
     {
         int columna = -1;
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("Pulsada la F");
             columna = getColumn();
-            //inventory.AddItem(torre.Pop());
+            switch (columna)
+            {
+                case 0:
+                    torre[SP++] = discoGrande;
+                    Debug.Log("Introducido disco grande");
+                    break;
+                case 1:
+                    torre[SP++] = discoMediano;
+                    Debug.Log("Introducido disco mediano");
+                    break;
+                case 2:
+                    torre[SP++] = discoPequeno;
+                    Debug.Log("Introducido disco pequeño");
+                    break;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Pulsado el raton");
             columna = 4;
+            torre[SP--] = null;
+            Debug.Log("Recogido el disco de arriba");
+
         }
         proximoEstado = columna != -1 ? matrizEstados[estadoActual, columna] : -1;
-        if (proximoEstado != -1) {
+        if (proximoEstado != -1)
+        {
             this.transform.GetChild(estadoActual).gameObject.SetActive(false);
             this.transform.GetChild(proximoEstado).gameObject.SetActive(true);
             estadoActual = proximoEstado;
@@ -97,17 +125,22 @@ public class Torres_hanoi : MonoBehaviour
         return estadoActual;
     }
 
-    public int getColumn() { 
-        if(inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoGrande")){
+    public int getColumn()
+    {
+        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoGrande"))
+        {
             return 0;
         }
-        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoMediano")){
+        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoMediano"))
+        {
             return 1;
         }
-        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoPequeno")){
+        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoPequeno"))
+        {
             return 2;
         }
-        else {
+        else
+        {
             return -1;
         }
     }

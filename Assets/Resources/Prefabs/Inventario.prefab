@@ -259,7 +259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6515882390242660251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -511,6 +511,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f691114e84cf0d9448f396e8801e0de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ui_inventory:
   - {fileID: 0}
   - {fileID: 1716957563346717209}
@@ -535,6 +546,7 @@ MonoBehaviour:
   - {fileID: 8672272731180875129}
   clickes: {fileID: 2052779764248240014}
   InventarioLleno: {fileID: 1915962594582190352}
+  enMano: {fileID: 0}
 --- !u!1 &3669918355901602207
 GameObject:
   m_ObjectHideFlags: 0

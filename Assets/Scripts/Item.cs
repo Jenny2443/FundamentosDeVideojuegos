@@ -23,7 +23,7 @@ public class Item : MonoBehaviour
         Add();
     }
 
-    private void Add()
+    public void Add()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && jugadorEnContacto == true)
         {  
