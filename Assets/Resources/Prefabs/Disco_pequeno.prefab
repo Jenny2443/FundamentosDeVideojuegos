@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6468271253441468696}
   - component: {fileID: 1785641738970228134}
   m_Layer: 0
-  m_Name: Disco pequeno
+  m_Name: Disco_pequeno
   m_TagString: DiscoPequeno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

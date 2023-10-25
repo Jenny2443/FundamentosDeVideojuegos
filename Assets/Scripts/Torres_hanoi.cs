@@ -98,8 +98,6 @@ public class Torres_hanoi : MonoBehaviour
     }
 
     public int getColumn() { 
-        Debug.Log("Activo: " + inventory.getInventoryItem(inventory.getNowActive()));
-        Debug.Log("Tag activo: " + inventory.getInventoryItem(inventory.getNowActive()).tag);
         if(inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoGrande")){
             return 0;
         }

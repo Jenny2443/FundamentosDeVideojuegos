@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9051498928216693710}
   - component: {fileID: 6066783218335762491}
   m_Layer: 0
-  m_Name: Disco mediano
+  m_Name: Disco_mediano
   m_TagString: DiscoMediano
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
