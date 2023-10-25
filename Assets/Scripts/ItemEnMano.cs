@@ -45,9 +45,12 @@ public class ItemEnMano : MonoBehaviour
 
     public void QuitarEnMano()
     {
-        pickedObject.GetComponent <Rigidbody>().isKinematic = false;
-        pickedObject.transform.SetParent(null);
-        pickedObject.sujeto = false;
-        pickedObject = null;
+        if (pickedObject != null)
+        {
+            pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+            pickedObject.transform.SetParent(null);
+            pickedObject.sujeto = false;
+            pickedObject = null;
+        }
     }
 }
