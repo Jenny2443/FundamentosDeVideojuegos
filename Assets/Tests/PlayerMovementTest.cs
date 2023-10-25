@@ -47,12 +47,15 @@ public class PlayerMovementTest
     {
         Vector3 valorEsperado = new Vector3(-6, 0, 0);
         player.transform.position = new Vector3(0, 0, 0);
+        player.movementSpeed = 1f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(-6, 0);
         yield return new WaitForSeconds(1f);
         float margenError = 1f;
-        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError && 
+                               Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
         
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -63,14 +66,17 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerTestForwardRango()
     {
-        Vector3 valorEsperado = new Vector3(0, 0, 7);
+        Vector3 valorEsperado = new Vector3(0, 0, 21);
         player.transform.position = new Vector3(0, 0, 0);
+        player.movementSpeed = 3f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, 7);
         yield return new WaitForSeconds(1f);
         float margenError = 1f;
-        bool dentroDelMargen = Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
+        bool dentroDelMargen = Mathf.Abs(movement.z - valorEsperado.z) <= margenError && 
+                               Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
         
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -84,14 +90,17 @@ public class PlayerMovementTest
         //Vector3 vectorEsperadoMax = new Vector3(2.5f, 0, 0);
         //Vector3 vectorEsperadoMin = new Vector3(1.5f, 0, 0);
 
-        Vector3 valorEsperado = new Vector3(2, 0, 0);
+        Vector3 valorEsperado = new Vector3(6, 0, 0);
         player.transform.position = new Vector3(0, 0, 0);
+        player.movementSpeed = 3f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(2, 0);
         yield return new WaitForSeconds(1f);
         float margenError = 1f;
-        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError && 
+                               Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
 
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -103,14 +112,17 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerTestBackWardsRango()
     {
-        Vector3 valorEsperado = new Vector3(0, 0, -10);
+        Vector3 valorEsperado = new Vector3(0, 0, -50);
         player.transform.position = new Vector3(0, 0, 0);
+        player.movementSpeed = 5f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, -10);
         yield return new WaitForSeconds(1f);
         float margenError = 1f;
-        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError;
+        bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError && 
+                               Mathf.Abs(movement.z - valorEsperado.z) <= margenError;
         
         Debug.Log("Movement: " + movement);
         Debug.Log("Valor esperado: " + valorEsperado);
@@ -125,6 +137,8 @@ public class PlayerMovementTest
 
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
+        player.movementSpeed = 1f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
 
         Vector3 movement = player.MovePlayer(-5, -7);
@@ -146,9 +160,11 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerDiagonalLeftRango()
     {
-        Vector3 valorEsperado = new Vector3(-7, 0, 9);
+        Vector3 valorEsperado = new Vector3(-21, 0, 27);
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
+        player.movementSpeed = 3f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(-7, 9);
         yield return new WaitForSeconds(1f);
@@ -168,6 +184,8 @@ public class PlayerMovementTest
         Vector3 valorEsperado = new Vector3(5, 0, 9);
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
+        player.movementSpeed = 1f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(5, 9);
         yield return new WaitForSeconds(1f);
@@ -184,9 +202,11 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerDiagonalRightBackRango()
     {
-        Vector3 valorEsperado = new Vector3(6, 0, -8);
+        Vector3 valorEsperado = new Vector3(12, 0, -16);
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
+        player.movementSpeed = 2f;
+        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(6, -8);
         yield return new WaitForSeconds(1f);

@@ -49,12 +49,14 @@ public class PlayerControler : MonoBehaviour
     {
         //Debug.Log("Pos inicial: " + transform.position);
         Vector3 velocity = Vector3.zero;
-
+        
         if(hor != 0 || ver != 0){
             //Vector3 direction = (transform.forward * ver + transform.right * hor).normalized;
             Vector3 direction = (transform.forward * ver + transform.right * hor);
+            Debug.Log("Direction: " + direction);
             // Debug.Log("Direction: " + direction);
             velocity = direction * movementSpeed;
+            Debug.Log("Velocity: " + velocity);
         }
 
         velocity.y = rigidbody.velocity.y;
