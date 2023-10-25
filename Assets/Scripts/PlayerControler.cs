@@ -6,7 +6,7 @@ public class PlayerControler : MonoBehaviour
 {
     private new Rigidbody rigidbody;
 
-    public float movementSpeed = 1f;
+    private float movementSpeed = 1f;
     
     //Contador creado para test
     public int count = 0;

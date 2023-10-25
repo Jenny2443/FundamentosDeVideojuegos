@@ -9,7 +9,7 @@ public class Torres_hanoi : MonoBehaviour
     el puzzle de las torres de Hanoy.    
     *Las columnas representan la accion
     que puede realizar el jugador: Meter el disco grande, meter el mediano,
-    meter el pequeño o sacar el de arriba.
+    meter el pequeno o sacar el de arriba.
     *Las filas representan las distintas combinaciones de discos que puede haber
     *Cada estado de este automata tiene un gameobject asociado en el editor
     *-1 indica que es imposible realizar esa accion y por tanto no se debe transicionar
@@ -35,7 +35,7 @@ public class Torres_hanoi : MonoBehaviour
     int estadoActual, proximoEstado;
 
     public GameObject discoGrande;
-    public GameObject discoPequeño;
+    public GameObject discoPequeno;
     public GameObject discoMediano;
 
     private Stack<GameObject> torre;
@@ -53,7 +53,7 @@ public class Torres_hanoi : MonoBehaviour
         this.transform.GetChild(8).gameObject.SetActive(true);
         torre.Push(discoMediano);
         torre.Push(discoGrande);
-        torre.Push(discoPequeño);
+        torre.Push(discoPequeno);
 
     }
 
@@ -83,7 +83,7 @@ public class Torres_hanoi : MonoBehaviour
         int columna = -1;
         if (Input.GetKeyDown(KeyCode.F)) {
             columna = getColumn();
-            inventory.AddItem(torre.Pop());
+            //inventory.AddItem(torre.Pop());
         }
         if (Input.GetKeyDown(KeyCode.Mouse0)) {
             columna = 4;

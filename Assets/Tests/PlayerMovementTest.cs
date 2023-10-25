@@ -121,14 +121,15 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerDiagonalLeftBackRango()
     {
-        Vector3 vectorEsperado = new Vector3(-5, 0, -10);
+        Vector3 vectorEsperado = new Vector3(-5, 0, -7);
 
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
 
-        Vector3 movement = player.MovePlayer(-5, -10);
+        Vector3 movement = player.MovePlayer(-5, -7);
 
+        yield return null;
         float margenError = 1f;
 
         bool dentroDelMargen = Mathf.Abs(movement.x - vectorEsperado.x) <= margenError
@@ -145,11 +146,11 @@ public class PlayerMovementTest
     [UnityTest]
     public IEnumerator MovePlayerDiagonalLeftRango()
     {
-        Vector3 valorEsperado = new Vector3(-7, 0, 7);
+        Vector3 valorEsperado = new Vector3(-7, 0, 9);
         player.transform.position = new Vector3(0, 0, 0);
         Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
-        Vector3 movement = player.MovePlayer(-7, 7);
+        Vector3 movement = player.MovePlayer(-7, 9);
         yield return new WaitForSeconds(1f);
         float margenError = 1f;
         bool dentroDelMargen = Mathf.Abs(movement.x - valorEsperado.x) <= margenError
