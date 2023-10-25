@@ -40,6 +40,10 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         this.GetItem();
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            RemoveItem();
+        }
     }
 
     //Llama a esta funcion cuando pulsas una tecla del inventario. Enciende el numero de la celda de sobre la que estás
@@ -146,16 +150,20 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //Aún no está hecho.... Para la tarea de poner objetos
-    public void RemoveItem (int index)
+    //Elimina un objeto del inventario, la celda seleccionada.
+    public void RemoveItem ()
     {
-        if(index > 0 && index < inventory.Length)
+        if(nowActive != 0)
         {
-            inventory[index] = null;
-        }
-        else
-        {
-            Debug.Log("Index no valido");
+            ui_inventory_active[nowActive].SetActive(false);
+
+            ui_inventory[nowActive].GetComponent<Image>().sprite = null;
+            transparencia.a = 0;
+            ui_inventory[nowActive].GetComponent<Image>().color = transparencia;
+            transparencia.a = 255;
+
+            inventory[nowActive] = null;
+            enMano.QuitarEnMano();
         }
     }
 
