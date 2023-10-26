@@ -110,12 +110,13 @@ public class Torres_hanoi : MonoBehaviour
         {
             Debug.Log("Pulsada la F");
             columna = getColumn();
-            if (columna != -1) {
+            if (columna != -1)
+            {
                 Debug.Log(inventory.getInventoryItem(inventory.getNowActive()));
                 SP = SP < 2 ? SP + 1 : SP;
                 torre[SP] = inventory.getInventoryItem(inventory.getNowActive());
                 torre[SP].transform.position = new Vector3(-37, 15, -129);
-                torre[SP].transform.rotation = Quaternion.Euler(0,0,0);
+                torre[SP].transform.rotation = new Quaternion(0,0,0,0);
                 torre[SP].GetComponent<Rigidbody>().useGravity = false;
                 inventory.RemoveItem();
             }
