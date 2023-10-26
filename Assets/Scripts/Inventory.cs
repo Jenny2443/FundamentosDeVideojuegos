@@ -161,7 +161,7 @@ public class Inventory : MonoBehaviour
             transparencia.a = 0;
             ui_inventory[nowActive].GetComponent<Image>().color = transparencia;
             transparencia.a = 255;
-
+            
             inventory[nowActive] = null;
             enMano.QuitarEnMano();
         }

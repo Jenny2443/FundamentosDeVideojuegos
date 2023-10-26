@@ -79,7 +79,8 @@ public class Torres_hanoi : MonoBehaviour
             transicionar();
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -87,6 +88,14 @@ public class Torres_hanoi : MonoBehaviour
             jugadorEnContacto = true;
         }
     }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            inventory.clickes.SetActive(true);
+            jugadorEnContacto = true;
+        }
+    }*/
 
     private void OnTriggerExit(Collider other)
     {
@@ -101,28 +110,15 @@ public class Torres_hanoi : MonoBehaviour
         {
             Debug.Log("Pulsada la F");
             columna = getColumn();
-            switch (columna)
-            {
-                case 0:
-                    torre[SP] = discoGrande;
-                    SP = SP < 2 ? SP + 1 : SP;
-                    Debug.Log("Introducido disco grande");
-                    Debug.Log(SP);
-                    break;
-                case 1:
-                    torre[SP] = discoMediano;
-                    SP = SP < 2 ? SP + 1 : SP;
-                    Debug.Log("Introducido disco mediano");
-                    Debug.Log(SP);
-                    break;
-                case 2:
-                    torre[SP] = discoPequeno;
-                    SP = SP < 2 ? SP + 1 : SP;
-                    Debug.Log("Introducido disco pequeño");
-                    Debug.Log(SP);
-                    break;
+            if (columna != -1) {
+                Debug.Log(inventory.getInventoryItem(inventory.getNowActive()));
+                SP = SP < 2 ? SP + 1 : SP;
+                torre[SP] = inventory.getInventoryItem(inventory.getNowActive());
+                torre[SP].transform.position = new Vector3(-37, 15, -129);
+                torre[SP].transform.rotation = Quaternion.Euler(0,0,0);
+                torre[SP].GetComponent<Rigidbody>().useGravity = false;
+                inventory.RemoveItem();
             }
-            //inventory.RemoveItem(inventory.getNowActive());-----------------------------------------------------------------------------------
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -130,6 +126,7 @@ public class Torres_hanoi : MonoBehaviour
             columna = 3;
             Debug.Log(torre[SP].tag);
             torre[SP].inventory.AddItem(torre[SP]);
+            torre[SP].GetComponent<Rigidbody>().useGravity = true;
             torre[SP] = null;
             SP = SP > 0 ? SP - 1 : SP;
             Debug.Log("Recogido el disco de arriba");
@@ -144,6 +141,7 @@ public class Torres_hanoi : MonoBehaviour
             this.transform.GetChild(proximoEstado).gameObject.SetActive(true);
             estadoActual = proximoEstado;
         }
+
         return estadoActual;
     }
 
