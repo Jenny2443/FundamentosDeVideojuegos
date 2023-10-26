@@ -36,31 +36,28 @@ public class TorresTest
          discoGrande = Object.Instantiate(discoGrandePrefab);
          discoMediano = Object.Instantiate(discoMedianoPrefab);
          discoPequeno = Object.Instantiate(discoPequenoPrefab);
-        
+         
         // Crear una instancia de Torres_hanoi
         torres = new GameObject().AddComponent<Torres_hanoi>();
         torres.inventory = inventory;
         Debug.Log("Torres creadas: " + torres);
     }
     
-    // A Test behaves as an ordinary method
-    [Test]
-    public void TorresTestSimplePasses()
-    {
-        
-        // Use the Assert class to test conditions
-    }
-    
     [Test]
     public void TestGetColumnForDiscoPequeno()
     {
         // Agregar discos al inventario
-        inventory.AddItem(discoGrande.GetComponent<Item>());
-        inventory.AddItem(discoMediano.GetComponent<Item>());
-        inventory.AddItem(discoPequeno.GetComponent<Item>());
+        // inventory.AddItem(discoGrande.GetComponent<Item>());
+        // inventory.AddItem(discoMediano.GetComponent<Item>());
+        // inventory.AddItem(discoPequeno.GetComponent<Item>());
+        //Metemos el disco pequeno en el primer hueco del inventario
+        //inventory.inventory[0] = discoPequeno.GetComponent<Item>();
         Debug.Log("En test column");
+        inventory.inventory[0] = discoPequeno.GetComponent<Item>(); //Activo
+        inventory.inventory[1] = discoGrande.GetComponent<Item>();
+        
         // Llama a la función getColumn() y verifica que devuelva 2, ya que es un disco pequeño.
-        inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
+        //inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
         Debug.Log("Inventory: " + inventory.getInventoryItem(inventory.getNowActive()));
         int result = torres.getColumn();
         Debug.Log("Result desps: " + result);
@@ -71,9 +68,14 @@ public class TorresTest
     public void TestGetColumnForDiscoMediano()
     {
         // Agregar discos al inventario
-        inventory.AddItem(discoPequeno.GetComponent<Item>());
-        inventory.AddItem(discoGrande.GetComponent<Item>());
-        inventory.AddItem(discoMediano.GetComponent<Item>());
+        // inventory.AddItem(discoPequeno.GetComponent<Item>());
+        // inventory.AddItem(discoGrande.GetComponent<Item>());
+        // inventory.AddItem(discoMediano.GetComponent<Item>());
+        //Metemos discos al inventario
+        inventory.inventory[0] = discoMediano.GetComponent<Item>(); //Activo
+        inventory.inventory[1] = discoGrande.GetComponent<Item>();
+        inventory.inventory[2] = discoPequeno.GetComponent<Item>(); 
+        
         Debug.Log("En test column");
         // Llama a la función getColumn() y verifica que devuelva 1, ya que es un disco mediano.
         inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
@@ -87,7 +89,12 @@ public class TorresTest
     public void TestGetColumnForDiscoGrande()
     {
         // Agregar disco grande al inventario
-        inventory.AddItem(discoGrande.GetComponent<Item>());
+        //inventory.AddItem(discoGrande.GetComponent<Item>());
+        
+        inventory.inventory[1] = discoPequeno.GetComponent<Item>();
+        inventory.inventory[0] = discoGrande.GetComponent<Item>();
+
+
         Debug.Log("En test column");
         // Llama a la función getColumn() y verifica que devuelva 0, ya que es un disco grande.
         inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
@@ -95,16 +102,6 @@ public class TorresTest
         int result = torres.getColumn();
         Debug.Log("Result desps: " + result);
         Assert.AreEqual(0, result);
-    }
-
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator TorresTestWithEnumeratorPasses()
-    {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
     }
     
     //Eliminar el objeto al terminar los tests
