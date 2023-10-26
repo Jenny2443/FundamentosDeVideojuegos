@@ -19,20 +19,22 @@ public class Torres_hanoi : MonoBehaviour
                            {  -1,     2,     4,       0}, // 1
                            {  -1,    -1,     3,       1}, // 2
                            {  -1,    -1,    -1,       2}, // 3
-                           {  -1,     5,    -1,       1}, // 4
+                           {  -1,    -1,    -1,       1}, // 4
                            {  -1,    -1,    -1,       4}, // 5
-                           {   7,    -1,     9,       0}, // 6
+                           {  -1,    -1,     9,       0}, // 6
                            {  -1,    -1,     8,       6}, // 7
                            {  -1,    -1,    -1,       7}, // 8
-                           {  10,    -1,    -1,       6}, // 9
+                           {  -1,    -1,    -1,       6}, // 9
                            {  -1,    -1,    -1,       9}, //10
-                           {  12,    14,    -1,       0}, //11
-                           {  -1,    13,    -1,      11}, //12
+                           {  -1,    -1,    -1,       0}, //11
+                           {  -1,    -1,    -1,      11}, //12
                            {  -1,    -1,    -1,      12}, //13
-                           {  15,    -1,    -1,      11}, //14
+                           {  -1,    -1,    -1,      11}, //14
                            {  -1,    -1,    -1,      15}};//15
 
     int estadoActual, proximoEstado;
+
+    public VariablesGlobales almacen;
 
     public Item discoGrande;
     public Item discoPequeno;
@@ -52,15 +54,16 @@ public class Torres_hanoi : MonoBehaviour
         {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
-        this.transform.GetChild(8).gameObject.SetActive(true);
-        torre[SP] = discoMediano;
-        SP++;
-        Debug.Log("Introducido disco mediano");
-        Debug.Log(SP);
+        this.transform.GetChild(3).gameObject.SetActive(true);
 
         torre[SP] = discoGrande;
         SP++;
         Debug.Log("Introducido disco grande");
+        Debug.Log(SP);
+
+        torre[SP] = discoMediano;
+        SP++;
+        Debug.Log("Introducido disco mediano");
         Debug.Log(SP);
 
         torre[SP] = discoPequeno;
@@ -68,7 +71,7 @@ public class Torres_hanoi : MonoBehaviour
         Debug.Log("Introducido disco pequeño");
         Debug.Log(SP);
 
-        estadoActual = 8;
+        estadoActual = 3;
 
     }
 
@@ -84,7 +87,7 @@ public class Torres_hanoi : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (SP != 0)
+            if (SP != 0 && !almacen.discoCogido)
                 inventory.clickes.SetActive(true);
             jugadorEnContacto = true;
         }
@@ -111,32 +114,31 @@ public class Torres_hanoi : MonoBehaviour
         {
             Debug.Log("Pulsada la F");
             columna = getColumn();
-            if (columna != -1)
+            proximoEstado = columna > -1 ? matrizEstados[estadoActual, columna] : -1;
+            if (SP < 3 && proximoEstado != -1)
             {
-                Debug.Log(inventory.getInventoryItem(inventory.getNowActive()));
-                if (SP < 3)
-                {
-                    torre[SP] = inventory.getInventoryItem(inventory.getNowActive());
-                    torre[SP].transform.position = new Vector3(-37, 15, -129);
-                    torre[SP].transform.rotation = Quaternion.Euler(0, 0, 0);
-                    torre[SP].GetComponent<Rigidbody>().useGravity = false;
-                    inventory.RemoveItem();
-                    SP++;
-                }
+                torre[SP] = inventory.getInventoryItem(inventory.getNowActive());
+                torre[SP].transform.position = new Vector3(-37, 15, -129);
+                torre[SP].transform.rotation = Quaternion.Euler(0, 0, 0);
+                torre[SP].GetComponent<Rigidbody>().useGravity = false;
+                inventory.RemoveItem();
+                SP++;
 
+                almacen.discoCogido = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !almacen.discoCogido)
         {
             Debug.Log("Pulsado el raton");
             columna = 3;
-            if (SP != 0)
+            proximoEstado = columna > -1 ? matrizEstados[estadoActual, columna] : -1;
+            if (SP != 0 && proximoEstado != -1)
             {
                 SP--;
                 torre[SP].inventory.AddItem(torre[SP]);
                 torre[SP].GetComponent<Rigidbody>().useGravity = true;
                 torre[SP] = null;
-
+                almacen.discoCogido = true;
             }
 
         }
