@@ -46,61 +46,37 @@ public class TorresTest
     [Test]
     public void TestGetColumnForDiscoPequeno()
     {
-        // Agregar discos al inventario
-        // inventory.AddItem(discoGrande.GetComponent<Item>());
-        // inventory.AddItem(discoMediano.GetComponent<Item>());
-        // inventory.AddItem(discoPequeno.GetComponent<Item>());
-        //Metemos el disco pequeno en el primer hueco del inventario
-        //inventory.inventory[0] = discoPequeno.GetComponent<Item>();
-        Debug.Log("En test column");
+        //Metemos el disco pequeno en el primer hueco del inventario siendo el activo
         inventory.inventory[0] = discoPequeno.GetComponent<Item>(); //Activo
         inventory.inventory[1] = discoGrande.GetComponent<Item>();
-        
-        // Llama a la función getColumn() y verifica que devuelva 2, ya que es un disco pequeño.
-        //inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
-        Debug.Log("Inventory: " + inventory.getInventoryItem(inventory.getNowActive()));
         int result = torres.getColumn();
-        Debug.Log("Result desps: " + result);
+        Debug.Log("Result: " + result);
         Assert.AreEqual(2, result);
     }
 
     [Test]
     public void TestGetColumnForDiscoMediano()
     {
-        // Agregar discos al inventario
-        // inventory.AddItem(discoPequeno.GetComponent<Item>());
-        // inventory.AddItem(discoGrande.GetComponent<Item>());
-        // inventory.AddItem(discoMediano.GetComponent<Item>());
         //Metemos discos al inventario
         inventory.inventory[0] = discoMediano.GetComponent<Item>(); //Activo
         inventory.inventory[1] = discoGrande.GetComponent<Item>();
         inventory.inventory[2] = discoPequeno.GetComponent<Item>(); 
         
-        Debug.Log("En test column");
-        // Llama a la función getColumn() y verifica que devuelva 1, ya que es un disco mediano.
-        inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
-        Debug.Log("Inventory: " + inventory.getInventoryItem(inventory.getNowActive()));
         int result = torres.getColumn();
-        Debug.Log("Result desps: " + result);
+        Debug.Log("Result: " + result);
         Assert.AreEqual(1, result);
     }
 
     [Test]
     public void TestGetColumnForDiscoGrande()
     {
-        // Agregar disco grande al inventario
-        //inventory.AddItem(discoGrande.GetComponent<Item>());
-        
+        // Agregar disco grande al inventario siendo el activo
         inventory.inventory[1] = discoPequeno.GetComponent<Item>();
         inventory.inventory[0] = discoGrande.GetComponent<Item>();
-
-
-        Debug.Log("En test column");
+        
         // Llama a la función getColumn() y verifica que devuelva 0, ya que es un disco grande.
-        inventory.getInventoryItem(inventory.getNowActive()).gameObject.SetActive(true);
-        Debug.Log("Inventory: " + inventory.getInventoryItem(inventory.getNowActive()));
         int result = torres.getColumn();
-        Debug.Log("Result desps: " + result);
+        Debug.Log("Result: " + result);
         Assert.AreEqual(0, result);
     }
     

@@ -48,8 +48,6 @@ public class PlayerMovementTest
         Vector3 valorEsperado = new Vector3(-6, 0, 0);
         player.transform.position = new Vector3(0, 0, 0);
         player.movementSpeed = 1f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
-        Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(-6, 0);
         yield return new WaitForSeconds(1f);
@@ -69,8 +67,7 @@ public class PlayerMovementTest
         Vector3 valorEsperado = new Vector3(0, 0, 21);
         player.transform.position = new Vector3(0, 0, 0);
         player.movementSpeed = 3f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
-        Debug.Log("Pos inicial: " + player.transform.position);
+        
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, 7);
         yield return new WaitForSeconds(1f);
@@ -93,8 +90,6 @@ public class PlayerMovementTest
         Vector3 valorEsperado = new Vector3(6, 0, 0);
         player.transform.position = new Vector3(0, 0, 0);
         player.movementSpeed = 3f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
-        Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(2, 0);
         yield return new WaitForSeconds(1f);
@@ -115,8 +110,6 @@ public class PlayerMovementTest
         Vector3 valorEsperado = new Vector3(0, 0, -50);
         player.transform.position = new Vector3(0, 0, 0);
         player.movementSpeed = 5f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
-        Debug.Log("Pos inicial: " + player.transform.position);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(0, -10);
         yield return new WaitForSeconds(1f);
@@ -136,9 +129,7 @@ public class PlayerMovementTest
         Vector3 vectorEsperado = new Vector3(-5, 0, -7);
 
         player.transform.position = new Vector3(0, 0, 0);
-        Debug.Log("Pos inicial: " + player.transform.position);
         player.movementSpeed = 1f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
 
         Vector3 movement = player.MovePlayer(-5, -7);
@@ -162,9 +153,7 @@ public class PlayerMovementTest
     {
         Vector3 valorEsperado = new Vector3(-21, 0, 27);
         player.transform.position = new Vector3(0, 0, 0);
-        Debug.Log("Pos inicial: " + player.transform.position);
         player.movementSpeed = 3f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(-7, 9);
         yield return new WaitForSeconds(1f);
@@ -183,9 +172,7 @@ public class PlayerMovementTest
     {
         Vector3 valorEsperado = new Vector3(5, 0, 9);
         player.transform.position = new Vector3(0, 0, 0);
-        Debug.Log("Pos inicial: " + player.transform.position);
         player.movementSpeed = 1f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(5, 9);
         yield return new WaitForSeconds(1f);
@@ -204,9 +191,7 @@ public class PlayerMovementTest
     {
         Vector3 valorEsperado = new Vector3(12, 0, -16);
         player.transform.position = new Vector3(0, 0, 0);
-        Debug.Log("Pos inicial: " + player.transform.position);
         player.movementSpeed = 2f;
-        Debug.Log("Velocidad: " + player.movementSpeed);
         yield return new WaitForSeconds(1f);
         Vector3 movement = player.MovePlayer(6, -8);
         yield return new WaitForSeconds(1f);
