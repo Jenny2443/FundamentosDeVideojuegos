@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torres_hanoi : MonoBehaviour
+public class Torres_hanoi2 : MonoBehaviour
 {
     /*La tabla mostrada a continuacion es la tabla de transiciones de un
      Automata finito determinista que se comparta de la misma forma que
@@ -52,23 +52,9 @@ public class Torres_hanoi : MonoBehaviour
         {
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
-        this.transform.GetChild(8).gameObject.SetActive(true);
-        torre[SP] = discoMediano;
-        SP++;
-        Debug.Log("Introducido disco mediano");
-        Debug.Log(SP);
+        this.transform.GetChild(0).gameObject.SetActive(true);
 
-        torre[SP] = discoGrande;
-        SP++;
-        Debug.Log("Introducido disco grande");
-        Debug.Log(SP);
-
-        torre[SP] = discoPequeno;
-        SP++;
-        Debug.Log("Introducido disco pequeño");
-        Debug.Log(SP);
-
-        estadoActual = 8;
+        estadoActual = 0;
 
     }
 
@@ -84,7 +70,7 @@ public class Torres_hanoi : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (SP != 0)
+            if(SP!=0)
                 inventory.clickes.SetActive(true);
             jugadorEnContacto = true;
         }
@@ -114,8 +100,7 @@ public class Torres_hanoi : MonoBehaviour
             if (columna != -1)
             {
                 Debug.Log(inventory.getInventoryItem(inventory.getNowActive()));
-                if (SP < 3)
-                {
+                if (SP < 3) {
                     torre[SP] = inventory.getInventoryItem(inventory.getNowActive());
                     torre[SP].transform.position = new Vector3(-37, 15, -129);
                     torre[SP].transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -123,15 +108,14 @@ public class Torres_hanoi : MonoBehaviour
                     inventory.RemoveItem();
                     SP++;
                 }
-
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Pulsado el raton");
             columna = 3;
-            if (SP != 0)
-            {
+            if (SP!=0) {
                 SP--;
                 torre[SP].inventory.AddItem(torre[SP]);
                 torre[SP].GetComponent<Rigidbody>().useGravity = true;
