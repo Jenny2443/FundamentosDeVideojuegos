@@ -1806,7 +1806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.62
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1814,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.53
+      value: 7.12
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1884,6 +1884,7 @@ MonoBehaviour:
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
   jugadorEnContacto: 0
+  textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
 --- !u!1001 &184074057
 PrefabInstance:
@@ -6846,7 +6847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.89
+      value: -0.41999996
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6854,7 +6855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.26
+      value: 11.85
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6973,6 +6974,7 @@ MonoBehaviour:
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
   jugadorEnContacto: 0
+  textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
 --- !u!114 &882928425
 MonoBehaviour:
@@ -6991,6 +6993,7 @@ MonoBehaviour:
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
   jugadorEnContacto: 0
+  textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}
 --- !u!1001 &891476597
 PrefabInstance:
@@ -7547,6 +7550,10 @@ PrefabInstance:
       propertyPath: discoPequeno
       value: 
       objectReference: {fileID: 332254782}
+    - target: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
+      propertyPath: textoPresiona
+      value: 
+      objectReference: {fileID: 1440301393}
     - target: {fileID: 4186960754048541356, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_Name
       value: Torres
@@ -7557,7 +7564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.74
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7565,7 +7572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.09
+      value: 15.68
       objectReference: {fileID: 0}
     - target: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8042,6 +8049,7 @@ MonoBehaviour:
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
   jugadorEnContacto: 0
+  textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
 --- !u!1001 &1124509705
 PrefabInstance:
@@ -8183,6 +8191,7 @@ MonoBehaviour:
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
   jugadorEnContacto: 0
+  textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}
 --- !u!1001 &1199017615
 PrefabInstance:

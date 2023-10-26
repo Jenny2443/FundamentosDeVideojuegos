@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Torres_hanoi2 : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class Torres_hanoi2 : MonoBehaviour
 
     public bool jugadorEnContacto;
 
+    [SerializeField] private TMP_Text textoPresiona;
+
     public Inventory inventory;
     // Start is called before the first frame update
     void Start()
@@ -74,6 +77,10 @@ public class Torres_hanoi2 : MonoBehaviour
         {
             if(SP!=0)
                 inventory.clickes.SetActive(true);
+            else if (getColumn() != -1)
+            {
+                textoPresiona.gameObject.SetActive(true);
+            }
             jugadorEnContacto = true;
         }
     }
@@ -90,6 +97,7 @@ public class Torres_hanoi2 : MonoBehaviour
     {
         jugadorEnContacto = false;
         inventory.clickes.SetActive(false);
+        textoPresiona.gameObject.SetActive(false);
     }
 
     int transicionar()
