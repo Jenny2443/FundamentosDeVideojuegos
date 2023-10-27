@@ -75,9 +75,9 @@ public class Torres_hanoi2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(SP!=0)
+            if(SP!=0 && !almacen.discoCogido)
                 inventory.clickes.SetActive(true);
-            else if (getColumn() != -1)
+            if (getColumn() != -1)
             {
                 textoPresiona.gameObject.SetActive(true);
             }
@@ -102,6 +102,8 @@ public class Torres_hanoi2 : MonoBehaviour
 
     int transicionar()
     {
+        if (almacen.discoCogido)
+            inventory.clickes.SetActive(false);
         int columna = -1;
         if (Input.GetKeyDown(KeyCode.F))
         {

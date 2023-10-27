@@ -93,7 +93,7 @@ public class Torres_hanoi : MonoBehaviour
         {
             if (SP != 0 && !almacen.discoCogido)
                 inventory.clickes.SetActive(true);
-            else if(getColumn() != -1) { 
+            if(getColumn() != -1) { 
                 textoPresiona.gameObject.SetActive(true); 
             }
             jugadorEnContacto = true;
@@ -117,6 +117,9 @@ public class Torres_hanoi : MonoBehaviour
 
     int transicionar()
     {
+        if (almacen.discoCogido)
+            inventory.clickes.SetActive(false);
+
         int columna = -1;
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -164,6 +167,11 @@ public class Torres_hanoi : MonoBehaviour
 
     public int getColumn()
     {
+        Item item = inventory.getInventoryItem(inventory.getNowActive());
+        if (item == null)
+        {
+            return -1;
+        }
         if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoGrande"))
         {
             return 0;
