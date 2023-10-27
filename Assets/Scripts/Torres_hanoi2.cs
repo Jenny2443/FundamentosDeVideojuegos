@@ -15,44 +15,51 @@ public class Torres_hanoi2 : MonoBehaviour
     *Cada estado de este automata tiene un gameobject asociado en el editor
     *-1 indica que es imposible realizar esa accion y por tanto no se debe transicionar
     */
-    //Disco introducido/Accion   Big Medium  Small    Coger
-    int[,] matrizEstados = {  {   1,     6,    11,      -1}, // 0
-                           {  -1,     2,     4,       0}, // 1
-                           {  -1,    -1,     3,       1}, // 2
-                           {  -1,    -1,    -1,       2}, // 3
-                           {  -1,    -1,    -1,       1}, // 4
-                           {  -1,    -1,    -1,       4}, // 5
-                           {  -1,    -1,     9,       0}, // 6
-                           {  -1,    -1,     8,       6}, // 7
-                           {  -1,    -1,    -1,       7}, // 8
-                           {  -1,    -1,    -1,       6}, // 9
-                           {  -1,    -1,    -1,       9}, //10
-                           {  -1,    -1,    -1,       0}, //11
-                           {  -1,    -1,    -1,      11}, //12
-                           {  -1,    -1,    -1,      12}, //13
-                           {  -1,    -1,    -1,      11}, //14
-                           {  -1,    -1,    -1,      15}};//15
+    //                                                           Estados
+    //                                                             ||
+    //Disco introducido/Accion ->   Big Medium  Small    Coger     \/
+    int[,] matrizEstados =       {{   1,     6,    11,      -1}, // 0
+                                  {  -1,     2,     4,       0}, // 1
+                                  {  -1,    -1,     3,       1}, // 2
+                                  {  -1,    -1,    -1,       2}, // 3
+                                  {  -1,    -1,    -1,       1}, // 4
+                                  {  -1,    -1,    -1,       4}, // 5
+                                  {  -1,    -1,     9,       0}, // 6
+                                  {  -1,    -1,     8,       6}, // 7
+                                  {  -1,    -1,    -1,       7}, // 8
+                                  {  -1,    -1,    -1,       6}, // 9
+                                  {  -1,    -1,    -1,       9}, //10
+                                  {  -1,    -1,    -1,       0}, //11
+                                  {  -1,    -1,    -1,      11}, //12
+                                  {  -1,    -1,    -1,      12}, //13
+                                  {  -1,    -1,    -1,      11}, //14
+                                  {  -1,    -1,    -1,      15}};//15
 
-    public VariablesGlobales almacen;
+    public VariablesGlobales almacen; //Referancia a un GameObject que contiene variables que son accediddas por varios scripts
 
     int estadoActual, proximoEstado;
 
+    //Referencias a los discos
     public Item discoGrande;
     public Item discoPequeno;
     public Item discoMediano;
 
+    //Pila de torres con un Stack Pointer
     private Item[] torre = new Item[3];
     private int SP = 0;
 
     public bool jugadorEnContacto;
-
+    
+    //Referencia a el mensaje de interfaz para presionar f
     [SerializeField] private TMP_Text textoPresiona;
 
+    // Referencia al inventario
     public Inventory inventory;
+    
     // Start is called before the first frame update
     void Start()
     {
-        //Dejamos el puzzle visualmente en el estado 8 para poder coger los 3 discos
+        //Dejamos el puzzle visualmente en el estado 0
         for (int i = 0; i < this.transform.childCount; i++)
         {
             this.transform.GetChild(i).gameObject.SetActive(false);
@@ -70,7 +77,9 @@ public class Torres_hanoi2 : MonoBehaviour
             transicionar();
     }
 
-
+    //Si el jugador esta a la distancia para interactuar con el objeto
+    //entonces se actualiza la UI dependiendo de lo que pueda hacer
+    //Usar un objeto con f o clickar para cogerlo
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -84,15 +93,9 @@ public class Torres_hanoi2 : MonoBehaviour
             jugadorEnContacto = true;
         }
     }
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            inventory.clickes.SetActive(true);
-            jugadorEnContacto = true;
-        }
-    }*/
 
+    //Si el jugador esta fuera de la distancia para interactuar con el objeto
+    //entonces se actualiza la UI
     private void OnTriggerExit(Collider other)
     {
         jugadorEnContacto = false;
@@ -100,6 +103,11 @@ public class Torres_hanoi2 : MonoBehaviour
         textoPresiona.gameObject.SetActive(false);
     }
 
+
+    //Dependiendo de lo que haya realizado el jugador, entonces transicoinara a un
+    // estado segun la matriz de transiciones. Si la matriz devuelve -1 es que no se
+    // debe hacer nada. Si no, entonces se debe introducir(getcolumn = 0,1,2) o sacar
+    // el disco del stack (getcolumn = 3).
     int transicionar()
     {
         if (almacen.discoCogido)
@@ -149,6 +157,10 @@ public class Torres_hanoi2 : MonoBehaviour
         return estadoActual;
     }
 
+
+    //Sirve para obtener la columna de la matriz de transiciones a la que consultar
+    //en el caso en el que un objeto sea usado.
+    //Devuelve -1 si el objeto no es un disco.
     public int getColumn()
     {
         Item item = inventory.getInventoryItem(inventory.getNowActive());
