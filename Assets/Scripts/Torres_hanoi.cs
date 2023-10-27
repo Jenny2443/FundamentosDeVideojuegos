@@ -58,6 +58,7 @@ public class Torres_hanoi : MonoBehaviour
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
         this.transform.GetChild(3).gameObject.SetActive(true);
+        
 
         torre[SP] = discoGrande;
         SP++;

@@ -149,15 +149,20 @@ public class Torres_hanoi2 : MonoBehaviour
 
     public int getColumn()
     {
-        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoGrande"))
+        Item item = inventory.getInventoryItem(inventory.getNowActive());
+        if(item == null)
+        {
+            return -1;
+        }
+        if (item.CompareTag("DiscoGrande"))
         {
             return 0;
         }
-        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoMediano"))
+        if (item.CompareTag("DiscoMediano"))
         {
             return 1;
         }
-        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoPequeno"))
+        if (item.CompareTag("DiscoPequeno"))
         {
             return 2;
         }
