@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13231,7 +13231,25 @@ MonoBehaviour:
   - "Sifo: ...si pudiera resolver este enigma, me convertir\xEDa en el esp\xEDritu
     m\xE1s poderoso del bosque y as\xED podr\xEDa vengarme del traicionero duende
     Puck \xBFPodr\xEDas ayudarme a abrirlo? "
-  - "Amy: \xA1Por supuesto, estar\xE9 encantada de ayudarte! "
+  - "Amy: \xA1Por supuesto, estar\xE9 encantada de ayudarte! \xBFDe qu\xE9 trata
+    el enigma?"
+  - "Sifo: \xBFVes aquella torre lejana con los aros?"
+  - "Amy: \xA1S\xED!"
+  - "Sifo: Pues, el enigma trata de llevar los aros de esa torre hasta esta 3\xAA
+    torre, la m\xE1s cercana a nosotros..."
+  - "Sifo: ...de tal forma que queden colocados: el m\xE1s grande abajo del todo,
+    el mediano encima del grande y el peque\xF1o encima del mediano..."
+  - 'Sifo: ...Pero no va a ser sencillo...'
+  - "Sifo: ...ya que solo podr\xE1s llevar 1 aro a la vez y, adem\xE1s, no podr\xE1s
+    meter un aro m\xE1s grande en una torre si esta torre tiene otro aro m\xE1s peque\xF1o
+    del que intentas meter..."
+  - "Sifo: ...As\xED que, \xA1ten cuidado!..."
+  - "Sifo: ...\xBFLo has entendido?"
+  - "Amy: \xA1Entendido!"
+  - "Sifo: Cuando termines con este primer enigma, ven a hablar conmigo que te dar\xE9
+    el regalo..."
+  - "Sifo: ...Te ser\xE1 de mucha ayuda para salir de este bosque."
+  - "Amy: \xA1Genial!"
   tiempoEntreLetras: 0.05
 --- !u!1001 &3675537704366995090
 PrefabInstance:
