@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12444,6 +12444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   discoCogido: 0
+  torresResuelto: 0
 --- !u!4 &1998041210
 Transform:
   m_ObjectHideFlags: 0
@@ -13250,7 +13251,11 @@ MonoBehaviour:
     el regalo..."
   - "Sifo: ...Te ser\xE1 de mucha ayuda para salir de este bosque."
   - "Amy: \xA1Genial!"
+  dialogoDespuesDeResuelto:
+  - "Sifo: Muchas gracias Amy, como muestra de gratitud, toma\u2026"
+  - "Ten \u201Cobjeto necesario para abrir la puerta final\u201D"
   tiempoEntreLetras: 0.05
+  almacen: {fileID: 0}
 --- !u!1001 &3675537704366995090
 PrefabInstance:
   m_ObjectHideFlags: 0

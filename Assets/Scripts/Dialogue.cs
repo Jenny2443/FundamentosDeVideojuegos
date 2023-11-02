@@ -16,6 +16,8 @@ public class Dialogue : MonoBehaviour
     // string de las lineas de dialogo, textArea(min y max espacio vertical a mostrar): min 4 líneas, max: 6 líneas
     [SerializeField, TextArea(4,6)] private string[] lineasDialogo;
 
+    [SerializeField, TextArea(4,6)] private string[] dialogoDespuesDeResuelto;
+
     // variable para el tiempo de tipado
     [SerializeField] private float tiempoEntreLetras = 0.05f;
 
@@ -23,26 +25,43 @@ public class Dialogue : MonoBehaviour
     private bool estaEnRango;
     // variable para saber si el dialogo ha empezado
     private bool dialogoEmpezado;
+    //indice para lineasDialogo
     private int indice;
+    //indice para dialogoDespuesDeResuelto
+    private int indice2;
+
+    public VariablesGlobales almacen;
 
     void Update(){
+        //almacen.torresResuelto = false;
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F))
         {
-            if (!dialogoEmpezado)
+            if (!dialogoEmpezado && !almacen.torresResuelto)
             {
                 textoPresiona.gameObject.SetActive(false);
                 // Iniciar diálogo
                 EmpezarDialogo();
             }
-            else if (textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
+            else if (!almacen.torresResuelto && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
             { 
                 SiguienteLinea();
             }
-            else // Adelantar líneas
+            else if (!almacen.torresResuelto)// Adelantar líneas
             {
                 StopAllCoroutines();
                 textoDialogo.text = lineasDialogo[indice]; // Se muestra la linea completa
+            }
+
+            else if(!dialogoEmpezado && almacen.torresResuelto){
+                textoPresiona.gameObject.SetActive(false);
+                EmpezarDialogo();     
+            } 
+            else if (almacen.torresResuelto && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
+                SiguienteLinea();
+            } else {
+                StopAllCoroutines();
+                textoDialogo.text = dialogoDespuesDeResuelto[indice2];
             }
         }
     }
@@ -54,6 +73,7 @@ public class Dialogue : MonoBehaviour
         panelDialogo.SetActive(true);
         // Indice a 0
         indice = 0;
+        indice2 = 0;
         // Escala de tiempo a 0 para evitar movimiento del jugador
         Time.timeScale = 0f;
         // Bloquear la camara cuando se inicia un dialogo
@@ -62,13 +82,21 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(MostrarLinea());
     }
 
-    private void SiguienteLinea(){
-        indice++;
-        if (indice < lineasDialogo.Length)
+    private void SiguienteLinea(){      
+        if(!almacen.torresResuelto){
+            indice++;
+        } else {
+            indice2++;
+        }
+        if (indice < lineasDialogo.Length && !almacen.torresResuelto)
         {
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
-        } else {
+        } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
+            // Iniciar la corrutina para mostrar el texto letra por letra
+            StartCoroutine(MostrarLinea());
+        }
+        else {
             // Desactivar el panel de diálogo
             panelDialogo.SetActive(false);
             // El diálogo ha terminado
@@ -82,12 +110,22 @@ public class Dialogue : MonoBehaviour
 
     private IEnumerator MostrarLinea(){
         textoDialogo.text = string.Empty;
-        foreach(char ch in lineasDialogo[indice])
-        {
-            // se escribe el caracter
-            textoDialogo.text += ch;
-            // se espera un tiempo
-            yield return new WaitForSecondsRealtime(tiempoEntreLetras);
+        if(!almacen.torresResuelto){
+            foreach(char ch in lineasDialogo[indice])
+            {
+                // se escribe el caracter
+                textoDialogo.text += ch;
+                // se espera un tiempo
+                yield return new WaitForSecondsRealtime(tiempoEntreLetras);
+            }
+        } else {
+            foreach(char ch in dialogoDespuesDeResuelto[indice2])
+            {
+                // se escribe el caracter
+                textoDialogo.text += ch;
+                // se espera un tiempo
+                yield return new WaitForSecondsRealtime(tiempoEntreLetras);
+            }
         }
     }
 

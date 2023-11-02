@@ -35,7 +35,7 @@ public class Torres_hanoi2 : MonoBehaviour
                                   {  -1,    -1,    -1,      11}, //14
                                   {  -1,    -1,    -1,      15}};//15
 
-    public VariablesGlobales almacen; //Referancia a un GameObject que contiene variables que son accediddas por varios scripts
+    public VariablesGlobales almacen; //Referancia a un GameObject que contiene variables que son accedidas por varios scripts
 
     int estadoActual, proximoEstado;
 
@@ -152,6 +152,12 @@ public class Torres_hanoi2 : MonoBehaviour
             this.transform.GetChild(estadoActual).gameObject.SetActive(false);
             this.transform.GetChild(proximoEstado).gameObject.SetActive(true);
             estadoActual = proximoEstado;
+            
+            //Cuando consigue resolver entonces tiene que empezar el dialogo con sifo
+            if (proximoEstado == 3){
+                almacen.torresResuelto = true;
+                Debug.Log("torres resueltas");
+            }
         }
 
         return estadoActual;
