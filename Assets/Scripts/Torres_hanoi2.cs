@@ -74,7 +74,17 @@ public class Torres_hanoi2 : MonoBehaviour
     void Update()
     {
         if (jugadorEnContacto)
-            transicionar();
+        {
+            if (this.CompareTag("TorreFinal"))
+            {
+                if (estadoActual != 3)
+                    transicionar();
+            }
+            else
+            {
+                transicionar();
+            }
+        }
     }
 
     //Si el jugador esta a la distancia para interactuar con el objeto
@@ -84,11 +94,19 @@ public class Torres_hanoi2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(SP!=0 && !almacen.discoCogido)
-                inventory.clickes.SetActive(true);
+            if (SP != 0 && !almacen.discoCogido)
+                if (this.CompareTag("TorreFinal"))
+                {
+                    if (estadoActual != 3)
+                        inventory.clickes.SetActive(true);
+                }
+                else
+                {
+                    inventory.clickes.SetActive(true);
+                }
             if (getColumn() != -1)
             {
-                textoPresiona.gameObject.SetActive(true);
+                    textoPresiona.gameObject.SetActive(true);
             }
             jugadorEnContacto = true;
         }
