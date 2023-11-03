@@ -111,7 +111,7 @@ public class Dialogue : MonoBehaviour
             // Desbloquear la camara cuando se finaliza un dialogo
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
             if (almacen.torresResuelto){
-                inventory.AddItem(itemRecompensa);
+                itemRecompensa.inventory.AddItem(itemRecompensa);
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;
