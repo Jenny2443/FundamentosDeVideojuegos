@@ -9,10 +9,10 @@ public class Inventory : MonoBehaviour
     //Lugar de almacenamiento de los items
     public Item[] inventory = new Item[10];
     
-    //Lugar de almacenamiento de los sprites de los items, así como su aparicion por pantalla
+    //Lugar de almacenamiento de los sprites de los items, asï¿½ como su aparicion por pantalla
     public GameObject[] ui_inventory = new GameObject[10];
 
-    //Para a aparicion de los numeros y saber sobre cual celda del inventario estás
+    //Para a aparicion de los numeros y saber sobre cual celda del inventario estï¿½s
     public GameObject[] ui_inventory_active = new GameObject[10];
     private int nowActive = 0;
 
@@ -46,7 +46,25 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //Llama a esta funcion cuando pulsas una tecla del inventario. Enciende el numero de la celda de sobre la que estás
+    public void AgregarRecompensa(Item itemRecompensa)
+    {
+        for (int i = 1; i < inventory.Length; i++)
+        {
+            if (inventory[i] == null)
+            {
+                inventory[i] = itemRecompensa;
+
+                // Actualiza la interfaz de usuario (UI) para mostrar el nuevo objeto en esta posiciÃ³n del inventario
+
+                return; // Sale del bucle para evitar sobrescribir mÃ¡s posiciones
+            }
+        }
+
+        // Si llega aquÃ­, significa que el inventario estÃ¡ lleno o no se encontrÃ³ una posiciÃ³n vacÃ­a.
+        // Puedes mostrar un mensaje de inventario lleno al jugador si lo deseas.
+    }
+
+    //Llama a esta funcion cuando pulsas una tecla del inventario. Enciende el numero de la celda de sobre la que estï¿½s
     // y aparece dicho item en tu "mano"
     public void GetItem ()
     {
@@ -122,7 +140,7 @@ public class Inventory : MonoBehaviour
     }
 
     //Recibe un item, y lo mete al array de inventario[], la primera posicion libre.
-    //Además, dibuja en el ui, en la celda correspondiente, el sprite del item.
+    //Ademï¿½s, dibuja en el ui, en la celda correspondiente, el sprite del item.
     public void AddItem (Item item)
     {
         bool metido = false;

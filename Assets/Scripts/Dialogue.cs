@@ -25,12 +25,16 @@ public class Dialogue : MonoBehaviour
     private bool estaEnRango;
     // variable para saber si el dialogo ha empezado
     private bool dialogoEmpezado;
+    // variable para terminar conversación con Sifo
+    private bool terminado;
     //indice para lineasDialogo
     private int indice;
     //indice para dialogoDespuesDeResuelto
     private int indice2;
 
+    public Item itemRecompensa; // Asigna el objeto de recompensa 
     public VariablesGlobales almacen;
+    public Inventory inventory;
 
     void Update(){
         //almacen.torresResuelto = false;
@@ -69,6 +73,8 @@ public class Dialogue : MonoBehaviour
     public void EmpezarDialogo(){
         // El diálogo ha empezado
         dialogoEmpezado = true; 
+        // El diálogo no ha terminado
+        terminado = false;
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
         // Indice a 0
@@ -83,11 +89,13 @@ public class Dialogue : MonoBehaviour
     }
 
     private void SiguienteLinea(){      
-        if(!almacen.torresResuelto){
+        if (!almacen.torresResuelto){
             indice++;
-        } else {
-            indice2++;
+        }else{
+            terminado = indice2 == dialogoDespuesDeResuelto.Length;
+            indice2 = terminado ? indice2: indice2 + 1;
         }
+
         if (indice < lineasDialogo.Length && !almacen.torresResuelto)
         {
             // Iniciar la corrutina para mostrar el texto letra por letra
@@ -95,16 +103,19 @@ public class Dialogue : MonoBehaviour
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
-        }
-        else {
+        } else {
             // Desactivar el panel de diálogo
             panelDialogo.SetActive(false);
-            // El diálogo ha terminado
-            dialogoEmpezado = false;
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
+            if (almacen.torresResuelto){
+                inventory.AddItem(itemRecompensa);
+            }else{
+                // El diálogo ha terminado
+                dialogoEmpezado = false;
+            }
         }
     }
 
