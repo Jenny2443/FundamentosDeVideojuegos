@@ -13255,6 +13255,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -652997608872951462, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2786645903367344943, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
       propertyPath: m_Name
       value: Recompensa1
