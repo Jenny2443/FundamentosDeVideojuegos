@@ -37,31 +37,31 @@ public class Duende : MonoBehaviour
     public Inventory inventory;
 
     void Update(){
-        //almacen.torresResuelto = false;
+        //almacen.monedaCogida = false;
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F))
         {
-            if (!dialogoEmpezado && !almacen.torresResuelto)
+            if (!dialogoEmpezado && !almacen.monedaCogida)
             {
                 textoPresiona.gameObject.SetActive(false);
                 // Iniciar diálogo
                 EmpezarDialogo();
             }
-            else if (!almacen.torresResuelto && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
+            else if (!almacen.monedaCogida && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
             { 
                 SiguienteLinea();
             }
-            else if (!almacen.torresResuelto)// Adelantar líneas
+            else if (!almacen.monedaCogida)// Adelantar líneas
             {
                 StopAllCoroutines();
                 textoDialogo.text = lineasDialogo[indice]; // Se muestra la linea completa
             }
 
-            else if(!dialogoEmpezado && almacen.torresResuelto){
+            else if(!dialogoEmpezado && almacen.monedaCogida){
                 textoPresiona.gameObject.SetActive(false);
                 EmpezarDialogo();     
             } 
-            else if (almacen.torresResuelto && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
+            else if (almacen.monedaCogida && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
                 SiguienteLinea();
             } else {
                 StopAllCoroutines();
@@ -89,18 +89,18 @@ public class Duende : MonoBehaviour
     }
 
     private void SiguienteLinea(){      
-        if (!almacen.torresResuelto){
+        if (!almacen.monedaCogida){
             indice++;
         }else{
             terminado = indice2 == dialogoDespuesDeResuelto.Length;
             indice2 = terminado ? indice2: indice2 + 1;
         }
 
-        if (indice < lineasDialogo.Length && !almacen.torresResuelto)
+        if (indice < lineasDialogo.Length && !almacen.monedaCogida)
         {
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
-        } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
+        } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.monedaCogida){
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
         } else {
@@ -110,7 +110,7 @@ public class Duende : MonoBehaviour
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
-            if (almacen.torresResuelto){
+            if (almacen.monedaCogida){
                 itemRecompensa.inventory.AddItem(itemRecompensa);
             }else{
                 // El diálogo ha terminado
@@ -121,7 +121,7 @@ public class Duende : MonoBehaviour
 
     private IEnumerator MostrarLinea(){
         textoDialogo.text = string.Empty;
-        if(!almacen.torresResuelto){
+        if(!almacen.monedaCogida){
             foreach(char ch in lineasDialogo[indice])
             {
                 // se escribe el caracter
