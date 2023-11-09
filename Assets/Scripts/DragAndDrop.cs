@@ -61,6 +61,8 @@ public class DragAndDrop : MonoBehaviour
                 return;
             }
         }
+        // Mover la ficha exactamente una posicion, definida por un tamaño en f
+
 
         // Alinear posición solo en los ejes X o Y para evitar movimiento diagonal
         transform.position = new Vector3(curPosition.x, curPosition.y, transform.position.z);
