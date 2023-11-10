@@ -185,6 +185,22 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void DestroyItem ()
+    {
+        if(nowActive != 0)
+        {
+            ui_inventory_active[nowActive].SetActive(false);
+
+            ui_inventory[nowActive].GetComponent<Image>().sprite = null;
+            transparencia.a = 0;
+            ui_inventory[nowActive].GetComponent<Image>().color = transparencia;
+            transparencia.a = 255;
+            
+            inventory[nowActive] = null;
+            enMano.eliminar();
+        }
+    }
+
     //Para el mensaje de NullPointerException e Inventario lleno.
     private IEnumerator Avisos(GameObject other)
     {

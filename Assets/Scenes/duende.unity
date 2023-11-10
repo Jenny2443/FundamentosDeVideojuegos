@@ -184,72 +184,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1219f592263e8424cbc4a6a09c057705, type: 3}
---- !u!1 &23411914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2927116055162956494, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
-  m_PrefabInstance: {fileID: 3829468462561075799}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &23411919
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23411914}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &23411920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23411914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31cb9369e8cad0448b9e32665a5ee8ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelDialogo: {fileID: 2012851519}
-  textoDialogo: {fileID: 322420284}
-  textoPresiona: {fileID: 1440301393}
-  lineasDialogo:
-  - "Puck: Pst pst, hey ni\xF1a, escucha el trato que voy a ofrecerte"
-  - "Amy: Uy no s\xE9 si fiarme de ti, \xBFQui\xE9n eres?"
-  - "Puck: Mi nombre es Puck y soy el duende m\xE1s amigable del bosque."
-  - "Amy: El esp\xEDritu Sifo me dijo que no me fiase de un duende llamado Puck."
-  - "Puck: Todos hablan de m\xED sin saber mi biograf\xEDa, una vez me equivoqu\xE9
-    por avaricioso y traicion\xE9 a un amigo. "
-  - "Puck: No s\xE9 a qui\xE9n le miento, si esto que siento no me deja dormir."
-  - "Amy: Est\xE1 bien, \xBFCu\xE1l ser\xEDa el trato?"
-  - "Puck: Te dar\xE9 algo que podr\xEDa resultarte valioso si me traes una moneda
-    de oro."
-  - 'Amy: No tengo dinero'
-  - "Puck: En la vida todo se paga, nada se regala, aqu\xED tienes un acertijo que
-    me dio un viejo b\xFAho sobre un lugar en el que pod\xEDa encontrarlas, pero
-    nunca supe resolverlo: "
-  - "Puck: \"En m\xED viven ranas y nen\xFAfares, sin embargo, no soy un r\xEDo ni
-    un mar. Soy tranquilo y reflejo el cielo, \xBFQu\xE9 soy yo? Adivina, si puedes
-    pensar.\""
-  - "Amy: \xA1Entendido! Volver\xE9 con tu moneda de oro."
-  dialogoDespuesDeResuelto:
-  - "Puck: \xA1Muy lista! Aqu\xED tienes un t\xF3tem que podr\xEDa serte \xFAtil."
-  tiempoEntreLetras: 0.05
-  itemRecompensa: {fileID: 387033015}
-  almacen: {fileID: 1998041209}
-  inventory: {fileID: 122471522}
 --- !u!1001 &23871872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3586,17 +3520,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b, type: 3}
   m_PrefabInstance: {fileID: 363779693}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &387033015 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3677469929726859770, guid: c263c887ce48da9409198518760314c1, type: 3}
-  m_PrefabInstance: {fileID: 3942562184447589682}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc842457366258645aa6d749ec5e414e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &411582589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13455,6 +13378,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 896931126889555884, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
+      propertyPath: almacen
+      value: 
+      objectReference: {fileID: 1998041209}
+    - target: {fileID: 896931126889555884, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 122471522}
+    - target: {fileID: 896931126889555884, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
+      propertyPath: panelDialogo
+      value: 
+      objectReference: {fileID: 2012851519}
+    - target: {fileID: 896931126889555884, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
+      propertyPath: textoDialogo
+      value: 
+      objectReference: {fileID: 322420284}
+    - target: {fileID: 896931126889555884, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
+      propertyPath: textoPresiona
+      value: 
+      objectReference: {fileID: 1440301393}
     - target: {fileID: 7196001961859928734, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13502,13 +13445,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2927116055162956494, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 23411919}
-    - targetCorrespondingSourceObject: {fileID: 2927116055162956494, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 23411920}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
 --- !u!1001 &3942562184447589682
 PrefabInstance:
@@ -13520,6 +13457,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1730552075426362039, guid: c263c887ce48da9409198518760314c1, type: 3}
       propertyPath: m_Name
+      value: Moneda
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730552075426362039, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_TagString
       value: Moneda
       objectReference: {fileID: 0}
     - target: {fileID: 1834969921934031389, guid: c263c887ce48da9409198518760314c1, type: 3}
@@ -13566,6 +13507,30 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 122471522}
+    - target: {fileID: 3677469929726859770, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: jugadorEnContacto
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008026218644534268, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Height
+      value: 19.169415
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008026218644534268, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Radius
+      value: 0.9170928
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008026218644534268, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Center.x
+      value: -0.117473125
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008026218644534268, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Center.y
+      value: 0.33721983
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008026218644534268, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Center.z
+      value: 0.03673482
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

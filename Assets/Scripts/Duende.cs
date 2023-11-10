@@ -134,6 +134,7 @@ public class Duende : MonoBehaviour
             {
                 // se escribe el caracter
                 textoDialogo.text += ch;
+                inventory.DestroyItem();
                 // se espera un tiempo
                 yield return new WaitForSecondsRealtime(tiempoEntreLetras);
             }
@@ -146,6 +147,11 @@ public class Duende : MonoBehaviour
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
             textoPresiona.gameObject.SetActive(true);
+        }
+        if (other.CompareTag("Moneda"))
+        {
+            almacen.monedaCogida = true;
+            //inventory.RemoveItem();
         }
     }
     private void OnTriggerExit(Collider other){

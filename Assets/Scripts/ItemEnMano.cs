@@ -9,10 +9,10 @@ public class ItemEnMano : MonoBehaviour
     private Item pickedObject = null;
     private Vector3 posInit;
 
-    /* El problema de cómo lo he hecho reside en que el array del inventario, solo recoge la referencia
-     * al item. Cuando hago inventory[i] = item, sólo está marcando el lugar en memoria de donde se encuentra
+    /* El problema de cï¿½mo lo he hecho reside en que el array del inventario, solo recoge la referencia
+     * al item. Cuando hago inventory[i] = item, sï¿½lo estï¿½ marcando el lugar en memoria de donde se encuentra
      * el item, en vez de crearse una copia y guardarlo. Por ello, aqui, si lo quiero poner en la mano,
-     * debo usar el item en sí, jugando con su posicion, y si cojo otra cosa, pongo lo que tenia en la mano en 
+     * debo usar el item en sï¿½, jugando con su posicion, y si cojo otra cosa, pongo lo que tenia en la mano en 
      * otro lugar, y lo desactivo*/
     public void PonerEnMano(Item item)
     {
@@ -53,4 +53,17 @@ public class ItemEnMano : MonoBehaviour
             pickedObject = null;
         }
     }
+    public void eliminar()
+    {
+        if (pickedObject != null)
+        {
+            pickedObject.transform.position = posInit;
+            pickedObject.GetComponent <Rigidbody>().isKinematic = false;
+            pickedObject.transform.SetParent(null);
+            pickedObject.gameObject.SetActive(false);
+            pickedObject.sujeto = false;
+            pickedObject = null;
+        }
+    }
+
 }
