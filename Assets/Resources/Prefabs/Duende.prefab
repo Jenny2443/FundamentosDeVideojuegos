@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1268496777138491710}
   - component: {fileID: 5989975276441936663}
   - component: {fileID: 5816030495426511714}
+  - component: {fileID: 2535589041604491492}
+  - component: {fileID: 896931126889555884}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -107,6 +109,67 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2535589041604491492
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2927116055162956494}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &896931126889555884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2927116055162956494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cb9369e8cad0448b9e32665a5ee8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelDialogo: {fileID: 0}
+  textoDialogo: {fileID: 0}
+  textoPresiona: {fileID: 0}
+  lineasDialogo:
+  - "Puck: Pst pst, hey ni\xF1a, escucha el trato que voy a ofrecerte"
+  - "Amy: Uy no s\xE9 si fiarme de ti, \xBFQui\xE9n eres?"
+  - "Puck: Mi nombre es Puck y soy el duende m\xE1s amigable del bosque."
+  - "Amy: El esp\xEDritu Sifo me dijo que no me fiase de un duende llamado Puck."
+  - "Puck: Todos hablan de m\xED sin saber mi biograf\xEDa, una vez me equivoqu\xE9
+    por avaricioso y traicion\xE9 a un amigo. "
+  - "Puck: No s\xE9 a qui\xE9n le miento, si esto que siento no me deja dormir."
+  - "Amy: Est\xE1 bien, \xBFCu\xE1l ser\xEDa el trato?"
+  - "Puck: Te dar\xE9 algo que podr\xEDa resultarte valioso si me traes una moneda
+    de oro."
+  - 'Amy: No tengo dinero'
+  - "Puck: En la vida todo se paga, nada se regala, aqu\xED tienes un acertijo que
+    me dio un viejo b\xFAho sobre un lugar en el que pod\xEDa encontrarlas, pero
+    nunca supe resolverlo: "
+  - "Puck: \"En m\xED viven ranas y nen\xFAfares, sin embargo, no soy un r\xEDo ni
+    un mar. Soy tranquilo y reflejo el cielo, \xBFQu\xE9 soy yo? Adivina, si puedes
+    pensar.\""
+  - "Amy: \xA1Entendido! Volver\xE9 con tu moneda de oro."
+  dialogoDespuesDeResuelto:
+  - "Puck: \xA1Muy lista! Aqu\xED tienes un t\xF3tem que podr\xEDa serte \xFAtil."
+  tiempoEntreLetras: 0.05
+  itemRecompensa: {fileID: 0}
+  almacen: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &7739469007244182530
 GameObject:
   m_ObjectHideFlags: 0
