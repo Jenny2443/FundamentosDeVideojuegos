@@ -151,7 +151,6 @@ public class Duende : MonoBehaviour
         if (other.CompareTag("Moneda"))
         {
             almacen.monedaCogida = true;
-            //inventory.RemoveItem();
         }
     }
     private void OnTriggerExit(Collider other){
@@ -160,6 +159,10 @@ public class Duende : MonoBehaviour
             estaEnRango = false;
             Debug.Log("No se puede iniciar un dialogo");
             textoPresiona.gameObject.SetActive(false);
+        }
+        if (other.CompareTag("Moneda"))
+        {
+            almacen.monedaCogida = false;
         }
     }
 }
