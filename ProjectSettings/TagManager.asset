@@ -13,6 +13,8 @@ TagManager:
   - Marco
   - Ficha
   - Esmeralda
+  - Moneda
+  - DiscoAlbertiPequeno
   layers:
   - Default
   - TransparentFX
