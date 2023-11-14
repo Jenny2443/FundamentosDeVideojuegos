@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/JennyEscenario Pruebas 1.unity
+    guid: 467ce3194a47d4e92ae6cf0c8f65b6dd
+  - enabled: 1
+    path: Assets/Scenes/Bola2.0.unity
+    guid: 1ae77b7bfb6f62f4b9fdfd3342a54b56
   m_configObjects: {}

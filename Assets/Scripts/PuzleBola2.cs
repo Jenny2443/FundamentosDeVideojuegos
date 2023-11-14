@@ -1,20 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+using UnityEngine.SceneManagement;
 
 public class PuzleBola2 : MonoBehaviour
 {
-    [SerializeField] private TMP_Text textoGanador;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnMouseDown()
     {
-        if (other.CompareTag("Esmeralda"))
-        {
-            Debug.Log("Esmeralda en hueco");
-            textoGanador.gameObject.SetActive(true);
-
-            // TODO Volver a la escena principal
-        }
+        SceneManager.LoadScene("Bola2.0");
     }
 }
