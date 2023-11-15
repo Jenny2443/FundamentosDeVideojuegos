@@ -8,6 +8,8 @@ public class Dialogue : MonoBehaviour
 {
     // Referencia al panel de diálogo para activarlo y desactivarlo
     [SerializeField] private GameObject panelDialogo;
+    // Referencia al panel de diálogo para activarlo y desactivarlo
+    [SerializeField] private GameObject spritePersonaje;
     // Referencia al texto del diálogo para modificarlo
     [SerializeField] private TMP_Text textoDialogo;
     // Referencia el texto Presiona F
@@ -77,6 +79,8 @@ public class Dialogue : MonoBehaviour
         terminado = false;
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
+        // Activar el sprite del personaje
+        spritePersonaje.SetActive(true);
         // Indice a 0
         indice = 0;
         indice2 = 0;
@@ -106,6 +110,8 @@ public class Dialogue : MonoBehaviour
         } else {
             // Desactivar el panel de diálogo
             panelDialogo.SetActive(false);
+            // Desactivar el sprite del personaje
+            spritePersonaje.SetActive(false);
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo
