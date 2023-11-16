@@ -2728,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809379588739235225, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42985559
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2809379588739235225, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8968,7 +8968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1834969921934031389, guid: c263c887ce48da9409198518760314c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.36
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1834969921934031389, guid: c263c887ce48da9409198518760314c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9006,6 +9006,18 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 122471522}
+    - target: {fileID: 7294447211512337284, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294447211512337284, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Size.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294447211512337284, guid: c263c887ce48da9409198518760314c1, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16425,6 +16437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelDialogo: {fileID: 2012851519}
+  spritePersonaje: {fileID: 356221050}
   textoDialogo: {fileID: 322420284}
   textoPresiona: {fileID: 1440301393}
   lineasDialogo:
