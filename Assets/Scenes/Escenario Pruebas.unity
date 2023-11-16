@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2721,6 +2721,18 @@ PrefabInstance:
     - target: {fileID: 325587914411599544, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
       propertyPath: m_Name
       value: DiscoAlberti
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149344821343943478, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149344821343943478, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149344821343943478, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2809379588739235225, guid: 6a6126d09a508164ea826db8d167f8c8, type: 3}
       propertyPath: m_LocalPosition.x
