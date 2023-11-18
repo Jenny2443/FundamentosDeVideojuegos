@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12547,6 +12547,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &642276922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642276914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc842457366258645aa6d749ec5e414e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 122471522}
+  itemIcon: {fileID: 0}
+  jugadorEnContacto: 0
+  sujeto: 0
 --- !u!1 &642501367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3698448401558789208, guid: 48dadcf1fd0835542aceafe9033838fb, type: 3}
@@ -36187,7 +36203,7 @@ MonoBehaviour:
   - "Sifo: Muchas gracias Amy, como muestra de gratitud, toma\u2026"
   - "Ten \u201Cobjeto necesario para abrir la puerta final\u201D"
   tiempoEntreLetras: 0.05
-  itemRecompensa: {fileID: 0}
+  itemRecompensa: {fileID: 642276922}
   almacen: {fileID: 1998041209}
   inventory: {fileID: 122471522}
 --- !u!1001 &3675537704366995090
@@ -36499,6 +36515,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2786645903367344943, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 642276917}
+    - targetCorrespondingSourceObject: {fileID: 2786645903367344943, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 642276922}
   m_SourcePrefab: {fileID: 100100000, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -7,7 +7,7 @@ public class PuzleBola : MonoBehaviour
     [SerializeField] private TMP_Text textoGanador;
 
     public Item itemRecompensa; // Asigna el objeto de recompensa 
-    boolean fin = false;
+    bool fin = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
