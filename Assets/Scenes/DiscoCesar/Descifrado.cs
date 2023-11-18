@@ -18,8 +18,8 @@ public class Descifrado : MonoBehaviour
     void Start()
     {
         rocaDescifrado.SetActive(false);
-        discoInterno.GetComponent<Animator>() = GetComponent<Animator>();
-        discoInterno.GetComponent<Animator>().SetBool(giroCompleto, false);
+        //discoInterno.GetComponent<Animator>() = GetComponent<Animator>();
+        //discoInterno.GetComponent<Animator>().SetBool(giroCompleto, false);
         discoCogido = false;
     }
 
@@ -29,11 +29,11 @@ public class Descifrado : MonoBehaviour
         if(discoCogido && estaEnRango){
             textoPresiona.gameObject.SetActive(true);
         }
-        if (discoCogido && estaEnRango && Input.GetKeyDown(KeyCode.F) && !giroCompleto){
+        if (discoCogido && estaEnRango && Input.GetKeyDown(KeyCode.F)/* && !giroCompleto*/){
             discoInterno.GetComponent<Animator>().SetTrigger("Girar");
-            discoInterno.GetComponent<Animator>().SetBool(giroCompleto,true);
+            //discoInterno.GetComponent<Animator>().SetBool(giroCompleto,true);
             textoPresiona.gameObject.SetActive(false);
-            GiroInteriorCompleto;
+            //GiroInteriorCompleto;
         }
     }
 

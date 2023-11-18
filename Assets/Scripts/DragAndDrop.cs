@@ -43,6 +43,7 @@ public class DragAndDrop : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
+            Debug.Log("Colisioinando con " + colliders.Length + "cosas");
             // Verificar si hay colisión con objetos específicos
             if (collider != null && collider.gameObject != gameObject &&
                (collider.CompareTag("Ficha") || collider.CompareTag("Marco") || collider.CompareTag("Esmeralda")))
@@ -55,11 +56,13 @@ public class DragAndDrop : MonoBehaviour
 
                     // Aplicar fuerza solo en los ejes X o Y para evitar movimiento diagonal
                     rb.AddForce(new Vector2(oppositeForce.x, oppositeForce.y) * 5f, ForceMode2D.Impulse);
+                    Debug.Log("webo");
                 }
 
                 Debug.Log("contacto");
                 return;
             }
+            Debug.Log("wabo");
         }
         // Mover la ficha exactamente una posicion, definida por un tamaño en f
 
