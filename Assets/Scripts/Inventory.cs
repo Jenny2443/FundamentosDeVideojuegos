@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
 
     //Para a aparicion de los numeros y saber sobre cual celda del inventario est�s
     public GameObject[] ui_inventory_active = new GameObject[10];
-    private int nowActive = 0;
+    public int nowActive = 0;
 
     private Color transparencia;
     public GameObject clickes, InventarioLleno;

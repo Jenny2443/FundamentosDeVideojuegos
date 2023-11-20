@@ -1488,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoGanador: {fileID: 677358777}
+  itemRecompensa: {fileID: 0}
 --- !u!1 &1185077667
 GameObject:
   m_ObjectHideFlags: 0
