@@ -31,7 +31,7 @@ public class PuzzlePuertaFinal : MonoBehaviour
         if (colocarPiezas1.pieza1Colocada && colocarPiezas2.pieza2Colocada && colocarPiezas3.pieza3Colocada)
         {
             // Imprimir un mensaje en la consola
-            Debug.Log("¡PUZZLE COMPLETADO!");
+            Debug.Log("¡JUEGO COMPLETADO!");
 
             // Activar el mensaje de interfaz, puzzle completado
             textoCompletado.gameObject.SetActive(true);
