@@ -8,11 +8,12 @@ public class Descifrado : MonoBehaviour
     [SerializeField] private TMP_Text textoPresiona;
 
     public GameObject rocaDescifrado;
-    public GameObject discoInterno;
+    public Item discoInterno;
     // private Animator animator;
-    // private bool giroCompleto;
+    private bool giroCompleto = false;
     private bool discoCogido;
     private bool estaEnRango;
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,12 @@ public class Descifrado : MonoBehaviour
         if(discoCogido && estaEnRango){
             textoPresiona.gameObject.SetActive(true);
         }
-        if (discoCogido && estaEnRango && Input.GetKeyDown(KeyCode.F)/* && !giroCompleto*/){
+        if (discoCogido && estaEnRango && Input.GetKeyDown(KeyCode.F) && !giroCompleto){
             discoInterno.GetComponent<Animator>().SetTrigger("Girar");
-            //discoInterno.GetComponent<Animator>().SetBool(giroCompleto,true);
+            discoInterno.GetComponent<Animator>().SetBool("giroCompleto",true);
+            giroCompleto = true;
             textoPresiona.gameObject.SetActive(false);
-            //GiroInteriorCompleto;
+            GiroInteriorCompleto();
         }
     }
 
@@ -42,14 +44,14 @@ public class Descifrado : MonoBehaviour
         rocaDescifrado.SetActive(true);
     }
 
-        private void OnTriggerEnter(Collider other){
+    private void OnTriggerEnter(Collider other){
         if (other.CompareTag("Player"))
         {
             estaEnRango = true;
             Debug.Log("Se puede poner el disco");
             textoPresiona.gameObject.SetActive(true);
         }
-        if (other.CompareTag("DiscoAlbertiPequeno"))
+        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoAlbertiPequeno"))
         {
             discoCogido = true;
         }
@@ -61,7 +63,7 @@ public class Descifrado : MonoBehaviour
             Debug.Log("No se puede poner el disco");
             textoPresiona.gameObject.SetActive(false);
         }
-        if (other.CompareTag("DiscoAlbertiPequeno"))
+        if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoAlbertiPequeno"))
         {
             discoCogido = false;
         }
