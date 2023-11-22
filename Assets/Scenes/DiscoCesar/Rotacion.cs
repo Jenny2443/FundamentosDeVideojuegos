@@ -8,6 +8,7 @@
         [SerializeField] private TMP_Text textoPresiona;
 
         public Item discoInterno;
+        public Item recompensa3;
         private bool discoCogido;
         private bool estaEnRango;
 
@@ -16,6 +17,7 @@
 
         private bool giroCompleto = false;
         private bool primeraVez = true;
+        private bool recompensaCogida = false;
 
         public Inventory inventory; 
 
@@ -71,16 +73,19 @@
             if(Input.GetKeyDown(KeyCode.F) && !giroCompleto && !primeraVez){
                 gameObject.transform.GetChild(1).Rotate(0, 0, Time.deltaTime * grados);
                 anguloTotalRotado += Time.deltaTime * grados;
-                if(anguloTotalRotado >= 90f){
+                if(anguloTotalRotado >= 60f){
                     giroCompleto = true;
                     
                 }
             } 
             //Si ha dado el giro completo, se muestra la roca descifrada (estado 3)
-            if(giroCompleto){
+            if(giroCompleto && !recompensaCogida){
                 Debug.Log("giroCompleto");
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(3).gameObject.SetActive(true);
+                recompensa3.inventory.AddItem(recompensa3);
+                recompensaCogida = true;
+
             }
             // if (Input.GetKeyDown(KeyCode.Mouse0) && !discoCogido)
             // {
