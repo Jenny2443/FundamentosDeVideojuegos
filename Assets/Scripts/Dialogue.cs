@@ -14,6 +14,11 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TMP_Text textoDialogo;
     // Referencia el texto Presiona F
     [SerializeField] private TMP_Text textoPresiona;
+    
+    [SerializeField] private GameObject imagenSifo;
+    [SerializeField] private GameObject imagenAmy;
+    private GameObject personajeActual;
+
 
     // string de las lineas de dialogo, textArea(min y max espacio vertical a mostrar): min 4 líneas, max: 6 líneas
     [SerializeField, TextArea(4,6)] private string[] lineasDialogo;
@@ -37,6 +42,11 @@ public class Dialogue : MonoBehaviour
     public Item itemRecompensa; // Asigna el objeto de recompensa 
     public VariablesGlobales almacen;
     public Inventory inventory;
+    
+    //VArs para cambio de imagenes
+    private int indiceCambioPersonajesDialogoSifo1 = 1;
+    private bool dialogoSifo1Terminado = false;
+  
 
     void Update(){
         //almacen.torresResuelto = false;
@@ -80,7 +90,19 @@ public class Dialogue : MonoBehaviour
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
         // Activar el sprite del personaje
-        spritePersonaje.SetActive(true);
+        //spritePersonaje.SetActive(true);
+
+        if (!dialogoSifo1Terminado)
+        {
+            personajeActual = imagenAmy;
+        }
+        else
+        {
+            personajeActual = imagenSifo;
+        }
+        
+       
+        personajeActual.SetActive(true);
         // Indice a 0
         indice = 0;
         indice2 = 0;
@@ -102,6 +124,11 @@ public class Dialogue : MonoBehaviour
 
         if (indice < lineasDialogo.Length && !almacen.torresResuelto)
         {
+            personajeActual.SetActive(false);
+            Debug.Log("Antes de checkear siguiente personaje");
+            checkPersonajeActual();
+
+            personajeActual.SetActive(true);
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
@@ -112,6 +139,8 @@ public class Dialogue : MonoBehaviour
             panelDialogo.SetActive(false);
             // Desactivar el sprite del personaje
             spritePersonaje.SetActive(false);
+            personajeActual.SetActive(false);
+            dialogoSifo1Terminado = true;
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo
@@ -123,6 +152,22 @@ public class Dialogue : MonoBehaviour
                 dialogoEmpezado = false;
             }
         }
+    }
+
+    private void checkPersonajeActual()
+    {
+        if(indiceCambioPersonajesDialogoSifo1 == 2 || indiceCambioPersonajesDialogoSifo1 == 3 || indiceCambioPersonajesDialogoSifo1 == 5 || indiceCambioPersonajesDialogoSifo1 == 7 || 
+           indiceCambioPersonajesDialogoSifo1 == 10 || indiceCambioPersonajesDialogoSifo1 == 12 || indiceCambioPersonajesDialogoSifo1 == 19 || indiceCambioPersonajesDialogoSifo1 == 22)
+        {
+            personajeActual = imagenAmy;
+        }
+        else
+        {
+            personajeActual = imagenSifo;
+        }
+
+        Debug.Log("Personaje actual cambiado a: " + personajeActual);
+        indiceCambioPersonajesDialogoSifo1++;
     }
 
     private IEnumerator MostrarLinea(){

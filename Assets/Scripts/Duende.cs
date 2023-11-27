@@ -37,6 +37,13 @@ public class Duende : MonoBehaviour
     public Item itemRecompensa; // Asigna el objeto de recompensa 
     public VariablesGlobales almacen;
     public Inventory inventory;
+    
+    private int indiceCambioPersonajesDialogoPuck = 1;
+    private int indiceCambioPersonajesDialogoPuck2 = 1;
+    private bool dialogoPuckTerminado = false;
+    [SerializeField] private GameObject imagenPuck;
+    private GameObject personajeActual;
+    [SerializeField] private GameObject imagenAmy;
 
     void Update(){
         //almacen.monedaCogida = false;
@@ -80,7 +87,9 @@ public class Duende : MonoBehaviour
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
         // Activar el sprite del personaje
-        spritePersonaje.SetActive(true);
+        //spritePersonaje.SetActive(true);
+        personajeActual = imagenPuck;
+        personajeActual.SetActive(true);
         // Indice a 0
         indice = 0;
         indice2 = 0;
@@ -102,16 +111,23 @@ public class Duende : MonoBehaviour
 
         if (indice < lineasDialogo.Length && !almacen.monedaCogida)
         {
+            personajeActual.SetActive(false);
+            checkPersonajeActual();
+            personajeActual.SetActive(true);
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.monedaCogida){
+            personajeActual.SetActive(false);
+            checkPersonajeActualResuelto();
+            personajeActual.SetActive(true);
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
         } else {
             // Desactivar el panel de diálogo
             panelDialogo.SetActive(false);
             // Desactivar el sprite del personaje
-            spritePersonaje.SetActive(false);
+            //spritePersonaje.SetActive(false);
+            personajeActual.SetActive(false);
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo
@@ -124,7 +140,35 @@ public class Duende : MonoBehaviour
             }
         }
     }
+    private void checkPersonajeActual()
+    {
+        if(indiceCambioPersonajesDialogoPuck == 1 || indiceCambioPersonajesDialogoPuck == 3 || indiceCambioPersonajesDialogoPuck == 6 || indiceCambioPersonajesDialogoPuck == 8 || 
+           indiceCambioPersonajesDialogoPuck == 11)
+        {
+            personajeActual = imagenAmy;
+        }
+        else
+        {
+            personajeActual = imagenPuck;
+        }
 
+        Debug.Log("Personaje actual cambiado a: " + personajeActual);
+        indiceCambioPersonajesDialogoPuck++;
+    }
+
+    private void checkPersonajeActualResuelto()
+    {
+        if (indiceCambioPersonajesDialogoPuck2 == 2 || indiceCambioPersonajesDialogoPuck2 == 6)
+        {
+            personajeActual = imagenAmy;
+        }
+        else
+        {
+            personajeActual = imagenPuck;
+        }
+
+        indiceCambioPersonajesDialogoPuck2++;
+    }
     private IEnumerator MostrarLinea(){
         textoDialogo.text = string.Empty;
         if(!almacen.monedaCogida){
