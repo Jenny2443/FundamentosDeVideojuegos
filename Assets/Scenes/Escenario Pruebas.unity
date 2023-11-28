@@ -7900,7 +7900,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.6
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &332254788
 Rigidbody:
@@ -11743,7 +11743,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.6
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: -0.000000059604645}
 --- !u!54 &557464264
 Rigidbody:
@@ -15123,7 +15123,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.6
+  m_Radius: 1
   m_Center: {x: 0, y: 0.0000000018626451, z: 0}
 --- !u!114 &709160121 stripped
 MonoBehaviour:
