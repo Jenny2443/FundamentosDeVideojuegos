@@ -50,6 +50,7 @@ public class ItemEnMano : MonoBehaviour
         if (pickedObject != null)
         {
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+            pickedObject.gameObject.GetComponent<Collider>().enabled = true;
             pickedObject.transform.SetParent(null);
             pickedObject.sujeto = false;
             pickedObject = null;
