@@ -23,6 +23,7 @@ public class ItemEnMano : MonoBehaviour
             pickedObject.GetComponent <Rigidbody>().isKinematic = false;
             pickedObject.transform.SetParent(null);
             pickedObject.gameObject.SetActive(false);
+            pickedObject.gameObject.GetComponent<Collider>().enabled = true;
             pickedObject.sujeto = false;
             pickedObject = null;
         }
@@ -40,6 +41,7 @@ public class ItemEnMano : MonoBehaviour
             pickedObject.GetComponent<Rigidbody>().isKinematic = true;
             pickedObject.transform.position = handPoint.transform.position;
             pickedObject.transform.SetParent(handPoint.transform);
+            pickedObject.gameObject.GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -61,6 +63,7 @@ public class ItemEnMano : MonoBehaviour
             pickedObject.GetComponent <Rigidbody>().isKinematic = false;
             pickedObject.transform.SetParent(null);
             pickedObject.gameObject.SetActive(false);
+            pickedObject.gameObject.GetComponent<Collider>().enabled = true;
             pickedObject.sujeto = false;
             pickedObject = null;
         }
