@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31467,6 +31467,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 880970725214738984, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
   m_PrefabInstance: {fileID: 1735955697}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1649049297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 873531700701352353, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_Name
+      value: Slime_01_King
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.88444066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.762992
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69974536
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7143924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.187
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955322500898459853, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 873531700701352353, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966139060}
+    - targetCorrespondingSourceObject: {fileID: 873531700701352353, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966139059}
+    - targetCorrespondingSourceObject: {fileID: 873531700701352353, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966139058}
+  m_SourcePrefab: {fileID: 100100000, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
 --- !u!1001 &1650001930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37823,6 +37889,116 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+--- !u!1 &1966139056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 873531700701352353, guid: 28d0a30d6aed6fc4c8ca473413f70c24, type: 3}
+  m_PrefabInstance: {fileID: 1649049297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966139058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966139056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd090ea02535a45428f45fd41872083f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelDialogo: {fileID: 2012851519}
+  spritePersonaje: {fileID: 356221050}
+  textoDialogo: {fileID: 322420284}
+  textoPresiona: {fileID: 1440301393}
+  imagenSifo: {fileID: 356221050}
+  imagenAmy: {fileID: 1862405580}
+  lineasDialogo:
+  - "Amy: Ho...Hola..., perdona, \xBFPodr\xEDas ayudarme a salir de este bosque? "
+  - "Sifo: \xA1Oh vaya! \xBFQu\xE9 hace una ni\xF1a como t\xFA en este bosque? "
+  - "Amy: Pues lo \xFAltimo que recuerdo es que hab\xEDa mucho fuego en mi casa y
+    tuve que salir corriendo en direcci\xF3n al bosque..."
+  - "Amy: ...anduve y anduve y al final no sab\xEDa por d\xF3nde hab\xEDa venido. "
+  - "Sifo: Oh, lo siento mucho, mira hagamos una cosa, si me ayudas te har\xE9 un
+    regalo que podr\xEDa serte \xFAtil en tu regreso. "
+  - "Amy: De acuerdo, \xBFC\xF3mo te llamas? "
+  - 'Sifo: Mi nombre es Sifo, un gusto, un placer. '
+  - "Amy: Encantada, yo me llamo Amy \xBFDe qu\xE9 se trata? "
+  - 'Sifo: Pues estoy intentando abrir esta puerta ancestral...'
+  - "Sifo: ...si pudiera resolver este enigma, me convertir\xEDa en el esp\xEDritu
+    m\xE1s poderoso del bosque y as\xED podr\xEDa vengarme del traicionero duende
+    Puck \xBFPodr\xEDas ayudarme a abrirlo? "
+  - "Amy: \xA1Por supuesto, estar\xE9 encantada de ayudarte! \xBFDe qu\xE9 trata
+    el enigma?"
+  - "Sifo: \xBFVes aquella torre lejana con los aros?"
+  - "Amy: \xA1S\xED!"
+  - "Sifo: Pues, el enigma trata de llevar los aros de esa torre hasta esta 3\xAA
+    torre, la m\xE1s cercana a nosotros..."
+  - "Sifo: ...de tal forma que queden colocados: el m\xE1s grande abajo del todo,
+    el mediano encima del grande y el peque\xF1o encima del mediano..."
+  - 'Sifo: ...Pero no va a ser sencillo...'
+  - "Sifo: ...ya que solo podr\xE1s llevar 1 aro a la vez y, adem\xE1s, no podr\xE1s
+    meter un aro m\xE1s grande en una torre si esta torre tiene otro aro m\xE1s peque\xF1o
+    del que intentas meter..."
+  - "Sifo: ...As\xED que, \xA1ten cuidado!..."
+  - "Sifo: ...\xBFLo has entendido?"
+  - "Amy: \xA1Entendido!"
+  - "Sifo: Cuando termines con este primer enigma, ven a hablar conmigo que te dar\xE9
+    el regalo..."
+  - "Sifo: ...Te ser\xE1 de mucha ayuda para salir de este bosque."
+  - "Amy: \xA1Genial!"
+  dialogoDespuesDeResuelto:
+  - "Sifo: Muchas gracias Amy, como muestra de gratitud, toma\u2026"
+  - "Ten \u201Cobjeto necesario para abrir la puerta final\u201D"
+  - 'Sifo: Ten mucho cuidado en este tenebroso bosque... '
+  - "Sifo: Hay muchas criaturas peligrosas. \xA1No confies en nadie!"
+  tiempoEntreLetras: 0.05
+  itemRecompensa: {fileID: 642276922}
+  almacen: {fileID: 1998041209}
+  inventory: {fileID: 122471522}
+  player: {fileID: 1036416852}
+  sifo: {fileID: 1966139056}
+--- !u!65 &1966139059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966139056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2, z: 6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &1966139060
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966139056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1967563353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
@@ -40728,7 +40904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: -2.492
       objectReference: {fileID: 0}
     - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40736,7 +40912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.54
+      value: 9.382
       objectReference: {fileID: 0}
     - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40876,6 +41052,8 @@ MonoBehaviour:
   itemRecompensa: {fileID: 642276922}
   almacen: {fileID: 1998041209}
   inventory: {fileID: 122471522}
+  player: {fileID: 1036416852}
+  sifo: {fileID: 3306796374097967328}
 --- !u!1001 &3675537704366995090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41246,3 +41424,4 @@ SceneRoots:
   - {fileID: 1984301382}
   - {fileID: 1553781009}
   - {fileID: 681997641}
+  - {fileID: 1649049297}
