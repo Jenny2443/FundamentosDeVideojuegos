@@ -44,8 +44,19 @@ public class Duende : MonoBehaviour
     [SerializeField] private GameObject imagenPuck;
     private GameObject personajeActual;
     [SerializeField] private GameObject imagenAmy;
+    
+    public GameObject player;
+    public GameObject puck;
 
     void Update(){
+        // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
+        Vector3 direccionAlJugador = player.transform.position - puck.transform.position;
+
+        // Calcula la rotación necesaria para que sifo mire en la dirección del jugador (en el plano horizontal)
+        Quaternion rotacionDeseada = Quaternion.LookRotation(new Vector3(direccionAlJugador.x, 0, direccionAlJugador.z));
+
+        // Aplica la rotación a sifo
+        puck.transform.rotation = rotacionDeseada;
         //almacen.monedaCogida = false;
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F))

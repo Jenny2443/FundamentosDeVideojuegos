@@ -12995,6 +12995,8 @@ MonoBehaviour:
   inventory: {fileID: 122471522}
   imagenPuck: {fileID: 409375784}
   imagenAmy: {fileID: 1862405580}
+  player: {fileID: 1036416852}
+  puck: {fileID: 1167681418}
 --- !u!65 &617321245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23856,6 +23858,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1, type: 3}
   m_PrefabInstance: {fileID: 1278423691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1167681418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8272943599224061573, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+  m_PrefabInstance: {fileID: 681997641}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1169643632
 PrefabInstance:
