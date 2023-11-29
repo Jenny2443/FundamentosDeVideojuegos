@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17713,7 +17713,6 @@ GameObject:
   - component: {fileID: 837978041}
   - component: {fileID: 837978044}
   - component: {fileID: 837978040}
-  - component: {fileID: 837978046}
   - component: {fileID: 837978045}
   - component: {fileID: 837978047}
   m_Layer: 0
@@ -17845,27 +17844,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &837978046
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837978039}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &837978047
 Rigidbody:
@@ -35096,48 +35074,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1807824472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807824459}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &1807824473
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807824459}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1808523004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41054,12 +40990,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3184049072119473989, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1807824466}
-    - targetCorrespondingSourceObject: {fileID: 3184049072119473989, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1807824473}
-    - targetCorrespondingSourceObject: {fileID: 3184049072119473989, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1807824472}
   m_SourcePrefab: {fileID: 100100000, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
 --- !u!1001 &6084129863058939241
 PrefabInstance:
