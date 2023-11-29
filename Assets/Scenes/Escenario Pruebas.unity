@@ -14391,27 +14391,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.566977
+      value: -32.29
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40578365
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.485895
+      value: 11.78
       objectReference: {fileID: 0}
     - target: {fileID: 8272943599223628453, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16922,7 +16922,8 @@ PrefabInstance:
       value: Duende
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2927116055162956494, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad83ac6fbf2b0444be3b44b1a3d0e26, type: 3}
@@ -40881,186 +40882,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
   m_PrefabInstance: {fileID: 204729257}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3306796374097967327
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -1047472510039900908, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: panelDialogo
-      value: 
-      objectReference: {fileID: 2012851519}
-    - target: {fileID: -1047472510039900908, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: textoDialogo
-      value: 
-      objectReference: {fileID: 322420284}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.492
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.382
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2244588558968642589, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6381606779737936039, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_Name
-      value: Sifo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969391516083087855, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969391516083087855, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6381606779737936039, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3306796374097967329}
-    - targetCorrespondingSourceObject: {fileID: 6381606779737936039, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3306796374097967330}
-  m_SourcePrefab: {fileID: 100100000, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
---- !u!1 &3306796374097967328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6381606779737936039, guid: 55f3870e7d9bc85459505b9546e95c44, type: 3}
-  m_PrefabInstance: {fileID: 3306796374097967327}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &3306796374097967329
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3306796374097967328}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 2, z: 6}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3306796374097967330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3306796374097967328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd090ea02535a45428f45fd41872083f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelDialogo: {fileID: 2012851519}
-  spritePersonaje: {fileID: 356221050}
-  textoDialogo: {fileID: 322420284}
-  textoPresiona: {fileID: 1440301393}
-  imagenSifo: {fileID: 356221050}
-  imagenAmy: {fileID: 1862405580}
-  lineasDialogo:
-  - "Amy: Ho...Hola..., perdona, \xBFPodr\xEDas ayudarme a salir de este bosque? "
-  - "Sifo: \xA1Oh vaya! \xBFQu\xE9 hace una ni\xF1a como t\xFA en este bosque? "
-  - "Amy: Pues lo \xFAltimo que recuerdo es que hab\xEDa mucho fuego en mi casa y
-    tuve que salir corriendo en direcci\xF3n al bosque..."
-  - "Amy: ...anduve y anduve y al final no sab\xEDa por d\xF3nde hab\xEDa venido. "
-  - "Sifo: Oh, lo siento mucho, mira hagamos una cosa, si me ayudas te har\xE9 un
-    regalo que podr\xEDa serte \xFAtil en tu regreso. "
-  - "Amy: De acuerdo, \xBFC\xF3mo te llamas? "
-  - 'Sifo: Mi nombre es Sifo, un gusto, un placer. '
-  - "Amy: Encantada, yo me llamo Amy \xBFDe qu\xE9 se trata? "
-  - 'Sifo: Pues estoy intentando abrir esta puerta ancestral...'
-  - "Sifo: ...si pudiera resolver este enigma, me convertir\xEDa en el esp\xEDritu
-    m\xE1s poderoso del bosque y as\xED podr\xEDa vengarme del traicionero duende
-    Puck \xBFPodr\xEDas ayudarme a abrirlo? "
-  - "Amy: \xA1Por supuesto, estar\xE9 encantada de ayudarte! \xBFDe qu\xE9 trata
-    el enigma?"
-  - "Sifo: \xBFVes aquella torre lejana con los aros?"
-  - "Amy: \xA1S\xED!"
-  - "Sifo: Pues, el enigma trata de llevar los aros de esa torre hasta esta 3\xAA
-    torre, la m\xE1s cercana a nosotros..."
-  - "Sifo: ...de tal forma que queden colocados: el m\xE1s grande abajo del todo,
-    el mediano encima del grande y el peque\xF1o encima del mediano..."
-  - 'Sifo: ...Pero no va a ser sencillo...'
-  - "Sifo: ...ya que solo podr\xE1s llevar 1 aro a la vez y, adem\xE1s, no podr\xE1s
-    meter un aro m\xE1s grande en una torre si esta torre tiene otro aro m\xE1s peque\xF1o
-    del que intentas meter..."
-  - "Sifo: ...As\xED que, \xA1ten cuidado!..."
-  - "Sifo: ...\xBFLo has entendido?"
-  - "Amy: \xA1Entendido!"
-  - "Sifo: Cuando termines con este primer enigma, ven a hablar conmigo que te dar\xE9
-    el regalo..."
-  - "Sifo: ...Te ser\xE1 de mucha ayuda para salir de este bosque."
-  - "Amy: \xA1Genial!"
-  dialogoDespuesDeResuelto:
-  - "Sifo: Muchas gracias Amy, como muestra de gratitud, toma\u2026"
-  - "Ten \u201Cobjeto necesario para abrir la puerta final\u201D"
-  - 'Sifo: Ten mucho cuidado en este tenebroso bosque... '
-  - "Sifo: Hay muchas criaturas peligrosas. \xA1No confies en nadie!"
-  tiempoEntreLetras: 0.05
-  itemRecompensa: {fileID: 642276922}
-  almacen: {fileID: 1998041209}
-  inventory: {fileID: 122471522}
-  player: {fileID: 1036416852}
-  sifo: {fileID: 3306796374097967328}
 --- !u!1001 &3675537704366995090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41412,7 +41233,6 @@ SceneRoots:
   - {fileID: 331031347}
   - {fileID: 3675537704366995090}
   - {fileID: 128121802}
-  - {fileID: 3306796374097967327}
   - {fileID: 139213569}
   - {fileID: 417134082}
   - {fileID: 601500863}
