@@ -30,9 +30,9 @@ public class Item : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && sujeto == false)
+        if (other.CompareTag("Brazo") && sujeto == false)
         {
             inventory.clickes.SetActive(true);
             jugadorEnContacto = true;
@@ -41,8 +41,11 @@ public class Item : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        jugadorEnContacto = false;
-        inventory.clickes.SetActive(false);
+        if (other.CompareTag("Brazo"))
+        {
+            jugadorEnContacto = false;
+            inventory.clickes.SetActive(false);
+        }
     }
 
 }

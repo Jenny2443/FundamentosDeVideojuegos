@@ -96,7 +96,7 @@ public class Torres_hanoi : MonoBehaviour
     //Usar un objeto con f o clickar para cogerlo
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Brazo"))
         {
             if (SP != 0 && !almacen.discoCogido)
                 inventory.clickes.SetActive(true);

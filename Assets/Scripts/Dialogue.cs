@@ -206,8 +206,8 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("Player"))
+    private void OnTriggerStay(Collider other){
+        if (other.CompareTag("Brazo"))
         {
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
@@ -215,7 +215,7 @@ public class Dialogue : MonoBehaviour
         }
     }
     private void OnTriggerExit(Collider other){
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Brazo"))
         {
             estaEnRango = false;
             Debug.Log("No se puede iniciar un dialogo");

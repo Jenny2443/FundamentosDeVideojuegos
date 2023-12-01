@@ -71,10 +71,10 @@ public class ColocarPiezas1 : MonoBehaviour
     }
 
     // Método que se ejecuta cuando el jugador entra en el rango de la ranura
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         // Si el jugador colisiona con una ranura
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Brazo"))
         {
             enRango = true;
             if (!unaPiezaColocada)
@@ -88,7 +88,7 @@ public class ColocarPiezas1 : MonoBehaviour
     // Método que se ejecuta cuando el jugador sale del rango de la ranura
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Brazo"))
         {
             // El jugador sale del rango, desactivar el mensaje de presionar F
             enRango = false;
