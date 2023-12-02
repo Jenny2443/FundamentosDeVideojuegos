@@ -16,8 +16,7 @@ public class VariablesGlobales : MonoBehaviour
         discoCogido = false;
         torresResuelto = false;
         monedaCogida = false;
-        recoleccionAutomatica = false;
-        DontDestroyOnLoad(transform.gameObject);
+        recoleccionAutomatica = PlayerPrefs.GetInt("autoRecolect") == 2;
     }
 
     // Update is called once per frame

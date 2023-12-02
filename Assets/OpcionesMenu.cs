@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class OpcionesMenu : MonoBehaviour
 {
-    public VariablesGlobales almacen;
     public GameObject recolAutoActivada;
     public GameObject recolAutoDesactivada;
 
@@ -16,8 +15,19 @@ public class OpcionesMenu : MonoBehaviour
     {
         recolAutoActivada = GameObject.FindGameObjectWithTag("ActivadaRecAuto");
         recolAutoDesactivada = GameObject.FindGameObjectWithTag("DesactivadaRecAuto");
-        recolAutoActivada.SetActive(false);
-        recolAutoDesactivada.SetActive(true);
+
+        bool autoRec = PlayerPrefs.GetInt("autoRecolect") == 2;
+
+        if(autoRec)
+        {
+            recolAutoActivada.SetActive(true);
+            recolAutoDesactivada.SetActive(false);
+        }
+        else
+        {
+            recolAutoActivada.SetActive(false);
+            recolAutoDesactivada.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -27,13 +37,13 @@ public class OpcionesMenu : MonoBehaviour
     }
 
     public void ActivarAuto(){
-        almacen.recoleccionAutomatica = true;
+        PlayerPrefs.SetInt("autoRecolect", 2);
         recolAutoActivada.SetActive(true);
         recolAutoDesactivada.SetActive(false);
     }
 
     public void DesactivarAuto(){
-        almacen.recoleccionAutomatica = false;
+        PlayerPrefs.SetInt("autoRecolect", 0);
         recolAutoActivada.SetActive(false);
         recolAutoDesactivada.SetActive(true);
     }
