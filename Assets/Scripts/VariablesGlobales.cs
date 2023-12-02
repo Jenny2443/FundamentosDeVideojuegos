@@ -9,12 +9,15 @@ public class VariablesGlobales : MonoBehaviour
     public bool torresResuelto; //Varible global para saber que se ha resuelto las torres de hanoi 
     // Start is called before the first frame update
     public bool monedaCogida;
+    public bool recoleccionAutomatica;
 
     void Start()
     {
         discoCogido = false;
         torresResuelto = false;
         monedaCogida = false;
+        recoleccionAutomatica = false;
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     // Update is called once per frame
