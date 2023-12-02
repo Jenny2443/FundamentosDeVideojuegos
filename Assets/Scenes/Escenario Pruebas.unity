@@ -7913,7 +7913,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &332254788
 Rigidbody:
@@ -11766,7 +11766,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: -0.000000059604645}
 --- !u!54 &557464264
 Rigidbody:
@@ -15203,7 +15203,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0.0000000018626451, z: 0}
 --- !u!114 &709160121 stripped
 MonoBehaviour:
@@ -41333,6 +41333,10 @@ PrefabInstance:
     - target: {fileID: 3184049072119473989, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
       propertyPath: m_TagString
       value: Recompensa2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983221320812571746, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7345426273466560543, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
       propertyPath: itemIcon
