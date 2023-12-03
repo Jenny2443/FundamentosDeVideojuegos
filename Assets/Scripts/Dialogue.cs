@@ -49,9 +49,13 @@ public class Dialogue : MonoBehaviour
 
     public GameObject player;
     public GameObject sifo;
-  
 
+
+    //Variables para comprobar si estamos esperando respuesta del jugador
+    private bool esperandoRespuesta = false;
+    
     void Update(){
+        //Comprobamos si esta en rango para que sifo se gire hacia el jugador
         if (estaEnRango)
         {
             // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
@@ -63,10 +67,12 @@ public class Dialogue : MonoBehaviour
             // Aplica la rotación a sifo
             sifo.transform.rotation = rotacionDeseada;   
         }
-     
         //almacen.torresResuelto = false;
-        // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
-        if (estaEnRango && Input.GetKeyDown(KeyCode.F))
+        
+        // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo y
+        // no se esta esperando respuesta del jugador
+        
+        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
             if (!dialogoEmpezado && !almacen.torresResuelto)
             {
@@ -94,6 +100,24 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 textoDialogo.text = dialogoDespuesDeResuelto[indice2];
             }
+        }else if (esperandoRespuesta)
+        {
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                Debug.Log("Ha presionado Y");
+                esperandoRespuesta = false;
+                // Continúa con el flujo normal del diálogo (línea 19)
+                SiguienteLinea();
+            }
+            else if (Input.GetKeyDown(KeyCode.N))
+            {
+                Debug.Log("Ha presionado N");
+                esperandoRespuesta = false;
+                // Vuelve a la línea del diálogo 13
+                indice = 12;
+                // Continúa con el flujo normal del diálogo (línea 13) para que repita las reglas
+                SiguienteLinea();
+            }
         }
     }
 
@@ -107,6 +131,7 @@ public class Dialogue : MonoBehaviour
         // Activar el sprite del personaje
         //spritePersonaje.SetActive(true);
 
+        //Comprobamos el personaje que va a hablar
         if (!dialogoSifo1Terminado)
         {
             personajeActual = imagenAmy;
@@ -115,12 +140,12 @@ public class Dialogue : MonoBehaviour
         {
             personajeActual = imagenSifo;
         }
-        
-       
+        //Activamos su imagen
         personajeActual.SetActive(true);
         // Indice a 0
         indice = 0;
         indice2 = 0;
+        esperandoRespuesta = false;
         // Escala de tiempo a 0 para evitar movimiento del jugador
         Time.timeScale = 0f;
         // Bloquear la camara cuando se inicia un dialogo
@@ -129,7 +154,7 @@ public class Dialogue : MonoBehaviour
         StartCoroutine(MostrarLinea());
     }
 
-    private void SiguienteLinea(){      
+    private void SiguienteLinea(){
         if (!almacen.torresResuelto){
             indice++;
         }else{
@@ -137,6 +162,13 @@ public class Dialogue : MonoBehaviour
             indice2 = terminado ? indice2: indice2 + 1;
         }
 
+        //Comprobamos si es la linea con la pregunta
+        if (indice == 19)  
+        {
+            esperandoRespuesta = true;
+            return;  // Detiene el flujo normal del diálogo
+        }
+        
         if (indice < lineasDialogo.Length && !almacen.torresResuelto)
         {
             personajeActual.SetActive(false);
@@ -169,6 +201,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //Funcion auxiliar para comprobar quien es el que habla en el dialogo
     private void checkPersonajeActual()
     {
         if(indiceCambioPersonajesDialogoSifo1 == 2 || indiceCambioPersonajesDialogoSifo1 == 3 || indiceCambioPersonajesDialogoSifo1 == 5 || indiceCambioPersonajesDialogoSifo1 == 7 || 
