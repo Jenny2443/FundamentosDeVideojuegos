@@ -9,6 +9,8 @@ public class OpcionesMenu : MonoBehaviour
 {
     public GameObject recolAutoActivada;
     public GameObject recolAutoDesactivada;
+    public GameObject saltarMecanicasActivada;
+    public GameObject saltarMecanicasDesactivada;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +18,13 @@ public class OpcionesMenu : MonoBehaviour
         recolAutoActivada = GameObject.FindGameObjectWithTag("ActivadaRecAuto");
         recolAutoDesactivada = GameObject.FindGameObjectWithTag("DesactivadaRecAuto");
 
-        bool autoRec = PlayerPrefs.GetInt("autoRecolect") == 2;
+        saltarMecanicasActivada = GameObject.FindGameObjectWithTag("ActivadaSkipMec");
+        saltarMecanicasDesactivada = GameObject.FindGameObjectWithTag("DesactivadaSkipMec");
 
-        if(autoRec)
+        bool autoRec = PlayerPrefs.GetInt("autoRecolect") == 2;
+        bool skipMec = PlayerPrefs.GetInt("skipMechanics") == 3;
+
+        if (autoRec)
         {
             recolAutoActivada.SetActive(true);
             recolAutoDesactivada.SetActive(false);
@@ -27,6 +33,16 @@ public class OpcionesMenu : MonoBehaviour
         {
             recolAutoActivada.SetActive(false);
             recolAutoDesactivada.SetActive(true);
+        }
+
+        if (skipMec)
+        {
+            saltarMecanicasActivada.SetActive(true);
+            saltarMecanicasDesactivada.SetActive(false);
+        }
+        else{
+            saltarMecanicasDesactivada.SetActive(false);
+            saltarMecanicasActivada.SetActive(true);
         }
     }
 
@@ -46,6 +62,20 @@ public class OpcionesMenu : MonoBehaviour
         PlayerPrefs.SetInt("autoRecolect", 0);
         recolAutoActivada.SetActive(false);
         recolAutoDesactivada.SetActive(true);
+    }
+
+    public void ActivarSkip()
+    {
+        PlayerPrefs.SetInt("skipMechanics", 3);
+        saltarMecanicasDesactivada.SetActive(false);
+        saltarMecanicasActivada.SetActive(true);
+    }
+
+    public void DesactivarSkip()
+    {
+        PlayerPrefs.SetInt("skipMechanics", 0);
+        saltarMecanicasDesactivada.SetActive(true);
+        saltarMecanicasActivada.SetActive(false);
     }
 
     public void atras(){

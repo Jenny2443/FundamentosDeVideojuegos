@@ -19,6 +19,10 @@ TagManager:
   - Recompensa3
   - Roca
   - Brazo
+  - DesactivadaRecAuto
+  - ActivadaRecAuto
+  - ActivadaSkipMec
+  - DesactivadaSkipMec
   layers:
   - Default
   - TransparentFX
