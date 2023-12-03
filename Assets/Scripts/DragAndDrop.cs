@@ -10,6 +10,12 @@ public class DragAndDrop : MonoBehaviour
     // Variable para saber si se está arrastrando
     private bool isDragging = false;
 
+
+    private bool firstDrag = true;
+    private bool moverEjeX = false;
+    private bool moverEjeY = false;
+    private bool atascado = false;
+
     void OnMouseDown()
     {
         // Obtener la posición inicial del objeto en la pantalla y configurar variables para el arrastre
@@ -29,11 +35,25 @@ public class DragAndDrop : MonoBehaviour
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
         // Limitar el movimiento a horizontal o vertical
-        if (Mathf.Abs(posInicial.x - curPosition.x) > Mathf.Abs(posInicial.y - curPosition.y))
+        if (firstDrag)
+        {
+            if (Mathf.Abs(posInicial.x - curPosition.x) > Mathf.Abs(posInicial.y - curPosition.y))
+            {
+                curPosition.y = posInicial.y;
+                moverEjeX = true;
+            }
+            else if (Mathf.Abs(posInicial.x - curPosition.x) < Mathf.Abs(posInicial.y - curPosition.y))
+            {
+                curPosition.x = posInicial.x;
+                moverEjeY = true;
+            }
+            firstDrag = false;
+        }
+        if (!firstDrag && moverEjeX)
         {
             curPosition.y = posInicial.y;
         }
-        else
+        else if (!firstDrag && moverEjeY)
         {
             curPosition.x = posInicial.x;
         }
@@ -58,7 +78,7 @@ public class DragAndDrop : MonoBehaviour
                     rb.AddForce(new Vector2(oppositeForce.x, oppositeForce.y) * 5f, ForceMode2D.Impulse);
                     Debug.Log("webo");
                 }
-
+                atascado = true;
                 Debug.Log("contacto");
                 return;
             }
@@ -68,12 +88,21 @@ public class DragAndDrop : MonoBehaviour
 
 
         // Alinear posición solo en los ejes X o Y para evitar movimiento diagonal
-        transform.position = new Vector3(curPosition.x, curPosition.y, transform.position.z);
+        if (!atascado)
+        {
+            transform.position = new Vector3(curPosition.x, curPosition.y, transform.position.z);
+        }
     }
 
     void OnMouseUp()
     {
         // Finalizar el arrastre cuando se suelta el mouse
         isDragging = false;
+
+
+        firstDrag = true;
+        moverEjeX = false;
+        moverEjeY = false;
+        atascado = false;
     }
 }
