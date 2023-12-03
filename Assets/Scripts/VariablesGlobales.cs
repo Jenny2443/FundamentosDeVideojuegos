@@ -11,11 +11,14 @@ public class VariablesGlobales : MonoBehaviour
     public bool monedaCogida;
     public bool recoleccionAutomatica;
 
+    public bool cameraLocked;
+
     void Start()
     {
         discoCogido = false;
         torresResuelto = false;
         monedaCogida = false;
+        cameraLocked = false;
         recoleccionAutomatica = PlayerPrefs.GetInt("autoRecolect") == 2;
     }
 

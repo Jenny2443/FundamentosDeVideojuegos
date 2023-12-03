@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3549,6 +3549,7 @@ MonoBehaviour:
   menuOpciones: {fileID: 793245375}
   recolAutoActivadaPausa: {fileID: 1744941845}
   recolAutoDesactivadaPausa: {fileID: 141243664}
+  almacen: {fileID: 1998041209}
 --- !u!114 &135066336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41401,6 +41402,7 @@ MonoBehaviour:
   torresResuelto: 0
   monedaCogida: 0
   recoleccionAutomatica: 0
+  cameraLocked: 0
 --- !u!4 &1998041210
 Transform:
   m_ObjectHideFlags: 0
@@ -43658,6 +43660,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2604051644940406188, guid: fd7b562c9e06745e1a0e1e223b41b6b4, type: 3}
+      propertyPath: almacen
+      value: 
+      objectReference: {fileID: 1998041209}
     - target: {fileID: 3448757943264607440, guid: fd7b562c9e06745e1a0e1e223b41b6b4, type: 3}
       propertyPath: movementSpeed
       value: 6
