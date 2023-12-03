@@ -16,6 +16,8 @@ public class DragAndDrop : MonoBehaviour
     private bool moverEjeY = false;
     private bool atascado = false;
 
+    private GameObject chocoContigo = null;
+
     void OnMouseDown()
     {
         // Obtener la posición inicial del objeto en la pantalla y configurar variables para el arrastre
@@ -37,25 +39,30 @@ public class DragAndDrop : MonoBehaviour
         // Limitar el movimiento a horizontal o vertical
         if (firstDrag)
         {
+            Debug.Log("Primer toque----------------------------");
             if (Mathf.Abs(posInicial.x - curPosition.x) > Mathf.Abs(posInicial.y - curPosition.y))
             {
                 curPosition.y = posInicial.y;
                 moverEjeX = true;
+                firstDrag = false;
             }
             else if (Mathf.Abs(posInicial.x - curPosition.x) < Mathf.Abs(posInicial.y - curPosition.y))
             {
                 curPosition.x = posInicial.x;
                 moverEjeY = true;
+                firstDrag = false;
             }
-            firstDrag = false;
+            
         }
         if (!firstDrag && moverEjeX)
         {
             curPosition.y = posInicial.y;
+            Debug.Log("Aqui mi rey, no mover YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
         }
         else if (!firstDrag && moverEjeY)
         {
             curPosition.x = posInicial.x;
+            Debug.Log("Aqui mi rey, no mover XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         }
 
         // Detectar colisiones con otros objetos
@@ -78,11 +85,26 @@ public class DragAndDrop : MonoBehaviour
                     rb.AddForce(new Vector2(oppositeForce.x, oppositeForce.y) * 5f, ForceMode2D.Impulse);
                     Debug.Log("webo");
                 }
-                atascado = true;
+
+                if (!atascado)
+                {
+                    atascado = true;
+                    chocoContigo = collider.gameObject;
+                    Debug.Log("Me he chocadoooooooooooooooo");
+                }
+
                 Debug.Log("contacto");
+
+                
                 return;
             }
             Debug.Log("wabo");
+            if (chocoContigo != null && !GameObject.ReferenceEquals(chocoContigo, collider.gameObject))
+            {
+                chocoContigo = collider.gameObject;
+                atascado = false;
+                Debug.Log("Me he liberadddddddddddddddddddddddddddddddo");
+            }
         }
         // Mover la ficha exactamente una posicion, definida por un tamaño en f
 
