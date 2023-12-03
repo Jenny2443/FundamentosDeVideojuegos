@@ -41,8 +41,8 @@ public class OpcionesMenu : MonoBehaviour
             saltarMecanicasDesactivada.SetActive(false);
         }
         else{
-            saltarMecanicasDesactivada.SetActive(false);
-            saltarMecanicasActivada.SetActive(true);
+            saltarMecanicasActivada.SetActive(false);
+            saltarMecanicasDesactivada.SetActive(true);
         }
     }
 

@@ -10,15 +10,19 @@ public class MenuPausa : MonoBehaviour
 
     public GameObject recolAutoActivadaPausa;
     public GameObject recolAutoDesactivadaPausa;
+    public GameObject saltarMecanicasActivada;
+    public GameObject saltarMecanicasDesactivada;
     public VariablesGlobales almacen;
     
+
     private bool juegoPausado = false;
 
     private void Start(){
 
         bool autoRec = PlayerPrefs.GetInt("autoRecolect") == 2;
+        bool skipMec = PlayerPrefs.GetInt("skipMechanics") == 3;
 
-        if(autoRec)
+        if (autoRec)
         {
             recolAutoActivadaPausa.SetActive(true);
             recolAutoDesactivadaPausa.SetActive(false);
@@ -27,6 +31,17 @@ public class MenuPausa : MonoBehaviour
         {
             recolAutoActivadaPausa.SetActive(false);
             recolAutoDesactivadaPausa.SetActive(true);
+        }
+
+        if (skipMec)
+        {
+            saltarMecanicasActivada.SetActive(true);
+            saltarMecanicasDesactivada.SetActive(false);
+        }
+        else
+        {
+            saltarMecanicasActivada.SetActive(false);
+            saltarMecanicasDesactivada.SetActive(true);
         }
     }
 
@@ -90,5 +105,21 @@ public class MenuPausa : MonoBehaviour
         PlayerPrefs.SetInt("autoRecolect", 0);
         recolAutoActivadaPausa.SetActive(false);
         recolAutoDesactivadaPausa.SetActive(true);
+    }
+
+    public void ActivarSkip()
+    {
+        Debug.Log("Activar");
+        PlayerPrefs.SetInt("skipMechanics", 3);
+        saltarMecanicasDesactivada.SetActive(false);
+        saltarMecanicasActivada.SetActive(true);
+    }
+
+    public void DesactivarSkip()
+    {
+        Debug.Log("Desactivar");
+        PlayerPrefs.SetInt("skipMechanics", 0);
+        saltarMecanicasDesactivada.SetActive(true);
+        saltarMecanicasActivada.SetActive(false);
     }
 }
