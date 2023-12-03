@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3545,7 +3545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859329a6880c08243bcf7422386c9e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botonPausa: {fileID: 0}
   menuPausa: {fileID: 198800788}
   menuOpciones: {fileID: 793245375}
   recolAutoActivadaPausa: {fileID: 1744941845}
@@ -13911,7 +13910,7 @@ MonoBehaviour:
   lineasDialogo:
   - "???: Pst pst, hey ni\xF1a, escucha el trato que voy a ofrecerte"
   - "Amy: Uy no s\xE9 si fiarme de ti, \xBFQui\xE9n eres?"
-  - "Puck: Mi nombre es Puck y soy el duende m\xE1s amigable del bosque."
+  - "???: Mi nombre es Puck y soy el duende m\xE1s amigable del bosque."
   - "Amy: El esp\xEDritu Sifo me dijo que no me fiase de nadie."
   - "Puck: Todos hablan de m\xED sin saber mi biograf\xEDa, una vez me equivoqu\xE9
     por avaricioso y traicion\xE9 a un amigo. "
@@ -40378,7 +40377,7 @@ MonoBehaviour:
   - "???: Oh, lo siento mucho, mira hagamos una cosa, si me ayudas te har\xE9 un
     regalo que podr\xEDa serte \xFAtil en tu regreso. "
   - "Amy: De acuerdo, \xBFC\xF3mo te llamas? "
-  - 'Sifo: Mi nombre es Sifo, un gusto, un placer. '
+  - '???: Mi nombre es Sifo, un gusto, un placer. '
   - "Amy: Encantada, yo me llamo Amy \xBFDe qu\xE9 se trata? "
   - 'Sifo: Pues estoy intentando abrir esta puerta ancestral...'
   - "Sifo: ...si pudiera resolver este enigma, me convertir\xEDa en el esp\xEDritu
