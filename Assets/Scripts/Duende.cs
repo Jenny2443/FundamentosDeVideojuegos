@@ -108,6 +108,7 @@ public class Duende : MonoBehaviour
                 Debug.Log("Ha presionado Y");
                 esperandoRespuesta = false;
                 indice = 9;
+                indiceCambioPersonajesDialogoPuck = 10;
                 SiguienteLinea();
             }
         }
@@ -173,6 +174,7 @@ public class Duende : MonoBehaviour
             if (indice == 11)
             {
                 esperandoRespuesta = true;
+                return;
             }
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.monedaCogida){
             personajeActual.SetActive(false);

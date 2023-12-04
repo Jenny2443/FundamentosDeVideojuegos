@@ -120,6 +120,7 @@ public class Dialogue : MonoBehaviour
                 esperandoRespuesta = false;
                 // Vuelve a la línea del diálogo 13
                 indice = 12;
+                indiceCambioPersonajesDialogoSifo1 = 13;
                 // Continúa con el flujo normal del diálogo (línea 13) para que repita las reglas
                 SiguienteLinea();
             }
@@ -181,12 +182,12 @@ public class Dialogue : MonoBehaviour
             indice2 = terminado ? indice2: indice2 + 1;
         }
 
-        //Comprobamos si es la linea con la pregunta
-        if (indice == 19)  
-        {
-            esperandoRespuesta = true;
-            return;  // Detiene el flujo normal del diálogo
-        }
+        // //Comprobamos si es la linea con la pregunta
+        // if (indice == 19)  
+        // {
+        //     esperandoRespuesta = true;
+        //     return;  // Detiene el flujo normal del diálogo
+        // }
         
         if (indice < lineasDialogo.Length && !almacen.torresResuelto)
         {
@@ -197,6 +198,11 @@ public class Dialogue : MonoBehaviour
             personajeActual.SetActive(true);
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
+            if (indice == 18)
+            {
+                esperandoRespuesta = true;
+                return;  // Detiene el flujo normal del diálogo
+            }
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
