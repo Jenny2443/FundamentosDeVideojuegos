@@ -55,6 +55,9 @@ public class Dialogue : MonoBehaviour
     private bool esperandoRespuesta = false;
     
     void Update(){
+        
+        if(!almacen.cameraLocked){
+            
         //Comprobamos si esta en rango para que sifo se gire hacia el jugador
         if (estaEnRango)
         {
@@ -74,6 +77,8 @@ public class Dialogue : MonoBehaviour
         
         if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
+            panelDialogo.SetActive(true);
+            
             if (!dialogoEmpezado && !almacen.torresResuelto)
             {
                 textoPresiona.gameObject.SetActive(false);
@@ -118,6 +123,12 @@ public class Dialogue : MonoBehaviour
                 // Continúa con el flujo normal del diálogo (línea 13) para que repita las reglas
                 SiguienteLinea();
             }
+        }
+        } else {
+            panelDialogo.SetActive(false);
+            personajeActual.SetActive(false);
+            spritePersonaje.SetActive(false);
+            textoPresiona.gameObject.SetActive(false);
         }
     }
 
