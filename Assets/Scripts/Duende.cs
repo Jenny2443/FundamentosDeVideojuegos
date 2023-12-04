@@ -47,6 +47,10 @@ public class Duende : MonoBehaviour
     
     public GameObject player;
     public GameObject puck;
+    
+    //Variables para comprobar si estamos esperando respuesta del jugador
+    private bool esperandoRespuesta = false;
+
 
     void Update(){
         if(!almacen.cameraLocked){
@@ -65,7 +69,7 @@ public class Duende : MonoBehaviour
         }
         //almacen.monedaCogida = false;
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
-        if (estaEnRango && Input.GetKeyDown(KeyCode.F))
+        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
             panelDialogo.SetActive(true);
             if (!dialogoEmpezado && !almacen.monedaCogida)
@@ -93,6 +97,25 @@ public class Duende : MonoBehaviour
             } else {
                 StopAllCoroutines();
                 textoDialogo.text = dialogoDespuesDeResuelto[indice2];
+            }
+        }else if (esperandoRespuesta)
+        {
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                Debug.Log("Ha presionado N");
+                esperandoRespuesta = false;
+                indice = 11;
+                // Continúa con el flujo normal del diálogo (línea 12)
+                SiguienteLinea();
+            }
+            else if (Input.GetKeyDown(KeyCode.Y))
+            {
+                Debug.Log("Ha presionado Y");
+                esperandoRespuesta = false;
+                // Vuelve a la línea del diálogo 10
+                indice = 9;
+                // Continúa con el flujo normal del diálogo (línea 10) para que repita el acertijo
+                SiguienteLinea();
             }
         }
         } else {
@@ -140,6 +163,13 @@ public class Duende : MonoBehaviour
             terminado = indice2 == dialogoDespuesDeResuelto.Length;
             indice2 = terminado ? indice2: indice2 + 1;
         }
+        if (indice == 12)
+        {
+            esperandoRespuesta = true;
+            return;
+        }
+        Debug.Log("Indice: " + indice);
+        Debug.Log("Lineas dialogo length: " + lineasDialogo.Length);
 
         if (indice < lineasDialogo.Length && !almacen.monedaCogida)
         {
@@ -175,7 +205,7 @@ public class Duende : MonoBehaviour
     private void checkPersonajeActual()
     {
         if(indiceCambioPersonajesDialogoPuck == 1 || indiceCambioPersonajesDialogoPuck == 3 || indiceCambioPersonajesDialogoPuck == 6 || indiceCambioPersonajesDialogoPuck == 8 || 
-           indiceCambioPersonajesDialogoPuck == 11)
+           indiceCambioPersonajesDialogoPuck == 12)
         {
             personajeActual = imagenAmy;
         }
@@ -184,7 +214,7 @@ public class Duende : MonoBehaviour
             personajeActual = imagenPuck;
         }
 
-        Debug.Log("Personaje actual cambiado a: " + personajeActual);
+        Debug.Log("Personaje actual cambiado a: " + personajeActual + "por indice: " + indiceCambioPersonajesDialogoPuck);
         indiceCambioPersonajesDialogoPuck++;
     }
 
