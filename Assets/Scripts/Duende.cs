@@ -54,8 +54,6 @@ public class Duende : MonoBehaviour
 
     void Update(){
         if(!almacen.cameraLocked){
-          
-
         if (estaEnRango)
         {
             // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
@@ -104,17 +102,12 @@ public class Duende : MonoBehaviour
             {
                 Debug.Log("Ha presionado N");
                 esperandoRespuesta = false;
-                indice = 11;
-                // Continúa con el flujo normal del diálogo (línea 12)
                 SiguienteLinea();
-            }
-            else if (Input.GetKeyDown(KeyCode.Y))
+            }else if (Input.GetKeyDown(KeyCode.Y))
             {
                 Debug.Log("Ha presionado Y");
                 esperandoRespuesta = false;
-                // Vuelve a la línea del diálogo 10
                 indice = 9;
-                // Continúa con el flujo normal del diálogo (línea 10) para que repita el acertijo
                 SiguienteLinea();
             }
         }
@@ -150,6 +143,8 @@ public class Duende : MonoBehaviour
         indice2 = 0;
         // Escala de tiempo a 0 para evitar movimiento del jugador
         Time.timeScale = 0f;
+
+        esperandoRespuesta = false;
         // Bloquear la camara cuando se inicia un dialogo
         GameObject.Find("Player").GetComponent<FPSCamera>().enabled = false;
         // Iniciar la corrutina para mostrar el texto letra por letra
@@ -163,11 +158,8 @@ public class Duende : MonoBehaviour
             terminado = indice2 == dialogoDespuesDeResuelto.Length;
             indice2 = terminado ? indice2: indice2 + 1;
         }
-        if (indice == 12)
-        {
-            esperandoRespuesta = true;
-            return;
-        }
+        
+ 
         Debug.Log("Indice: " + indice);
         Debug.Log("Lineas dialogo length: " + lineasDialogo.Length);
 
@@ -178,6 +170,10 @@ public class Duende : MonoBehaviour
             personajeActual.SetActive(true);
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
+            if (indice == 11)
+            {
+                esperandoRespuesta = true;
+            }
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.monedaCogida){
             personajeActual.SetActive(false);
             checkPersonajeActualResuelto();
