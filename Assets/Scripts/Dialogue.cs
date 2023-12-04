@@ -125,10 +125,18 @@ public class Dialogue : MonoBehaviour
             }
         }
         } else {
-            panelDialogo.SetActive(false);
-            personajeActual.SetActive(false);
-            spritePersonaje.SetActive(false);
-            textoPresiona.gameObject.SetActive(false);
+            if(panelDialogo != null){
+                panelDialogo.SetActive(false);
+            }
+            if(personajeActual != null){
+                personajeActual.SetActive(false);
+            }
+            if(spritePersonaje != null){
+                spritePersonaje.SetActive(false);
+            }
+            if(textoPresiona != null){
+                textoPresiona.gameObject.SetActive(false);
+            }
         }
     }
 

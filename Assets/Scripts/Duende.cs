@@ -49,6 +49,9 @@ public class Duende : MonoBehaviour
     public GameObject puck;
 
     void Update(){
+        if(!almacen.cameraLocked){
+          
+
         if (estaEnRango)
         {
             // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
@@ -64,6 +67,7 @@ public class Duende : MonoBehaviour
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F))
         {
+            panelDialogo.SetActive(true);
             if (!dialogoEmpezado && !almacen.monedaCogida)
             {
                 textoPresiona.gameObject.SetActive(false);
@@ -89,6 +93,20 @@ public class Duende : MonoBehaviour
             } else {
                 StopAllCoroutines();
                 textoDialogo.text = dialogoDespuesDeResuelto[indice2];
+            }
+        }
+        } else {
+            if(panelDialogo != null){
+                panelDialogo.SetActive(false);
+            }
+            if(personajeActual != null){
+                personajeActual.SetActive(false);
+            }
+            if(spritePersonaje != null){
+                spritePersonaje.SetActive(false);
+            }
+            if(textoPresiona != null){
+                textoPresiona.gameObject.SetActive(false);
             }
         }
     }
