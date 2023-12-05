@@ -46,7 +46,7 @@ public class MenuPausa : MonoBehaviour
     }
 
     private void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape) && !almacen.enDialogo){
             if(juegoPausado){
                 Reanudar();
             }else{
@@ -60,7 +60,6 @@ public class MenuPausa : MonoBehaviour
         menuPausa.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        almacen.cameraLocked = true;
     }
 
     public void Reanudar()
@@ -69,7 +68,6 @@ public class MenuPausa : MonoBehaviour
         menuPausa.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        almacen.cameraLocked = false;  
     }
 
     public void Reiniciar()

@@ -55,8 +55,6 @@ public class Dialogue : MonoBehaviour
     private bool esperandoRespuesta = false;
     
     void Update(){
-        
-        if(!almacen.cameraLocked){
             
         //Comprobamos si esta en rango para que sifo se gire hacia el jugador
         if (estaEnRango)
@@ -77,6 +75,7 @@ public class Dialogue : MonoBehaviour
 
         if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
+            almacen.enDialogo = true;
             panelDialogo.SetActive(true);
 
             if (!dialogoEmpezado && !almacen.torresResuelto)
@@ -132,20 +131,7 @@ public class Dialogue : MonoBehaviour
                 SiguienteLinea();
             }
         }
-        } else {
-            if(panelDialogo != null){
-                panelDialogo.SetActive(false);
-            }
-            if(personajeActual != null){
-                personajeActual.SetActive(false);
-            }
-            if(spritePersonaje != null){
-                spritePersonaje.SetActive(false);
-            }
-            if(textoPresiona != null){
-                textoPresiona.gameObject.SetActive(false);
-            }
-        }
+
     }
 
     public void EmpezarDialogo(){
@@ -220,6 +206,7 @@ public class Dialogue : MonoBehaviour
             spritePersonaje.SetActive(false);
             personajeActual.SetActive(false);
             dialogoSifo1Terminado = true;
+            almacen.enDialogo = false;
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo

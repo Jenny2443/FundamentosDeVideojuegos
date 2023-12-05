@@ -53,7 +53,7 @@ public class Duende : MonoBehaviour
 
 
     void Update(){
-        if(!almacen.cameraLocked){
+ 
         if (estaEnRango)
         {
             // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
@@ -69,6 +69,7 @@ public class Duende : MonoBehaviour
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
         if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
+            almacen.enDialogo = true;
             panelDialogo.SetActive(true);
             if (!dialogoEmpezado && !almacen.monedaCogida)
             {
@@ -112,20 +113,6 @@ public class Duende : MonoBehaviour
                 indiceCambioPersonajesDialogoPuck = 10;
                 StopAllCoroutines();
                 SiguienteLinea();
-            }
-        }
-        } else {
-            if(panelDialogo != null){
-                panelDialogo.SetActive(false);
-            }
-            if(personajeActual != null){
-                personajeActual.SetActive(false);
-            }
-            if(spritePersonaje != null){
-                spritePersonaje.SetActive(false);
-            }
-            if(textoPresiona != null){
-                textoPresiona.gameObject.SetActive(false);
             }
         }
     }
@@ -190,6 +177,7 @@ public class Duende : MonoBehaviour
             // Desactivar el sprite del personaje
             //spritePersonaje.SetActive(false);
             personajeActual.SetActive(false);
+            almacen.enDialogo = false;
             // Escala de tiempo a 1 para reanudar el movimiento del jugador
             Time.timeScale = 1f;
             // Desbloquear la camara cuando se finaliza un dialogo

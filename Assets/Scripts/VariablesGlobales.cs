@@ -10,14 +10,16 @@ public class VariablesGlobales : MonoBehaviour
     // Start is called before the first frame update
     public bool monedaCogida;
     public bool recoleccionAutomatica;
-
     public bool cameraLocked;
+
+    public bool enDialogo;
 
     void Start()
     {
         discoCogido = false;
         torresResuelto = false;
         monedaCogida = false;
+        enDialogo = false;
         cameraLocked = false;
         recoleccionAutomatica = PlayerPrefs.GetInt("autoRecolect") == 2;
     }
