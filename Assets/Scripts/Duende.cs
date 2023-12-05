@@ -102,6 +102,7 @@ public class Duende : MonoBehaviour
             {
                 Debug.Log("Ha presionado N");
                 esperandoRespuesta = false;
+                StopAllCoroutines();
                 SiguienteLinea();
             }else if (Input.GetKeyDown(KeyCode.Y))
             {
@@ -109,6 +110,7 @@ public class Duende : MonoBehaviour
                 esperandoRespuesta = false;
                 indice = 9;
                 indiceCambioPersonajesDialogoPuck = 10;
+                StopAllCoroutines();
                 SiguienteLinea();
             }
         }

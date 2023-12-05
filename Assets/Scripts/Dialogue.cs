@@ -74,34 +74,39 @@ public class Dialogue : MonoBehaviour
         
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo y
         // no se esta esperando respuesta del jugador
-        
+
         if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
         {
             panelDialogo.SetActive(true);
-            
+
             if (!dialogoEmpezado && !almacen.torresResuelto)
             {
                 textoPresiona.gameObject.SetActive(false);
                 // Iniciar diálogo
                 EmpezarDialogo();
             }
-            else if (!almacen.torresResuelto && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
-            { 
+            else if (!almacen.torresResuelto &&
+                     textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
+            {
                 SiguienteLinea();
             }
-            else if (!almacen.torresResuelto)// Adelantar líneas
+            else if (!almacen.torresResuelto) // Adelantar líneas
             {
                 StopAllCoroutines();
                 textoDialogo.text = lineasDialogo[indice]; // Se muestra la linea completa
             }
 
-            else if(!dialogoEmpezado && almacen.torresResuelto){
+            else if (!dialogoEmpezado && almacen.torresResuelto)
+            {
                 textoPresiona.gameObject.SetActive(false);
-                EmpezarDialogo();     
-            } 
-            else if (almacen.torresResuelto && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
+                EmpezarDialogo();
+            }
+            else if (almacen.torresResuelto && textoDialogo.text == dialogoDespuesDeResuelto[indice2])
+            {
                 SiguienteLinea();
-            } else {
+            }
+            else
+            {
                 StopAllCoroutines();
                 textoDialogo.text = dialogoDespuesDeResuelto[indice2];
             }
@@ -112,6 +117,7 @@ public class Dialogue : MonoBehaviour
                 Debug.Log("Ha presionado Y");
                 esperandoRespuesta = false;
                 // Continúa con el flujo normal del diálogo (línea 19)
+                StopAllCoroutines();
                 SiguienteLinea();
             }
             else if (Input.GetKeyDown(KeyCode.N))
@@ -122,6 +128,7 @@ public class Dialogue : MonoBehaviour
                 indice = 12;
                 indiceCambioPersonajesDialogoSifo1 = 13;
                 // Continúa con el flujo normal del diálogo (línea 13) para que repita las reglas
+                StopAllCoroutines();
                 SiguienteLinea();
             }
         }
@@ -196,13 +203,13 @@ public class Dialogue : MonoBehaviour
             checkPersonajeActual();
 
             personajeActual.SetActive(true);
-            // Iniciar la corrutina para mostrar el texto letra por letra
-            StartCoroutine(MostrarLinea());
             if (indice == 18)
             {
                 esperandoRespuesta = true;
-                return;  // Detiene el flujo normal del diálogo
+                //return;  // Detiene el flujo normal del diálogo
             }
+            // Iniciar la corrutina para mostrar el texto letra por letra
+            StartCoroutine(MostrarLinea());
         } else if (indice2 < dialogoDespuesDeResuelto.Length && almacen.torresResuelto){
             // Iniciar la corrutina para mostrar el texto letra por letra
             StartCoroutine(MostrarLinea());
