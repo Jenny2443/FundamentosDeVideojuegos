@@ -263,8 +263,24 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (PlayerPrefs.GetInt("autoRecolect") == 2 && other.CompareTag("Brazo")) {
+            estaEnRango = true;
+            EmpezarDialogo();
+            if (!almacen.cameraLocked)
+            {
+                textoPresiona.gameObject.SetActive(true);
+            }
+            else
+            {
+                textoPresiona.gameObject.SetActive(false);
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag("Brazo"))
+        if (PlayerPrefs.GetInt("autoRecolect") != 2 && other.CompareTag("Brazo"))
         {
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
