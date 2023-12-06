@@ -55,6 +55,10 @@ public class Dialogue : MonoBehaviour
     private bool esperandoRespuesta = false;
     
     void Update(){
+        if(almacen.cameraLocked){
+            textoPresiona.gameObject.SetActive(false);
+            }
+        if(!almacen.cameraLocked){
             
         //Comprobamos si esta en rango para que sifo se gire hacia el jugador
         if (estaEnRango)
@@ -130,6 +134,7 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 SiguienteLinea();
             }
+        }
         }
 
     }
@@ -263,7 +268,12 @@ public class Dialogue : MonoBehaviour
         {
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
-            textoPresiona.gameObject.SetActive(true);
+
+            if(!almacen.cameraLocked){
+                textoPresiona.gameObject.SetActive(true);
+            } else {
+                textoPresiona.gameObject.SetActive(false);
+            }
         }
     }
     private void OnTriggerExit(Collider other){

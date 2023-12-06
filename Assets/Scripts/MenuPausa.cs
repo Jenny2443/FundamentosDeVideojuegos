@@ -60,6 +60,7 @@ public class MenuPausa : MonoBehaviour
         menuPausa.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        almacen.cameraLocked = true;
     }
 
     public void Reanudar()
@@ -68,6 +69,7 @@ public class MenuPausa : MonoBehaviour
         menuPausa.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        almacen.cameraLocked = false;
     }
 
     public void Reiniciar()

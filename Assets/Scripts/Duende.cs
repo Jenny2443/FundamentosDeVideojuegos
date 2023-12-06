@@ -53,6 +53,10 @@ public class Duende : MonoBehaviour
 
 
     void Update(){
+        if(almacen.cameraLocked){
+            textoPresiona.gameObject.SetActive(false);
+            }
+        if(!almacen.cameraLocked){
  
         if (estaEnRango)
         {
@@ -114,6 +118,7 @@ public class Duende : MonoBehaviour
                 StopAllCoroutines();
                 SiguienteLinea();
             }
+        }
         }
     }
 
@@ -256,7 +261,11 @@ public class Duende : MonoBehaviour
             {
                 estaEnRango = true;
                 Debug.Log("Se puede iniciar un dialogo");
-                textoPresiona.gameObject.SetActive(true);
+                if(!almacen.cameraLocked){
+                    textoPresiona.gameObject.SetActive(true);
+                } else {
+                    textoPresiona.gameObject.SetActive(false);
+                }
             }
             if (other.CompareTag("Moneda"))
             {
