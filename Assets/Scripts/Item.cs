@@ -30,6 +30,18 @@ public class Item : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (PlayerPrefs.GetInt("autoRecolect") == 2)
+        {
+            if (other.CompareTag("Brazo") && !sujeto)
+            {
+                Debug.Log("Holasssss");
+                inventory.AddItem(this);
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Brazo") && sujeto == false)

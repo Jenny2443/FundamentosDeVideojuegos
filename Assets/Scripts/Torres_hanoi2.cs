@@ -49,13 +49,16 @@ public class Torres_hanoi2 : MonoBehaviour
     private int SP = 0;
 
     public bool jugadorEnContacto;
-    
+
+    //Ya no tengo claro que esta variable sea necesaria, pero tengo demasiado sueño para comrpobarlo
+    bool control = true;
+
     //Referencia a el mensaje de interfaz para presionar f
     [SerializeField] private TMP_Text textoPresiona;
 
     // Referencia al inventario
     public Inventory inventory;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,8 +76,47 @@ public class Torres_hanoi2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jugadorEnContacto)
+        if (jugadorEnContacto && PlayerPrefs.GetInt("autoRecolect") != 2)
         {
+            if (this.CompareTag("TorreFinal"))
+            {
+                if (estadoActual != 3)
+                    transicionar();
+            }
+            else
+            {
+                transicionar();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("autoRecolect") == 2 && control)
+        {
+            control = false;
+            Debug.Log("Tengo sueño");
+            int pos = inventory.contains("DiscoGrande");
+            if (pos != -1)
+            {
+                inventory.GetItem(pos);
+            }
+            else
+            {
+                pos = inventory.contains("DiscoMediano");
+                if (pos != -1)
+                {
+                    inventory.GetItem(pos);
+                }
+                else
+                {
+                    pos = inventory.contains("DiscoMediano");
+                    if (pos != -1)
+                    {
+                        inventory.GetItem(pos);
+                    }
+                }
+            }
             if (this.CompareTag("TorreFinal"))
             {
                 if (estadoActual != 3)
@@ -106,7 +148,7 @@ public class Torres_hanoi2 : MonoBehaviour
                 }
             if (getColumn() != -1)
             {
-                    textoPresiona.gameObject.SetActive(true);
+                textoPresiona.gameObject.SetActive(true);
             }
             jugadorEnContacto = true;
         }
@@ -116,9 +158,13 @@ public class Torres_hanoi2 : MonoBehaviour
     //entonces se actualiza la UI
     private void OnTriggerExit(Collider other)
     {
-        jugadorEnContacto = false;
-        inventory.clickes.SetActive(false);
-        textoPresiona.gameObject.SetActive(false);
+        if (other.CompareTag("Brazo"))
+        {
+            jugadorEnContacto = false;
+            inventory.clickes.SetActive(false);
+            textoPresiona.gameObject.SetActive(false);
+            control = true;
+        }
     }
 
 
@@ -131,7 +177,7 @@ public class Torres_hanoi2 : MonoBehaviour
         if (almacen.discoCogido)
             inventory.clickes.SetActive(false);
         int columna = -1;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || PlayerPrefs.GetInt("autoRecolect") == 2 && getColumn() != -1)
         {
             Debug.Log("Pulsada la F");
             columna = getColumn();
@@ -148,7 +194,7 @@ public class Torres_hanoi2 : MonoBehaviour
                 almacen.discoCogido = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !almacen.discoCogido)
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && !almacen.discoCogido || PlayerPrefs.GetInt("autoRecolect") == 2 && !almacen.discoCogido)
         {
             Debug.Log("Pulsado el raton");
             columna = 3;
@@ -170,9 +216,10 @@ public class Torres_hanoi2 : MonoBehaviour
             this.transform.GetChild(estadoActual).gameObject.SetActive(false);
             this.transform.GetChild(proximoEstado).gameObject.SetActive(true);
             estadoActual = proximoEstado;
-            
+
             //Cuando consigue resolver entonces tiene que empezar el dialogo con sifo
-            if (proximoEstado == 3){
+            if (proximoEstado == 3)
+            {
                 almacen.torresResuelto = true;
                 Debug.Log("torres resueltas");
             }
@@ -188,7 +235,7 @@ public class Torres_hanoi2 : MonoBehaviour
     public int getColumn()
     {
         Item item = inventory.getInventoryItem(inventory.getNowActive());
-        if(item == null)
+        if (item == null)
         {
             return -1;
         }

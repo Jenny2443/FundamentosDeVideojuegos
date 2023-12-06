@@ -46,6 +46,18 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Returns the position of the array that contains the object with the specified tag
+    //If no such item exists, it returns  -1;
+    public int contains(String tag) {
+        int result = -1;
+        for (int i = 0; i < inventory.Length && result == -1 ; i++) {
+            if (inventory[i] != null && inventory[i].CompareTag(tag)) {
+                result = i;
+            }
+        }
+        return result;
+    }
+
     public void AgregarRecompensa(Item itemRecompensa)
     {
         for (int i = 1; i < inventory.Length; i++)
@@ -168,6 +180,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void GetItem(int i) {
+        ui_inventory_active[nowActive].SetActive(false);
+        ui_inventory_active[i].SetActive(true);
+        nowActive = i;
+        enMano.PonerEnMano(inventory[i]);
+    }
+
     //Elimina un objeto del inventario, la celda seleccionada.
     public void RemoveItem ()
     {
@@ -199,6 +218,18 @@ public class Inventory : MonoBehaviour
             inventory[nowActive] = null;
             enMano.eliminar();
         }
+    }
+
+    public void DestroyItem(int pos)
+    {
+        ui_inventory_active[pos].SetActive(false);
+
+        ui_inventory[pos].GetComponent<Image>().sprite = null;
+        transparencia.a = 0;
+        ui_inventory[pos].GetComponent<Image>().color = transparencia;
+        transparencia.a = 255;
+
+        inventory[pos] = null;
     }
 
     //Para el mensaje de NullPointerException e Inventario lleno.

@@ -242,15 +242,26 @@ public class Duende : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other){
-        if (other.CompareTag("Brazo"))
-        {
-            estaEnRango = true;
-            Debug.Log("Se puede iniciar un dialogo");
-            textoPresiona.gameObject.SetActive(true);
-        }
-        if (other.CompareTag("Moneda"))
-        {
-            almacen.monedaCogida = true;
+        if (PlayerPrefs.GetInt("autoRecolect") == 2) {
+            int pos = inventory.contains("Moneda");
+            if (pos != -1) {
+                almacen.monedaCogida = true;
+                textoPresiona.gameObject.SetActive(false);
+                EmpezarDialogo();
+                inventory.DestroyItem(pos);
+            }
+        } 
+        else {
+            if (other.CompareTag("Brazo"))
+            {
+                estaEnRango = true;
+                Debug.Log("Se puede iniciar un dialogo");
+                textoPresiona.gameObject.SetActive(true);
+            }
+            if (other.CompareTag("Moneda"))
+            {
+                almacen.monedaCogida = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other){

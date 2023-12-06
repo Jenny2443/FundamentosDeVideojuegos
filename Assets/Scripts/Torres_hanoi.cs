@@ -50,6 +50,8 @@ public class Torres_hanoi : MonoBehaviour
 
     public bool jugadorEnContacto;
 
+    bool control = true;
+
     //Referencia a el mensaje de interfaz para presionar f
     [SerializeField] private TMP_Text textoPresiona;
 
@@ -63,7 +65,7 @@ public class Torres_hanoi : MonoBehaviour
             this.transform.GetChild(i).gameObject.SetActive(false);
         }
         this.transform.GetChild(3).gameObject.SetActive(true);
-        
+
         //Introducimos los discos para que el jugador los coja
         torre[SP] = discoGrande;
         SP++;
@@ -87,10 +89,42 @@ public class Torres_hanoi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jugadorEnContacto)
+        if (jugadorEnContacto && PlayerPrefs.GetInt("autoRecolect") != 2)
+        {
             transicionar();
+        }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("autoRecolect") == 2 && control)
+        {
+            control = false;
+            Debug.Log("Tengo sueño");
+            int pos = inventory.contains("DiscoGrande");
+            if (pos != -1)
+            {
+                inventory.GetItem(pos);
+            }
+            else
+            {
+                pos = inventory.contains("DiscoMediano");
+                if (pos != -1)
+                {
+                    inventory.GetItem(pos);
+                }
+                else
+                {
+                    pos = inventory.contains("DiscoMediano");
+                    if (pos != -1)
+                    {
+                        inventory.GetItem(pos);
+                    }
+                }
+            }
+            transicionar();
+        }
+    }
     //Si el jugador esta a la distancia para interactuar con el objeto
     //entonces se actualiza la UI dependiendo de lo que pueda hacer
     //Usar un objeto con f o clickar para cogerlo
@@ -100,8 +134,9 @@ public class Torres_hanoi : MonoBehaviour
         {
             if (SP != 0 && !almacen.discoCogido)
                 inventory.clickes.SetActive(true);
-            if(getColumn() != -1) { 
-                textoPresiona.gameObject.SetActive(true); 
+            if (getColumn() != -1)
+            {
+                textoPresiona.gameObject.SetActive(true);
             }
             jugadorEnContacto = true;
         }
@@ -111,9 +146,13 @@ public class Torres_hanoi : MonoBehaviour
     //entonces se actualiza la UI
     private void OnTriggerExit(Collider other)
     {
-        jugadorEnContacto = false;
-        inventory.clickes.SetActive(false);
-        textoPresiona.gameObject.SetActive(false);
+        if (other.CompareTag("Brazo"))
+        {
+            jugadorEnContacto = false;
+            inventory.clickes.SetActive(false);
+            textoPresiona.gameObject.SetActive(false);
+            control = true;
+        }
     }
 
     //Dependiendo de lo que haya realizado el jugador, entonces transicoinara a un
@@ -126,7 +165,7 @@ public class Torres_hanoi : MonoBehaviour
             inventory.clickes.SetActive(false);
 
         int columna = -1;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || PlayerPrefs.GetInt("autoRecolect") == 2 && getColumn() != -1)
         {
             Debug.Log("Pulsada la F");
             columna = getColumn();
@@ -143,7 +182,7 @@ public class Torres_hanoi : MonoBehaviour
                 almacen.discoCogido = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !almacen.discoCogido)
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && !almacen.discoCogido || PlayerPrefs.GetInt("autoRecolect") == 2 && !almacen.discoCogido)
         {
             Debug.Log("Pulsado el raton");
             columna = 3;
