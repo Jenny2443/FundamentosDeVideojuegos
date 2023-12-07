@@ -37,6 +37,7 @@ public class DragAndDrop : MonoBehaviour
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
 
         // Limitar el movimiento a horizontal o vertical
+        /*
         if (firstDrag)
         {
             Debug.Log("Primer toque----------------------------");
@@ -63,6 +64,15 @@ public class DragAndDrop : MonoBehaviour
         {
             curPosition.x = posInicial.x;
             Debug.Log("Aqui mi rey, no mover XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        }*/
+        
+        if (Mathf.Abs(posInicial.x - curPosition.x) > Mathf.Abs(posInicial.y - curPosition.y))
+        {
+            curPosition.y = posInicial.y;
+        }
+        else
+        {
+            curPosition.x = posInicial.x;
         }
 
         // Detectar colisiones con otros objetos
