@@ -57,70 +57,69 @@ public class Duende : MonoBehaviour
     void Update(){
         if(almacen.cameraLocked){
             textoPresiona.gameObject.SetActive(false);
-            }
-        if(!almacen.cameraLocked){
- 
-        if (estaEnRango)
-        {
-            // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
-            Vector3 direccionAlJugador = player.transform.position - puck.transform.position;
-
-            // Calcula la rotación necesaria para que sifo mire en la dirección del jugador (en el plano horizontal)
-            Quaternion rotacionDeseada = Quaternion.LookRotation(new Vector3(direccionAlJugador.x, 0, direccionAlJugador.z));
-
-            // Aplica la rotación a sifo
-            puck.transform.rotation = rotacionDeseada;   
         }
-        //almacen.monedaCogida = false;
-        // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
-        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta && puedeVolveraInteractuar)
-        {
-            almacen.enDialogo = true;
-            panelDialogo.SetActive(true);
-            if (!dialogoEmpezado && !almacen.monedaCogida)
+        if(!almacen.cameraLocked){ 
+            if (estaEnRango)
             {
-                textoPresiona.gameObject.SetActive(false);
-                // Iniciar diálogo
-                EmpezarDialogo();
-            }
-            else if (!almacen.monedaCogida && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
-            { 
-                SiguienteLinea();
-            }
-            else if (!almacen.monedaCogida)// Adelantar líneas
-            {
-                StopAllCoroutines();
-                textoDialogo.text = lineasDialogo[indice]; // Se muestra la linea completa
-            }
+                // Calcula la dirección del vector desde la posición de sifo hasta la posición del jugador
+                Vector3 direccionAlJugador = player.transform.position - puck.transform.position;
 
-            else if(!dialogoEmpezado && almacen.monedaCogida){
-                textoPresiona.gameObject.SetActive(false);
-                EmpezarDialogo();     
-            } 
-            else if (almacen.monedaCogida && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
-                SiguienteLinea();
-            } else {
-                StopAllCoroutines();
-                textoDialogo.text = dialogoDespuesDeResuelto[indice2];
+                // Calcula la rotación necesaria para que sifo mire en la dirección del jugador (en el plano horizontal)
+                Quaternion rotacionDeseada = Quaternion.LookRotation(new Vector3(direccionAlJugador.x, 0, direccionAlJugador.z));
+
+                // Aplica la rotación a sifo
+                puck.transform.rotation = rotacionDeseada;   
             }
-        }else if (esperandoRespuesta)
-        {
-            if (Input.GetKeyDown(KeyCode.N))
+            //almacen.monedaCogida = false;
+            // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
+            if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta && puedeVolveraInteractuar)
             {
-                Debug.Log("Ha presionado N");
-                esperandoRespuesta = false;
-                StopAllCoroutines();
-                SiguienteLinea();
-            }else if (Input.GetKeyDown(KeyCode.Y))
+                almacen.enDialogo = true;
+                panelDialogo.SetActive(true);
+                if (!dialogoEmpezado && !almacen.monedaCogida)
+                {
+                    textoPresiona.gameObject.SetActive(false);
+                    // Iniciar diálogo
+                    EmpezarDialogo();
+                }
+                else if (!almacen.monedaCogida && textoDialogo.text == lineasDialogo[indice]) //Si ha mostrado toda la línea pasa a la siguiente
+                { 
+                    SiguienteLinea();
+                }
+                else if (!almacen.monedaCogida)// Adelantar líneas
+                {
+                    StopAllCoroutines();
+                    textoDialogo.text = lineasDialogo[indice]; // Se muestra la linea completa
+                }
+
+                else if(!dialogoEmpezado && almacen.monedaCogida){
+                    textoPresiona.gameObject.SetActive(false);
+                    EmpezarDialogo();     
+                } 
+                else if (almacen.monedaCogida && textoDialogo.text == dialogoDespuesDeResuelto[indice2]){
+                    SiguienteLinea();
+                } else {
+                    StopAllCoroutines();
+                    textoDialogo.text = dialogoDespuesDeResuelto[indice2];
+                }
+            }else if (esperandoRespuesta)
             {
-                Debug.Log("Ha presionado Y");
-                esperandoRespuesta = false;
-                indice = 9;
-                indiceCambioPersonajesDialogoPuck = 10;
-                StopAllCoroutines();
-                SiguienteLinea();
+                if (Input.GetKeyDown(KeyCode.N))
+                {
+                    Debug.Log("Ha presionado N");
+                    esperandoRespuesta = false;
+                    StopAllCoroutines();
+                    SiguienteLinea();
+                }else if (Input.GetKeyDown(KeyCode.Y))
+                {
+                    Debug.Log("Ha presionado Y");
+                    esperandoRespuesta = false;
+                    indice = 9;
+                    indiceCambioPersonajesDialogoPuck = 10;
+                    StopAllCoroutines();
+                    SiguienteLinea();
+                }
             }
-        }
         }
     }
 
@@ -131,6 +130,7 @@ public class Duende : MonoBehaviour
         terminado = false;
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
+        Debug.Log("Cogida moneda: " + almacen.monedaCogida);
         if (!almacen.monedaCogida)
         {
             indice = 0;
@@ -138,6 +138,7 @@ public class Duende : MonoBehaviour
         }
         else
         {
+            indice = lineasDialogo.Length;
             indice2 = 0;
             indiceCambioPersonajesDialogoPuck2 = 1;
         }

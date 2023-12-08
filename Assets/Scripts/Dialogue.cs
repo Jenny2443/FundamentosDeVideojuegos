@@ -56,9 +56,9 @@ public class Dialogue : MonoBehaviour
     private bool puedeVolverAInteractuar = true;
     
     void Update(){
-        if(almacen.cameraLocked){
+        if(almacen.cameraLocked || !puedeVolverAInteractuar){
             textoPresiona.gameObject.SetActive(false);
-            }
+        }
         if(!almacen.cameraLocked){
             
         //Comprobamos si esta en rango para que sifo se gire hacia el jugador
