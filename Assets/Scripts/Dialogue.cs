@@ -53,6 +53,7 @@ public class Dialogue : MonoBehaviour
 
     //Variables para comprobar si estamos esperando respuesta del jugador
     private bool esperandoRespuesta = false;
+    private bool puedeVolverAInteractuar = true;
     
     void Update(){
         if(almacen.cameraLocked){
@@ -77,7 +78,7 @@ public class Dialogue : MonoBehaviour
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo y
         // no se esta esperando respuesta del jugador
 
-        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
+        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta && puedeVolverAInteractuar)
         {
             almacen.enDialogo = true;
             panelDialogo.SetActive(true);
@@ -149,15 +150,18 @@ public class Dialogue : MonoBehaviour
         // Activar el sprite del personaje
         //spritePersonaje.SetActive(true);
 
-        //Comprobamos el personaje que va a hablar
-        if (!dialogoSifo1Terminado)
+        if (!almacen.torresResuelto)
         {
             personajeActual = imagenAmy;
+            indice = 0;
+            indiceCambioPersonajesDialogoSifo1 = 1;
         }
         else
         {
             personajeActual = imagenSifo;
+            indice2 = 0;
         }
+        
         //Activamos su imagen
         personajeActual.SetActive(true);
         // Indice a 0
@@ -218,6 +222,7 @@ public class Dialogue : MonoBehaviour
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
             if (almacen.torresResuelto){
                 itemRecompensa.inventory.AddItem(itemRecompensa);
+                puedeVolverAInteractuar = false;
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;

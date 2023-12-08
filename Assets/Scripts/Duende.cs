@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class Duende : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class Duende : MonoBehaviour
     
     //Variables para comprobar si estamos esperando respuesta del jugador
     private bool esperandoRespuesta = false;
+    private bool puedeVolveraInteractuar = true;
 
 
     void Update(){
@@ -71,7 +73,7 @@ public class Duende : MonoBehaviour
         }
         //almacen.monedaCogida = false;
         // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
-        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta)
+        if (estaEnRango && Input.GetKeyDown(KeyCode.F) && !esperandoRespuesta && puedeVolveraInteractuar)
         {
             almacen.enDialogo = true;
             panelDialogo.SetActive(true);
@@ -129,13 +131,24 @@ public class Duende : MonoBehaviour
         terminado = false;
         // Activar el panel de diálogo
         panelDialogo.SetActive(true);
+        if (!almacen.monedaCogida)
+        {
+            indice = 0;
+            indiceCambioPersonajesDialogoPuck = 1;
+        }
+        else
+        {
+            indice2 = 0;
+            indiceCambioPersonajesDialogoPuck2 = 1;
+        }
+       
         // Activar el sprite del personaje
         //spritePersonaje.SetActive(true);
         personajeActual = imagenPuck;
         personajeActual.SetActive(true);
         // Indice a 0
-        indice = 0;
-        indice2 = 0;
+        //indice = 0;
+        //indice2 = 0;
         // Escala de tiempo a 0 para evitar movimiento del jugador
         Time.timeScale = 0f;
 
@@ -189,6 +202,7 @@ public class Duende : MonoBehaviour
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
             if (almacen.monedaCogida){
                 itemRecompensa.inventory.AddItem(itemRecompensa);
+                puedeVolveraInteractuar = false;
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;
