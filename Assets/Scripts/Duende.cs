@@ -274,7 +274,7 @@ public class Duende : MonoBehaviour
                 EmpezarDialogo();
                 inventory.DestroyItem(pos);
             }
-            else {
+            else if(!almacen.monedaCogida) {
                 textoPresiona.gameObject.SetActive(false);
                 EmpezarDialogo();
             }
@@ -287,15 +287,12 @@ public class Duende : MonoBehaviour
             {
                 estaEnRango = true;
                 Debug.Log("Se puede iniciar un dialogo");
-                if(!almacen.cameraLocked){
+                almacen.monedaCogida = inventory.getInventoryItem(inventory.getNowActive()).CompareTag("Moneda");
+                if(!almacen.cameraLocked && puedeVolveraInteractuar){
                     textoPresiona.gameObject.SetActive(true);
                 } else {
                     textoPresiona.gameObject.SetActive(false);
                 }
-            }
-            if (other.CompareTag("Moneda"))
-            {
-                almacen.monedaCogida = true;
             }
         }
     }
