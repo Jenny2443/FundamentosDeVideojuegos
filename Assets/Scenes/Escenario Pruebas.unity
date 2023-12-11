@@ -45151,6 +45151,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2151017011591171590, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151017011591171590, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151017011591171590, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151017011591171590, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.261873
       objectReference: {fileID: 0}
@@ -45210,6 +45222,14 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 122471522}
+    - target: {fileID: 8312016656007893391, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84e76693a4305464a96d36edccb36b9e, type: 2}
+    - target: {fileID: 9022110700998558925, guid: dee4b144725bc11429b17ca1eb84c4cf, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3213388140244033404, guid: ef368702c8064884297401d2a85904da, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45312,6 +45332,10 @@ PrefabInstance:
       propertyPath: m_ProvidesContacts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2084638648706591767, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2137208523138566550, guid: 05ae247dfb11ce5498fd8466c689a3cc, type: 3}
     - target: {fileID: 2786645903367344943, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
       propertyPath: m_Name
       value: Recompensa1
@@ -45319,6 +45343,18 @@ PrefabInstance:
     - target: {fileID: 2786645903367344943, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
       propertyPath: m_TagString
       value: Recompensa1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951750942543366729, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951750942543366729, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951750942543366729, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2951750942543366729, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45360,6 +45396,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4652744427727924926, guid: a94aa825959e1ed4fb735ebb93ce9b4c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a089526d37773f442bf0bdef23e6bcc0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
