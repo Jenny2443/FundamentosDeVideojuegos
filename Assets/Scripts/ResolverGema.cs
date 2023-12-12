@@ -22,13 +22,13 @@ public class ResolverGema : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Brazo"))
+        if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("skipMechanics") == 3)
             timer = 0f;
     }
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Brazo"))
+        if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("skipMechanics") == 3)
         {
             if (Input.GetKey(KeyCode.P))
             {
