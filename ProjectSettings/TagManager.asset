@@ -23,6 +23,7 @@ TagManager:
   - ActivadaRecAuto
   - ActivadaSkipMec
   - DesactivadaSkipMec
+  - light
   layers:
   - Default
   - TransparentFX
