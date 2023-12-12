@@ -56,7 +56,8 @@
             // }
 
             //Si es la primera vez que pulsa F, se destruye el disco interno y se muestra el disco interno (estado 2)
-            if(Input.GetKeyDown(KeyCode.F) && primeraVez){
+            if(Input.GetKeyDown(KeyCode.F) && primeraVez && discoCogido || PlayerPrefs.GetInt("autoRecolect") == 2 && primeraVez && discoCogido)
+        {
                 Debug.Log("F pulsada");
                 primeraVez = false;
                 //discoCogido = false;
@@ -73,8 +74,10 @@
             }
 
             //Si no es la primera vez que pulsa F, se gira el disco interno
-            if(Input.GetKeyDown(KeyCode.F) && !giroCompleto && !primeraVez){
+            if(Input.GetKeyDown(KeyCode.F) && !giroCompleto && !primeraVez || PlayerPrefs.GetInt("autoRecolect") == 2 && !giroCompleto && !primeraVez)
+        {
                 gameObject.transform.GetChild(1).Rotate(0, 0, Time.deltaTime * grados);
+                Debug.Log("Rotando");
                 anguloTotalRotado += Time.deltaTime * grados;
                 if(anguloTotalRotado >= 60f){
                     giroCompleto = true;
@@ -150,18 +153,26 @@
 
         private void OnTriggerEnter(Collider other)
         {
-            // Item currentItem = inventory.getInventoryItem(inventory.getNowActive());
-
-            if (other.CompareTag("DiscoAlbertiPequeno"))
-            {
-                discoCogido = true;
-            }
-            if (other.CompareTag("Player"))
-            {
-                if (!giroCompleto) { 
-                    textoPresiona.gameObject.SetActive(true); 
+        // Item currentItem = inventory.getInventoryItem(inventory.getNowActive());
+            if (PlayerPrefs.GetInt("autoRecolect") == 2) {
+                if (other.CompareTag("DiscoAlbertiPequeno"))
+                {
+                    discoCogido = true;
                 }
-                estaEnRango = true;
+                rotar();
+            }
+            else {
+                if (other.CompareTag("DiscoAlbertiPequeno"))
+                {
+                    discoCogido = true;
+                }
+                if (other.CompareTag("Brazo"))
+                {
+                    if (!giroCompleto) { 
+                        textoPresiona.gameObject.SetActive(true); 
+                    }
+                    estaEnRango = true;
+                }    
             }
         }
 
