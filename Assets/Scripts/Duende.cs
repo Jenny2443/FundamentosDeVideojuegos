@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 
 public class Duende : MonoBehaviour
 {
+    public GameObject moneda;
 
     // Referencia al panel de diálogo para activarlo y desactivarlo
     [SerializeField] private GameObject panelDialogo;
@@ -53,9 +54,21 @@ public class Duende : MonoBehaviour
     private bool esperandoRespuesta = false;
     private bool puedeVolveraInteractuar = true;
 
-
+    float timer;
     void Update(){
-        if(almacen.cameraLocked){
+        if (!esperandoRespuesta && puedeVolveraInteractuar && estaEnRango && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= 3)
+            {
+                resolver();
+
+                timer = 0f;
+
+            }
+        }
+        if (almacen.cameraLocked){
             textoPresiona.gameObject.SetActive(false);
         }
         if(!almacen.cameraLocked){ 
@@ -282,10 +295,12 @@ public class Duende : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other){
-        if (PlayerPrefs.GetInt("autoRecolect") != 2) {
-            if (other.CompareTag("Brazo"))
+        if (other.CompareTag("Brazo"))
+        {
+            Debug.Log(string.Concat(puedeVolveraInteractuar, " ", estaEnRango, " ", puedeVolveraInteractuar, " ", PlayerPrefs.GetInt("skipMechanics") == 3, " ", Input.GetKey(KeyCode.P), " "));
+            estaEnRango = true;
+            if (PlayerPrefs.GetInt("autoRecolect") != 2)
             {
-                estaEnRango = true;
                 Debug.Log("Se puede iniciar un dialogo");
                 almacen.monedaCogida = inventory.getInventoryItem(inventory.getNowActive()).CompareTag("Moneda");
                 if(!almacen.cameraLocked && puedeVolveraInteractuar){
@@ -295,6 +310,18 @@ public class Duende : MonoBehaviour
                 }
             }
         }
+
+    }
+
+    void resolver() {
+        almacen.monedaCogida = true;
+        textoPresiona.gameObject.SetActive(false);
+        EmpezarDialogo();
+        int pos = inventory.contains("Moneda");
+        if(pos != -1)
+            inventory.RemoveItem(pos);
+        moneda.SetActive(false);
+
     }
     private void OnTriggerExit(Collider other){
         if (other.CompareTag("Brazo"))
@@ -302,6 +329,7 @@ public class Duende : MonoBehaviour
             estaEnRango = false;
             Debug.Log("No se puede iniciar un dialogo");
             textoPresiona.gameObject.SetActive(false);
+            timer = 0f;
         }
         if (other.CompareTag("Moneda"))
         {

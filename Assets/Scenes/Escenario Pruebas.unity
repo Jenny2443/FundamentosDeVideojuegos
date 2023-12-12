@@ -9886,6 +9886,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
+--- !u!1 &401803956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1730552075426362039, guid: c263c887ce48da9409198518760314c1, type: 3}
+  m_PrefabInstance: {fileID: 1040072704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &403622636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14323,6 +14328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cb9369e8cad0448b9e32665a5ee8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneda: {fileID: 401803956}
   panelDialogo: {fileID: 2012851519}
   spritePersonaje: {fileID: 409375784}
   textoDialogo: {fileID: 322420284}
