@@ -216,6 +216,7 @@ public class Duende : MonoBehaviour
             GameObject.Find("Player").GetComponent<FPSCamera>().enabled = true;
             if (almacen.monedaCogida){
                 itemRecompensa.inventory.AddItem(itemRecompensa);
+                almacen.puckResuelto = true;
                 puedeVolveraInteractuar = false;
             }else{
                 // El diálogo ha terminado
@@ -321,7 +322,7 @@ public class Duende : MonoBehaviour
         if(pos != -1)
             inventory.RemoveItem(pos);
         moneda.SetActive(false);
-
+        almacen.puckResuelto = true;
     }
     private void OnTriggerExit(Collider other){
         if (other.CompareTag("Brazo"))

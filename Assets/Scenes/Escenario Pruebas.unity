@@ -17340,6 +17340,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1837652913722974360, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
+      propertyPath: almacen
+      value: 
+      objectReference: {fileID: 1998041209}
+    - target: {fileID: 1837652913722974360, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 122471522}
@@ -42737,6 +42741,7 @@ MonoBehaviour:
   monedaCogida: 0
   recoleccionAutomatica: 0
   cameraLocked: 0
+  puckResuelto: 0
   enDialogo: 0
 --- !u!4 &1998041210
 Transform:

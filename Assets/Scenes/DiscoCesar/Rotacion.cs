@@ -19,7 +19,10 @@
         private bool primeraVez = true;
         private bool recompensaCogida = false;
 
-        public Inventory inventory; 
+        public Inventory inventory;
+        public VariablesGlobales almacen;
+
+        float timer = 0f;
 
         
 
@@ -95,25 +98,55 @@
             // }
         }
 
-        // private void OnTriggerStay(Collider other)
-        // {
-        //     if (other.CompareTag("Player"))
-        //     {
-        //         // if (!discoCogido)
-        //         //     inventory.clickes.SetActive(true);
-        //         if (discoCogido && !almacen.giroCompleto) { 
-        //             textoPresiona.gameObject.SetActive(true); 
-        //         }
-        //         // if (inventory != null && inventory.getInventoryItem(inventory.getNowActive()) != null)
-        //         // {
-        //         //     if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoAlbertiPequeno"))
-        //         //     {
-        //         //         discoCogido = true;
-        //         //     }
-        //         // }
-        //         estaEnRango = true;
-        //     }
-        // }
+        void resolver() {
+            transform.GetChild(1).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).Rotate(0, 0, 60f);
+            Debug.Log("giroCompleto");
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(true);
+            recompensa3.inventory.AddItem(recompensa3);
+            recompensaCogida = true;
+            int pos = inventory.contains("DiscoAlbertiPequeno");
+            if (pos != -1)
+                inventory.RemoveItem(pos);
+            discoInterno.gameObject.SetActive(false);
+    }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Brazo"))
+            {
+                if (almacen.puckResuelto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+                {
+                    timer += Time.deltaTime;
+                    Debug.Log(timer);
+                    if (timer >= 3)
+                    {
+                        resolver();
+
+                        timer = 0f;
+
+                    }
+                }
+            }
+            //     if (other.CompareTag("Player"))
+            //     {
+            //         // if (!discoCogido)
+            //         //     inventory.clickes.SetActive(true);
+            //         if (discoCogido && !almacen.giroCompleto) { 
+            //             textoPresiona.gameObject.SetActive(true); 
+            //         }
+            //         // if (inventory != null && inventory.getInventoryItem(inventory.getNowActive()) != null)
+            //         // {
+            //         //     if (inventory.getInventoryItem(inventory.getNowActive()).CompareTag("DiscoAlbertiPequeno"))
+            //         //     {
+            //         //         discoCogido = true;
+            //         //     }
+            //         // }
+            //         estaEnRango = true;
+            //     }
+            // }
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -139,5 +172,8 @@
             Debug.Log("No se puede dejar el disco");
             // inventory.clickes.SetActive(false);
             textoPresiona.gameObject.SetActive(false);
+            if (other.CompareTag("Brazo")){
+                timer = 0f;
+            }
         }
     }

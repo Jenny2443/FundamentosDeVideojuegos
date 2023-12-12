@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 905495573067021616}
   m_Layer: 0
   m_Name: DiscoAlbertiUtilizado
-  m_TagString: Recompensa3
+  m_TagString: DiscoAlbertiPequeno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
