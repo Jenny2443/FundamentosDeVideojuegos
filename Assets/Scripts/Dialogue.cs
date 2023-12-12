@@ -273,7 +273,7 @@ public class Dialogue : MonoBehaviour
         if (PlayerPrefs.GetInt("autoRecolect") == 2 && other.CompareTag("Brazo")) {
             estaEnRango = true;
             EmpezarDialogo();
-            if (!almacen.cameraLocked && !almacen.recoleccionAutomatica)
+            if (!almacen.cameraLocked/* && !almacen.recoleccionAutomatica*/)
             {
                 textoPresiona.gameObject.SetActive(true);
             }
@@ -290,7 +290,7 @@ public class Dialogue : MonoBehaviour
             estaEnRango = true;
             Debug.Log("Se puede iniciar un dialogo");
 
-            if(!almacen.cameraLocked && !almacen.recoleccionAutomatica){
+            if(!almacen.cameraLocked /*&& !almacen.recoleccionAutomatica*/){
                 textoPresiona.gameObject.SetActive(true);
             } else {
                 textoPresiona.gameObject.SetActive(false);

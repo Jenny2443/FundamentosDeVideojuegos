@@ -288,9 +288,15 @@ public class Duende : MonoBehaviour
                 EmpezarDialogo();
                 inventory.DestroyItem(pos);
             }
-            else if(!almacen.monedaCogida) {
+            else if (!almacen.monedaCogida) {
                 textoPresiona.gameObject.SetActive(false);
                 EmpezarDialogo();
+            }
+        }
+        else if (other.CompareTag("Brazo")) {
+            if (!almacen.cameraLocked && puedeVolveraInteractuar)
+            {
+                textoPresiona.gameObject.SetActive(true);
             }
         }
     }
