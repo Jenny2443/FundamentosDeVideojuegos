@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4675,6 +4675,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -20916,6 +20921,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -20935,6 +20945,9 @@ MonoBehaviour:
   discoGrande: {fileID: 709160121}
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
+  torreIzda: {fileID: 1102537270}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 1193860222}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}
@@ -24298,9 +24311,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 122471522}
     - target: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
+      propertyPath: torreDcha
+      value: 
+      objectReference: {fileID: 1193860222}
+    - target: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: discoGrande
       value: 
       objectReference: {fileID: 709160121}
+    - target: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
+      propertyPath: torreCentro
+      value: 
+      objectReference: {fileID: 882928425}
     - target: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
       propertyPath: discoMediano
       value: 
@@ -25130,6 +25151,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7971596443304200418, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
   m_PrefabInstance: {fileID: 1058951024}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1102537270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -666699000055306374, guid: 9f545cff8a0db4b4ca55c86451945861, type: 3}
+  m_PrefabInstance: {fileID: 1058951024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102537266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42d6a182f62847449f8925b0b73e63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1102947312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25452,6 +25484,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -27101,6 +27138,9 @@ MonoBehaviour:
   discoGrande: {fileID: 709160121}
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
+  torreIzda: {fileID: 1102537270}
+  torreCentro: {fileID: 882928425}
+  torreDcha: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}

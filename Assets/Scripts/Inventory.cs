@@ -204,6 +204,27 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public Item RemoveItem(int pos)
+    {
+        Item result = null;
+        if (pos != 0)
+        {
+            result = inventory[pos];
+            ui_inventory_active[pos].SetActive(false);
+
+            ui_inventory[pos].GetComponent<Image>().sprite = null;
+            transparencia.a = 0;
+            ui_inventory[pos].GetComponent<Image>().color = transparencia;
+            transparencia.a = 255;
+
+            inventory[pos] = null;
+            if (pos == nowActive) {
+                enMano.QuitarEnMano();
+            }
+        }
+        return result;
+    }
+
     public void DestroyItem ()
     {
         if(nowActive != 0)

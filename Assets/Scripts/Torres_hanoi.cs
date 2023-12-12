@@ -44,6 +44,13 @@ public class Torres_hanoi : MonoBehaviour
     public Item discoPequeno;
     public Item discoMediano;
 
+    public Torres_hanoi2 torreCentro;
+    public Torres_hanoi2 torreDcha;
+
+    public Item discoGrandeRepuesto;
+    public Item discoPequenoRepuesto;
+    public Item discoMedianoRepuesto;
+
     //Pila de torres con un Stack Pointer
     private Item[] torre = new Item[3];
     private int SP = 0;
@@ -51,6 +58,8 @@ public class Torres_hanoi : MonoBehaviour
     public bool jugadorEnContacto;
 
     bool control = true;
+
+    float timer;
 
     //Referencia a el mensaje de interfaz para presionar f
     [SerializeField] private TMP_Text textoPresiona;
@@ -89,11 +98,64 @@ public class Torres_hanoi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jugadorEnContacto && PlayerPrefs.GetInt("autoRecolect") != 2)
+        if (jugadorEnContacto && PlayerPrefs.GetInt("autoRecolect") != 2 && !Input.GetKeyDown(KeyCode.P))
         {
             transicionar();
         }
+        if (!jugadorEnContacto || Input.GetKeyUp(KeyCode.P))
+        {
+            timer = 0f;
+        }
+        if (jugadorEnContacto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= 3)
+            {
+                resolver(0);
+
+                timer = 0f;
+
+            }
+        }
+
     }
+
+    public void resolver(int origin) {
+        this.transform.GetChild(estadoActual).gameObject.SetActive(false);
+        estadoActual = 0;
+        this.transform.GetChild(estadoActual).gameObject.SetActive(true);
+
+        int pos = inventory.contains("DiscoGrande");
+        if (pos != -1)
+        {
+            inventory.RemoveItem(pos).transform.position = new Vector3(-37, 15, -129);
+        }
+        else
+        {
+            pos = inventory.contains("DiscoMediano");
+            if (pos != -1)
+            {
+                inventory.RemoveItem(pos).transform.position = new Vector3(-37, 15, -129);
+            }
+            else
+            {
+                pos = inventory.contains("DiscoPequeno");
+                if (pos != -1)
+                {
+                    inventory.RemoveItem(pos).transform.position = new Vector3(-37, 15, -129);
+                }
+            }
+        }
+
+        SP = 0;
+        if (origin == 0) {
+            torreCentro.resolver(1);
+            torreDcha.resolver(1);
+        }
+    }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -115,7 +177,7 @@ public class Torres_hanoi : MonoBehaviour
                 }
                 else
                 {
-                    pos = inventory.contains("DiscoMediano");
+                    pos = inventory.contains("DiscoPequeno");
                     if (pos != -1)
                     {
                         inventory.GetItem(pos);

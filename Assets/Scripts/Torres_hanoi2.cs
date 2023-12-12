@@ -44,6 +44,10 @@ public class Torres_hanoi2 : MonoBehaviour
     public Item discoPequeno;
     public Item discoMediano;
 
+    public Torres_hanoi torreIzda;
+    public Torres_hanoi2 torreCentro;
+    public Torres_hanoi2 torreDcha;
+
     //Pila de torres con un Stack Pointer
     private Item[] torre = new Item[3];
     private int SP = 0;
@@ -58,6 +62,8 @@ public class Torres_hanoi2 : MonoBehaviour
 
     // Referencia al inventario
     public Inventory inventory;
+
+    float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +93,64 @@ public class Torres_hanoi2 : MonoBehaviour
             {
                 transicionar();
             }
+        }
+        if (!jugadorEnContacto || Input.GetKeyUp(KeyCode.P))
+        {
+            timer = 0f;
+        }
+        if (jugadorEnContacto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+        {
+            timer += Time.deltaTime;
+            Debug.Log(timer);
+            if (timer >= 3)
+            {
+                resolver(0);
+
+                timer = 0f;
+
+            }
+        }
+    }
+
+    public void resolver(int origin)
+    {
+        if (!this.CompareTag("TorreFinal"))
+        {
+            this.transform.GetChild(estadoActual).gameObject.SetActive(false);
+            estadoActual = 0;
+            this.transform.GetChild(estadoActual).gameObject.SetActive(true);
+
+            SP = 0;
+            if (origin == 0)
+            {
+                torreIzda.resolver(1);
+                torreDcha.resolver(1);
+            }
+        }
+        else {
+            this.transform.GetChild(estadoActual).gameObject.SetActive(false);
+            estadoActual = 3;
+            this.transform.GetChild(estadoActual).gameObject.SetActive(true);
+            torre[SP] = discoGrande;
+            SP++;
+            Debug.Log("Introducido disco grande");
+            Debug.Log(SP);
+
+            torre[SP] = discoMediano;
+            SP++;
+            Debug.Log("Introducido disco mediano");
+            Debug.Log(SP);
+
+            torre[SP] = discoPequeno;
+            SP++;
+            Debug.Log("Introducido disco pequeño");
+            Debug.Log(SP);
+            if (origin == 0)
+            {
+                torreIzda.resolver(1);
+                torreCentro.resolver(1);
+            }
+            almacen.torresResuelto = true;
         }
     }
 
