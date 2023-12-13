@@ -2053,6 +2053,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -9061,6 +9066,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -9080,6 +9090,9 @@ MonoBehaviour:
   discoGrande: {fileID: 709160121}
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
+  torreIzda: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}
@@ -10651,6 +10664,11 @@ MonoBehaviour:
   discoGrande: {fileID: 0}
   discoPequeno: {fileID: 0}
   discoMediano: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
+  discoGrandeRepuesto: {fileID: 0}
+  discoPequenoRepuesto: {fileID: 0}
+  discoMedianoRepuesto: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 0}
   inventory: {fileID: 0}
@@ -11160,6 +11178,9 @@ MonoBehaviour:
   discoGrande: {fileID: 709160121}
   discoPequeno: {fileID: 332254782}
   discoMediano: {fileID: 557464265}
+  torreIzda: {fileID: 0}
+  torreCentro: {fileID: 0}
+  torreDcha: {fileID: 0}
   jugadorEnContacto: 0
   textoPresiona: {fileID: 1440301393}
   inventory: {fileID: 122471522}
@@ -16850,6 +16871,7 @@ MonoBehaviour:
   monedaCogida: 0
   recoleccionAutomatica: 0
   cameraLocked: 0
+  puckResuelto: 0
   enDialogo: 0
 --- !u!4 &1998041210
 Transform:
@@ -18195,11 +18217,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roca_alberti
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1837652913722974360, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5960128350583382190, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8623899018824544073}
   m_SourcePrefab: {fileID: 100100000, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
+--- !u!1 &8623899018824544072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5960128350583382190, guid: e94b113b433d8e44eb9589c1a96cb858, type: 3}
+  m_PrefabInstance: {fileID: 8623899018824544071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8623899018824544073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623899018824544072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b7141ca71cb794b81c67e74b60bb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoPresiona: {fileID: 1440301393}
+  discoInterno: {fileID: 1461955030}
+  recompensa3: {fileID: 386038440}
+  inventory: {fileID: 122471522}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class Patron : MonoBehaviour
             //this.transform.GetChild(0).GetChild(0).SetActive(true);
             myLight.enabled = true;
             this.transform.GetChild(1).gameObject.SetActive(true);
+            textoPresiona.gameObject.SetActive(false);
             
 /*        }else if (estaEnRango && !Input.GetKeyDown(KeyCode.F)){
             luz.disable();
