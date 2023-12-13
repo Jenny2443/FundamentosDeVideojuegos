@@ -53,7 +53,7 @@ public class ColocarPiezas3 : MonoBehaviour
 
             // Configurar la escala y la posición del item en el mundo
             item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            item.transform.position = transform.position + new Vector3(0, 0.3f, 0);
+            item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
 
             // Desactivar el mensaje de presionar F
             textoPresiona.gameObject.SetActive(false);
