@@ -6,6 +6,7 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    private AudioSource audioSource;
     // Referencia al panel de diálogo para activarlo y desactivarlo
     [SerializeField] private GameObject panelDialogo;
     // Referencia al panel de diálogo para activarlo y desactivarlo
@@ -54,6 +55,10 @@ public class Dialogue : MonoBehaviour
     //Variables para comprobar si estamos esperando respuesta del jugador
     private bool esperandoRespuesta = false;
     private bool puedeVolverAInteractuar = true;
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
     
     void Update(){
         if(almacen.cameraLocked || !puedeVolverAInteractuar){
@@ -141,6 +146,7 @@ public class Dialogue : MonoBehaviour
     }
 
     public void EmpezarDialogo(){
+        audioSource.Play();
         // El diálogo ha empezado
         dialogoEmpezado = true; 
         // El diálogo no ha terminado
@@ -226,6 +232,7 @@ public class Dialogue : MonoBehaviour
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;
+                audioSource.Stop();
             }
         }
     }

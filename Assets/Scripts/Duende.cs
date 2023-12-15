@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 
 public class Duende : MonoBehaviour
 {
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip risa;
     public GameObject moneda;
 
     // Referencia al panel de diálogo para activarlo y desactivarlo
@@ -55,6 +57,11 @@ public class Duende : MonoBehaviour
     private bool puedeVolveraInteractuar = true;
 
     float timer;
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update(){
         if (!esperandoRespuesta && puedeVolveraInteractuar && estaEnRango && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
         {
@@ -138,6 +145,8 @@ public class Duende : MonoBehaviour
 
     public void EmpezarDialogo(){
         // El diálogo ha empezado
+        audioSource.Play();
+        
         dialogoEmpezado = true; 
         // El diálogo no ha terminado
         terminado = false;
@@ -221,6 +230,7 @@ public class Duende : MonoBehaviour
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;
+                audioSource.Stop();
             }
         }
     }
@@ -299,8 +309,10 @@ public class Duende : MonoBehaviour
             if (!almacen.cameraLocked && puedeVolveraInteractuar)
             {
                 textoPresiona.gameObject.SetActive(true);
+                audioSource.PlayOneShot(risa);
             }
         }
+
     }
 
     private void OnTriggerStay(Collider other){
