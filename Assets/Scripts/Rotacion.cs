@@ -103,11 +103,14 @@
 
         void resolver() {
             transform.GetChild(1).gameObject.SetActive(true);
-            gameObject.transform.GetChild(1).Rotate(0, 0, 60f);
+            if (!giroCompleto)
+                gameObject.transform.GetChild(1).Rotate(0, 0, 60f);
             Debug.Log("giroCompleto");
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(3).gameObject.SetActive(true);
-            recompensa3.inventory.AddItem(recompensa3);
+            if(!giroCompleto)
+                recompensa3.inventory.AddItem(recompensa3);
+            giroCompleto=true;
             recompensaCogida = true;
             int pos = inventory.contains("DiscoAlbertiPequeno");
             if (pos != -1)

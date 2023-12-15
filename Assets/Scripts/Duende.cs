@@ -268,7 +268,9 @@ public class Duende : MonoBehaviour
             {
                 // se escribe el caracter
                 textoDialogo.text += ch;
-                inventory.DestroyItem();
+                int pos = inventory.contains("Moneda");
+                if (pos != -1)
+                    inventory.DestroyItem(pos);
                 // se espera un tiempo
                 yield return new WaitForSecondsRealtime(tiempoEntreLetras);
             }
