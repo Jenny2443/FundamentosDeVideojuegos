@@ -229,6 +229,7 @@ public class Dialogue : MonoBehaviour
             if (almacen.torresResuelto){
                 itemRecompensa.inventory.AddItem(itemRecompensa);
                 puedeVolverAInteractuar = false;
+                almacen.sifoResuelto = true;
             }else{
                 // El diálogo ha terminado
                 dialogoEmpezado = false;

@@ -90,6 +90,7 @@
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(3).gameObject.SetActive(true);
                 recompensa3.inventory.AddItem(recompensa3);
+                almacen.cifraResuelto = true;
                 recompensaCogida = true;
 
             }
@@ -110,6 +111,7 @@
             transform.GetChild(3).gameObject.SetActive(true);
             if(!giroCompleto)
                 recompensa3.inventory.AddItem(recompensa3);
+            almacen.cifraResuelto=true;
             giroCompleto=true;
             recompensaCogida = true;
             int pos = inventory.contains("DiscoAlbertiPequeno");

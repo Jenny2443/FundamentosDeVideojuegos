@@ -12,8 +12,13 @@ public class VariablesGlobales : MonoBehaviour
     public bool recoleccionAutomatica;
     public bool cameraLocked;
     public bool puckResuelto;
-
+    public bool sifoResuelto;
+    public bool bolaResuelto;
+    public bool cifraResuelto;
     public bool enDialogo;
+    public bool pieza1Colocada;
+    public bool pieza2Colocada;
+    public bool pieza3Colocada;
 
     void Start()
     {
@@ -24,6 +29,9 @@ public class VariablesGlobales : MonoBehaviour
         cameraLocked = false;
         recoleccionAutomatica = PlayerPrefs.GetInt("autoRecolect") == 2;
         puckResuelto = false;
+        pieza1Colocada = false;
+        pieza2Colocada = false;
+        pieza3Colocada = false;
 }
 
     // Update is called once per frame

@@ -24,6 +24,9 @@ TagManager:
   - ActivadaSkipMec
   - DesactivadaSkipMec
   - light
+  - Pedestal1
+  - Pedestal2
+  - Pedestal3
   layers:
   - Default
   - TransparentFX

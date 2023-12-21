@@ -39,7 +39,7 @@ public class ColocarPiezas2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && enRango && item != null && !unaPiezaColocada)
         {
             // Instanciar el item en el mundo
-            item = GameObject.Instantiate(inventario.inventory[inventario.nowActive]);
+            // item = GameObject.Instantiate(inventario.inventory[inventario.nowActive]);
 
             // Verificar si la pieza es una recompensa específica (ej. "Recompensa2")
             if (item.gameObject.CompareTag("Recompensa2"))
@@ -49,11 +49,13 @@ public class ColocarPiezas2 : MonoBehaviour
             }
 
             // Destruir el item del inventario
-            inventario.DestroyItem();
+            inventario.RemoveItem();
 
             // Configurar la escala y la posición del item en el mundo
-            item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            // item.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
+            item.transform.SetParent(this.transform);
+            item.GetComponent<Rigidbody>().useGravity = false; 
 
             // Desactivar el mensaje de presionar F
             textoPresiona.gameObject.SetActive(false);
@@ -65,6 +67,7 @@ public class ColocarPiezas2 : MonoBehaviour
         // se pone a falso unaPiezaColocada
         else if (enRango && unaPiezaColocada && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            item.GetComponent<Rigidbody>().useGravity = true;
             unaPiezaColocada = false;
         }
     }
@@ -76,7 +79,7 @@ public class ColocarPiezas2 : MonoBehaviour
         if (other.CompareTag("Brazo"))
         {
             enRango = true;
-            if (!unaPiezaColocada)
+            if (transform.GetChild(0) == null)
             {
                 // Mostrar el mensaje de presionar F
                 textoPresiona.gameObject.SetActive(true);

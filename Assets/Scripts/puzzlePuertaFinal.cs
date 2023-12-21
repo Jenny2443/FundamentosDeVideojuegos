@@ -6,17 +6,19 @@ public class PuzzlePuertaFinal : MonoBehaviour
     // Mensaje de interfaz, puzzle completado
     [SerializeField] private TMP_Text textoCompletado;
 
+    public VariablesGlobales almacen;
+
     // Variables de las piezas del puzzle obtenidas de ColocarPiezas
-    public ColocarPiezas1 colocarPiezas1;
+    /*public ColocarPiezas1 colocarPiezas1;
     public ColocarPiezas2 colocarPiezas2;
-    public ColocarPiezas3 colocarPiezas3;
+    public ColocarPiezas3 colocarPiezas3;*/
 
     private void Start()
     {
         // Buscar las instancias de las clases ColocarPiezas
-        colocarPiezas1 = FindObjectOfType<ColocarPiezas1>();
+        /*colocarPiezas1 = FindObjectOfType<ColocarPiezas1>();
         colocarPiezas2 = FindObjectOfType<ColocarPiezas2>();
-        colocarPiezas3 = FindObjectOfType<ColocarPiezas3>();
+        colocarPiezas3 = FindObjectOfType<ColocarPiezas3>();*/
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class PuzzlePuertaFinal : MonoBehaviour
     private void PuzzleCompletado()
     {
         // Verificar si todas las piezas del puzzle están colocadas
-        if (colocarPiezas1.pieza1Colocada && colocarPiezas2.pieza2Colocada && colocarPiezas3.pieza3Colocada)
+        if (almacen.pieza1Colocada && almacen.pieza2Colocada && almacen.pieza3Colocada)
         {
             // Imprimir un mensaje en la consola
             Debug.Log("¡JUEGO COMPLETADO!");

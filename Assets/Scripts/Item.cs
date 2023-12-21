@@ -9,10 +9,12 @@ public class Item : MonoBehaviour
     public Inventory inventory;
     public Sprite itemIcon;
     public bool jugadorEnContacto, sujeto;
+    public bool interactuable;
     void Start()
     {
         jugadorEnContacto = false;
         sujeto = false;
+        interactuable = true;
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (PlayerPrefs.GetInt("autoRecolect") == 2)
+        if (PlayerPrefs.GetInt("autoRecolect") == 2 && interactuable)
         {
             if (other.CompareTag("Brazo") && !sujeto)
             {
