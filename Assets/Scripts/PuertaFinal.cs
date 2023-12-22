@@ -6,19 +6,22 @@ public class PuertaFinal : MonoBehaviour
 {
     public Animator puerta1;
     public Animator puerta2;
+    public VariablesGlobales globals;
 
     // Start is called before the first frame update
     void Start()
     {
-        puerta2.SetBool("BoolEjeP2", true);
-        puerta1.SetBool("BoolEjeP1", true);
+        
         
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("");
-        //puerta1.SetBool("sePuede1", false);
-        //puerta2.SetBool("sePuede", false);
+        if(globals.pieza1Colocada && globals.pieza2Colocada && globals.pieza3Colocada)
+        {
+            puerta1.SetBool("BoolEjeP1", true);
+            puerta2.SetBool("BoolEjeP2", true);
+        }
+
     }
 }
