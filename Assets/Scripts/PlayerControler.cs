@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
+    private AudioSource audioSource;
     private new Rigidbody rigidbody;
 
     public float movementSpeed = 1f;
@@ -15,6 +16,7 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rigidbody = GetComponent<Rigidbody>();
         //movementSpeed = 1f;
         count = 1;
@@ -47,6 +49,7 @@ public class PlayerControler : MonoBehaviour
     //Funcion que toma los valores de movimiento y ejecuta el movimiento
     public Vector3 MovePlayer(float hor, float ver)
     {
+        
         //Debug.Log("Pos inicial: " + transform.position);
         Vector3 velocity = Vector3.zero;
         
@@ -57,9 +60,14 @@ public class PlayerControler : MonoBehaviour
             // Debug.Log("Direction: " + direction);
             velocity = direction * movementSpeed;
             //Debug.Log("Velocity: " + velocity);
+            audioSource.Play();
+        } else{
+            audioSource.Stop();
         }
 
         velocity.y = rigidbody.velocity.y;
+
+        
 
         //rigidbody.velocity = velocity;
         return velocity;

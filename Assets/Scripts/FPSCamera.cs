@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,16 @@ public class FPSCamera : MonoBehaviour
 {
     private new Transform camera;
     public VariablesGlobales almacen;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip puerta;
+    private Boolean onSound;
 
     public Vector2 sensibility;
     // Start is called before the first frame update
     void Start()
     {
+        onSound = false;
+        audioSource = GetComponent<AudioSource>();
         camera = transform.Find("CameraMain");
         //Para que el cursor no se salga del juego
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,6 +41,13 @@ public class FPSCamera : MonoBehaviour
                 camera.localEulerAngles = Vector3.right * angle;
             }   
         }
+
+        if(almacen.pieza1Colocada && almacen.pieza2Colocada && almacen.pieza3Colocada && !onSound)
+        {
+            onSound = true;
+            audioSource.PlayOneShot(puerta);
+        }
+
 
     }
 }

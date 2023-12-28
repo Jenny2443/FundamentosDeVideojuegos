@@ -8,6 +8,7 @@ public class Duende : MonoBehaviour
 {
     private AudioSource audioSource;
     [SerializeField] private AudioClip risa;
+    [SerializeField] private AudioClip otorgarMoneda;
     public GameObject moneda;
 
     // Referencia al panel de diálogo para activarlo y desactivarlo
@@ -160,6 +161,7 @@ public class Duende : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(otorgarMoneda);
             indice = lineasDialogo.Length;
             indice2 = 0;
             indiceCambioPersonajesDialogoPuck2 = 1;
@@ -351,6 +353,7 @@ public class Duende : MonoBehaviour
             Debug.Log("No se puede iniciar un dialogo");
             textoPresiona.gameObject.SetActive(false);
             timer = 0f;
+            audioSource.Stop();
         }
         if (other.CompareTag("Moneda"))
         {

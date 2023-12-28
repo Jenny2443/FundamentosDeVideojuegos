@@ -5,6 +5,7 @@
 
     public class Rotacion : MonoBehaviour
     {
+        private AudioSource audioSource;
         [SerializeField] private TMP_Text textoPresiona;
 
         public Item discoInterno;
@@ -35,13 +36,15 @@
             {
                 this.transform.GetChild(i).gameObject.SetActive(false);
             }
+            audioSource = GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
         void Update()
         {
             if(estaEnRango){
-            rotar();
+                
+                rotar();
             }
         }
 
@@ -83,6 +86,7 @@
                     giroCompleto = true;
                     
                 }
+                audioSource.Play();
             } 
             //Si ha dado el giro completo, se muestra la roca descifrada (estado 3)
             if(giroCompleto && !recompensaCogida){

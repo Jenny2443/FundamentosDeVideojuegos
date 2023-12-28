@@ -311,6 +311,7 @@ public class Dialogue : MonoBehaviour
             estaEnRango = false;
             Debug.Log("No se puede iniciar un dialogo");
             textoPresiona.gameObject.SetActive(false);
+            audioSource.Stop();
         }
     }
 }

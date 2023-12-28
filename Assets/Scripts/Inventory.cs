@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     //Lugar de almacenamiento de los items
     public Item[] inventory = new Item[10];
     
@@ -35,6 +37,7 @@ public class Inventory : MonoBehaviour
         transparencia.b = 255;
         clickes.SetActive(false);
         InventarioLleno.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -155,6 +158,8 @@ public class Inventory : MonoBehaviour
     //Adem�s, dibuja en el ui, en la celda correspondiente, el sprite del item.
     public void AddItem (Item item)
     {
+        audioSource.Play();
+
         bool metido = false;
         for(int i = 1; i < inventory.Length && !metido; i++)
         {
