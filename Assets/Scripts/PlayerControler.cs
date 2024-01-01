@@ -44,6 +44,7 @@ public class PlayerControler : MonoBehaviour
         //MovePlayer(hor, ver);
         rigidbody.velocity = MovePlayer(hor, ver);
 
+
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.P))
         {
             // Reproduce el sonido
