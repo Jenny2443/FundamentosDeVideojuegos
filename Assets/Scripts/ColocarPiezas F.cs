@@ -157,6 +157,18 @@ public class ColocarPiezasF : MonoBehaviour
         item.GetComponent<Rigidbody>().useGravity = true;
         item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         item = null;
+        if (this.CompareTag("Pedestal1"))
+        {
+            almacen.pieza1Colocada = false;
+        }
+        if (this.CompareTag("Pedestal2"))
+        {
+            almacen.pieza2Colocada = false;
+        }
+        if (this.CompareTag("Pedestal3"))
+        {
+            almacen.pieza3Colocada = false;
+        }
     }
 
     void Update()
@@ -174,6 +186,15 @@ public class ColocarPiezasF : MonoBehaviour
 
             }
         }
+        if (enRango && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKeyUp(KeyCode.P))
+        {
+            timer = 0f;
+        }
+        Debug.Log(enRango);
+        if (enRango)
+            almacen.CirculoP.fillAmount = timer / 3f;
+        if (almacen.pieza1Colocada && almacen.pieza2Colocada && almacen.pieza3Colocada && enRango)
+            almacen.p.SetActive(false);
 
         if (Input.GetKeyDown(KeyCode.F) && enRango && !unaPiezaColocada)
             colocarObjeto();
@@ -197,6 +218,13 @@ public class ColocarPiezasF : MonoBehaviour
                 // Mostrar el mensaje de presionar F
                 textoPresiona.gameObject.SetActive(true);
             }
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                if (almacen.cameraLocked)
+                    almacen.p.SetActive(false);
+                else if(almacen.puckResuelto && almacen.bolaResuelto && almacen.torresResuelto)
+                    almacen.p.SetActive(true);
+            }
         }
     }
 
@@ -211,7 +239,12 @@ public class ColocarPiezasF : MonoBehaviour
             if (unaPiezaColocada) {
                 item.interactuable = true;
             }
-
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                almacen.p.SetActive(false);
+                timer = 0;
+                almacen.CirculoP.fillAmount = timer / 3f;
+            }
         }
     }
 

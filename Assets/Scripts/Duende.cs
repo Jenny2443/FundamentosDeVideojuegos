@@ -76,6 +76,15 @@ public class Duende : MonoBehaviour
 
             }
         }
+        if (estaEnRango && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKeyUp(KeyCode.P))
+        {
+            timer = 0f;
+        }
+        Debug.Log(estaEnRango);
+        if (estaEnRango)
+            almacen.CirculoP.fillAmount = timer / 3f;
+        if (almacen.puckResuelto && estaEnRango)
+            almacen.p.SetActive(false);
         if (almacen.cameraLocked){
             textoPresiona.gameObject.SetActive(false);
         }
@@ -322,6 +331,14 @@ public class Duende : MonoBehaviour
         {
             Debug.Log(string.Concat(puedeVolveraInteractuar, " ", estaEnRango, " ", puedeVolveraInteractuar, " ", PlayerPrefs.GetInt("skipMechanics") == 3, " ", Input.GetKey(KeyCode.P), " "));
             estaEnRango = true;
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                Debug.Log("Duende kbron");
+                if (almacen.cameraLocked)
+                    almacen.p.SetActive(false);
+                else
+                    almacen.p.SetActive(true);
+            }
             if (PlayerPrefs.GetInt("autoRecolect") != 2)
             {
                 Debug.Log("Se puede iniciar un dialogo");
@@ -354,6 +371,12 @@ public class Duende : MonoBehaviour
             textoPresiona.gameObject.SetActive(false);
             timer = 0f;
             audioSource.Stop();
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                almacen.p.SetActive(false);
+                timer = 0;
+                almacen.CirculoP.fillAmount = timer / 3f;
+            }
         }
         if (other.CompareTag("Moneda"))
         {

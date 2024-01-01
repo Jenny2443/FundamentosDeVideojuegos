@@ -126,9 +126,12 @@
 
         private void OnTriggerStay(Collider other)
         {
+            
             if (other.CompareTag("Brazo"))
             {
-                if (almacen.puckResuelto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+                if(almacen.puckResuelto && !almacen.cifraResuelto)
+                    almacen.p.SetActive(true);
+                if (!almacen.cifraResuelto && almacen.puckResuelto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
                 {
                     timer += Time.deltaTime;
                     Debug.Log(timer);
@@ -140,6 +143,13 @@
 
                     }
                 }
+                if (PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKeyUp(KeyCode.P))
+                {
+                    timer = 0f;
+                }
+                almacen.CirculoP.fillAmount = timer / 3f;
+                if (almacen.cifraResuelto && estaEnRango)
+                    almacen.p.SetActive(false);
             }
             //     if (other.CompareTag("Player"))
             //     {
@@ -194,6 +204,8 @@
                 estaEnRango = false;
                 textoPresiona.gameObject.SetActive(false);
                 timer = 0f;
+                almacen.p.SetActive(false);
+                almacen.CirculoP.fillAmount = timer / 3f;
             }
         }
     }

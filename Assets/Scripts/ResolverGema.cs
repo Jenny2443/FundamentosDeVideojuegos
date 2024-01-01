@@ -8,6 +8,7 @@ public class ResolverGema : MonoBehaviour
 
     public GameObject gema;
     public GameObject agujero;
+    public VariablesGlobales almacen;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +24,22 @@ public class ResolverGema : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("skipMechanics") == 3)
+        {
             timer = 0f;
+            almacen.p.SetActive(false);
+            almacen.CirculoP.fillAmount = timer / 3f;
+        }
     }
 
     public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Brazo") && PlayerPrefs.GetInt("skipMechanics") == 3)
         {
-            if (Input.GetKey(KeyCode.P))
+            if (almacen.cameraLocked)
+                almacen.p.SetActive(false);
+            else
+                almacen.p.SetActive(true);
+            if (!almacen.bolaResuelto && Input.GetKey(KeyCode.P))
             {
                 timer += Time.deltaTime;
                 Debug.Log(timer);
@@ -42,10 +51,13 @@ public class ResolverGema : MonoBehaviour
 
                 }
             }
-            else
+            if (PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKeyUp(KeyCode.P))
             {
                 timer = 0f;
             }
+            almacen.CirculoP.fillAmount = timer / 3f;
+            if (almacen.bolaResuelto)
+                almacen.p.SetActive(false);
         }
     }
 

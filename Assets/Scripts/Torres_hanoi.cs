@@ -106,7 +106,7 @@ public class Torres_hanoi : MonoBehaviour
         {
             timer = 0f;
         }
-        if (jugadorEnContacto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P))
+        if (jugadorEnContacto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKey(KeyCode.P) && !almacen.torresResuelto)
         {
             timer += Time.deltaTime;
             Debug.Log(timer);
@@ -118,6 +118,15 @@ public class Torres_hanoi : MonoBehaviour
 
             }
         }
+        if (jugadorEnContacto && PlayerPrefs.GetInt("skipMechanics") == 3 && Input.GetKeyUp(KeyCode.P))
+        {
+            timer = 0f;
+        }
+        Debug.Log("Antes");
+        if(jugadorEnContacto)
+            almacen.CirculoP.fillAmount = timer / 3f;
+        if (almacen.torresResuelto && jugadorEnContacto)
+            almacen.p.SetActive(false);
 
     }
 
@@ -201,6 +210,13 @@ public class Torres_hanoi : MonoBehaviour
                 textoPresiona.gameObject.SetActive(true);
             }
             jugadorEnContacto = true;
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                if (almacen.cameraLocked)
+                    almacen.p.SetActive(false);
+                else
+                    almacen.p.SetActive(true);
+            }
         }
     }
 
@@ -214,6 +230,12 @@ public class Torres_hanoi : MonoBehaviour
             inventory.clickes.SetActive(false);
             textoPresiona.gameObject.SetActive(false);
             control = true;
+            if (PlayerPrefs.GetInt("skipMechanics") == 3)
+            {
+                almacen.p.SetActive(false);
+                timer = 0;
+                almacen.CirculoP.fillAmount = timer / 3f;
+            }
         }
     }
 

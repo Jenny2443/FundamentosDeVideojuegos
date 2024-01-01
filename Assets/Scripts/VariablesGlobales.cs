@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VariablesGlobales : MonoBehaviour
 {
@@ -19,7 +20,9 @@ public class VariablesGlobales : MonoBehaviour
     public bool pieza1Colocada;
     public bool pieza2Colocada;
     public bool pieza3Colocada;
-
+    public GameObject p;
+    public Image CirculoP;
+    public GameObject panicButton;
     void Start()
     {
         discoCogido = false;
@@ -37,6 +40,13 @@ public class VariablesGlobales : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (PlayerPrefs.GetInt("skipMechanics") == 3)
+        {
+            panicButton.SetActive(true);
+        }
+        else
+        {
+            panicButton.SetActive(false);
+        }
     }
 }

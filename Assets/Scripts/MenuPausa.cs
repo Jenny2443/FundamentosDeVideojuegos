@@ -61,6 +61,7 @@ public class MenuPausa : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         almacen.cameraLocked = true;
+        almacen.p.SetActive(false);
     }
 
     public void Reanudar()
