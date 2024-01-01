@@ -8,6 +8,7 @@ public class PuertaFinal : MonoBehaviour
     public Animator puerta2;
     public VariablesGlobales globals;
     private AudioSource audioSource;
+    [SerializeField] private AudioClip fin;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,8 @@ public class PuertaFinal : MonoBehaviour
         {
             puerta1.SetBool("BoolEjeP1", true);
             puerta2.SetBool("BoolEjeP2", true);
-            audioSource.Play();
+            //audioSource.Play();
+            audioSource.PlayOneShot(fin);
         }
 
     }

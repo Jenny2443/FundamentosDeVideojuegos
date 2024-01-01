@@ -17031,6 +17031,10 @@ PrefabInstance:
       propertyPath: enMano
       value: 
       objectReference: {fileID: 525398120}
+    - target: {fileID: 2938338462804604064, guid: cfe7d245a67e5b6459a3b4aacee56f9b, type: 3}
+      propertyPath: recompensa
+      value: 
+      objectReference: {fileID: 8300000, guid: 45e12da4c983c2845b360a5c2c5dbe06, type: 3}
     - target: {fileID: 3385027817160050054, guid: cfe7d245a67e5b6459a3b4aacee56f9b, type: 3}
       propertyPath: m_Name
       value: Inventario
@@ -25410,6 +25414,7 @@ MonoBehaviour:
   puerta1: {fileID: 770414040}
   puerta2: {fileID: 319154338}
   globals: {fileID: 1998041209}
+  fin: {fileID: 8300000, guid: beb821b3da42fe148a13154e814859f1, type: 3}
 --- !u!4 &1061903406
 Transform:
   m_ObjectHideFlags: 0
@@ -45418,8 +45423,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 352c2e57bbc14354bbb8578ac2381423, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b59f74b705de0f64a9efdebb94d4c669, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

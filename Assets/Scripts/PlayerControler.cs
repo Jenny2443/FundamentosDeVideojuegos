@@ -44,6 +44,12 @@ public class PlayerControler : MonoBehaviour
         //MovePlayer(hor, ver);
         rigidbody.velocity = MovePlayer(hor, ver);
 
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.P))
+        {
+            // Reproduce el sonido
+            audioSource.Play();
+        }
+
     }
 
     //Funcion que toma los valores de movimiento y ejecuta el movimiento
@@ -60,9 +66,6 @@ public class PlayerControler : MonoBehaviour
             // Debug.Log("Direction: " + direction);
             velocity = direction * movementSpeed;
             //Debug.Log("Velocity: " + velocity);
-            audioSource.Play();
-        } else{
-            audioSource.Stop();
         }
 
         velocity.y = rigidbody.velocity.y;

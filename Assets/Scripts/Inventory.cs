@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private AudioSource audioSource;
+    [SerializeField] private AudioClip recompensa;
 
     //Lugar de almacenamiento de los items
     public Item[] inventory = new Item[10];
@@ -158,7 +159,12 @@ public class Inventory : MonoBehaviour
     //Adem�s, dibuja en el ui, en la celda correspondiente, el sprite del item.
     public void AddItem (Item item)
     {
-        audioSource.Play();
+        if(item.CompareTag("Recompensa") || item.CompareTag("Recompensa1") || 
+           item.CompareTag("Recompensa2") || item.CompareTag("Recompensa3")) {
+            audioSource.PlayOneShot(recompensa);
+        } else{
+            audioSource.Play();
+        }
 
         bool metido = false;
         for(int i = 1; i < inventory.Length && !metido; i++)
