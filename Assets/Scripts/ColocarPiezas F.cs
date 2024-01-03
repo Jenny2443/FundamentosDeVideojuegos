@@ -54,7 +54,7 @@ public class ColocarPiezasF : MonoBehaviour
             {
                 item = recompensa1;
             }
-            item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
+            item.transform.position = transform.position + new Vector3(0, 2.5f, 0);
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
             textoPresiona.gameObject.SetActive(false);
@@ -72,7 +72,7 @@ public class ColocarPiezasF : MonoBehaviour
             {
                 item = recompensa2;
             }
-            item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
+            item.transform.position = transform.position + new Vector3(0, 2.5f, 0);
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
             textoPresiona.gameObject.SetActive(false);
@@ -90,7 +90,7 @@ public class ColocarPiezasF : MonoBehaviour
             {
                 item = recompensa3;
             }
-            item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
+            item.transform.position = transform.position + new Vector3(0, 2.5f, 0);
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
             textoPresiona.gameObject.SetActive(false);

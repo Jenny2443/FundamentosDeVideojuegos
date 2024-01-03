@@ -53151,16 +53151,16 @@ MonoBehaviour:
   - "Amy: De acuerdo, \xBFC\xF3mo te llamas? "
   - '???: Mi nombre es Sifo, un gusto, un placer. '
   - "Amy: Encantada, yo me llamo Amy \xBFDe qu\xE9 se trata? "
-  - 'Sifo: Pues estoy intentando abrir esta puerta ancestral...'
+  - 'Sifo: Pues estoy intentando resolver un enigma...'
   - "Sifo: ...si pudiera resolver este enigma, me convertir\xEDa en el esp\xEDritu
     m\xE1s poderoso del bosque y as\xED podr\xEDa vengarme del traicionero duende
     Puck \xBFPodr\xEDas ayudarme a abrirlo? "
   - "Amy: \xA1Por supuesto, estar\xE9 encantada de ayudarte! \xBFDe qu\xE9 trata
     el enigma?"
-  - "Sifo: \xBFVes aquella torre lejana con los aros?"
+  - "Sifo: \xBFVesesas torre cercanas con los aros?"
   - "Amy: \xA1S\xED!"
   - "Sifo: Pues, el enigma trata de llevar los aros de esa torre hasta esta 3\xAA
-    torre, la m\xE1s cercana a nosotros..."
+    torre, la m\xE1s bonita de todas, con una flor detr\xE1s..."
   - "Sifo: ...de tal forma que queden colocados: el m\xE1s grande abajo del todo,
     el mediano encima del grande y el peque\xF1o encima del mediano..."
   - 'Sifo: ...Pero no va a ser sencillo...'
@@ -53176,9 +53176,11 @@ MonoBehaviour:
   - "Amy: \xA1Genial!"
   dialogoDespuesDeResuelto:
   - "Sifo: Muchas gracias Amy, como muestra de gratitud, toma\u2026"
-  - "Ten \u201Cobjeto necesario para abrir la puerta final\u201D"
+  - "Ten \u201CLlave de una puerta (Gema)\u201D"
   - 'Sifo: Ten mucho cuidado en este tenebroso bosque... '
   - "Sifo: Hay muchas criaturas peligrosas. \xA1No confies en nadie!"
+  - "Sifo: Podr\xE1s volver a casa si consigues abrir la puerta ancestral, escondida
+    por alguna parte del bosque!"
   tiempoEntreLetras: 0.05
   itemRecompensa: {fileID: 642276922}
   almacen: {fileID: 1998041209}
