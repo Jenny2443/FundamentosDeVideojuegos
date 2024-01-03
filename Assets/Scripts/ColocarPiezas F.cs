@@ -141,7 +141,7 @@ public class ColocarPiezasF : MonoBehaviour
             inventario.RemoveItem();
 
             // Configurar la escala y la posición del item en el mundo
-            item.transform.position = transform.position + new Vector3(0, 1.3f, 0);
+            item.transform.position = transform.position + new Vector3(0, 2.5f, 0);
             item.GetComponent<Rigidbody>().useGravity = false;
             item.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 
