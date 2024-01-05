@@ -27,6 +27,7 @@ TagManager:
   - Pedestal1
   - Pedestal2
   - Pedestal3
+  - Casillas
   layers:
   - Default
   - TransparentFX

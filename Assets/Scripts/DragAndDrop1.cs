@@ -10,6 +10,12 @@ public class DragAndDrop : MonoBehaviour
     // Variable para saber si se está arrastrando
     private bool isDragging = false;
 
+    public GameObject casillas;
+
+    public GameObject anchorPoint;
+
+    public int tipoPieza;
+
 
     private bool firstDrag = true;
     private bool moverEjeX = false;
@@ -17,6 +23,11 @@ public class DragAndDrop : MonoBehaviour
     private bool atascado = false;
 
     private GameObject chocoContigo = null;
+
+    private void Start()
+    {
+        //snap();
+    }
 
     void OnMouseDown()
     {
@@ -136,5 +147,37 @@ public class DragAndDrop : MonoBehaviour
         moverEjeX = false;
         moverEjeY = false;
         atascado = false;
+
+        snap();
+
+    }
+
+    void snap() {
+        /* Vector3 nuevaPos = transform.position;
+         float distanciaMasCorta = float.MaxValue;
+
+         for (int i = 0; i < casillas.transform.childCount; i++)
+         {
+             float x = casillas.transform.GetChild(i).position.x*10000 - transform.position.x*10000;
+             float y = casillas.transform.GetChild(i).position.y*10000 - transform.position.y*10000;
+             Debug.Log(x + " " + y);
+             float nuevaDistancia = Mathf.Sqrt(Mathf.Pow(x, 2) + Mathf.Pow(x, 2));
+             //decimal nuevaDistancia = Vector3.Distance(casillas.transform.GetChild(i).position, casillas.transform.GetChild(i).position);
+             Debug.Log("Nueva distancia " + nuevaDistancia);
+             if (nuevaDistancia < distanciaMasCorta)
+             {
+                 distanciaMasCorta = nuevaDistancia;
+                 nuevaPos = casillas.transform.GetChild(i).position;
+             }
+         }
+         Debug.Log("Nueva distancia " + distanciaMasCorta);
+         //Debug.Log(string.Concat("Snapeando a ", ));
+         transform.position = new Vector3(nuevaPos.x, nuevaPos.y, transform.position.z);*/
+        if(tipoPieza == 0)
+            transform.position = new Vector3(anchorPoint.transform.position.x, anchorPoint.transform.position.y, transform.position.z);
+        if (tipoPieza == 1)
+            transform.position = new Vector3(anchorPoint.transform.position.x+(transform.position.x-transform.GetChild(0).position.x), anchorPoint.transform.position.y, transform.position.z);
+        if (tipoPieza == 2)
+            transform.position = new Vector3(anchorPoint.transform.position.x+ (transform.position.x - transform.GetChild(0).position.x), anchorPoint.transform.position.y+ (transform.position.y - transform.GetChild(0).position.y), transform.position.z);
     }
 }
