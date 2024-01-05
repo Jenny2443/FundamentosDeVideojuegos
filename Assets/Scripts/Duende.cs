@@ -98,7 +98,8 @@ public class Duende : MonoBehaviour
                 Quaternion rotacionDeseada = Quaternion.LookRotation(new Vector3(direccionAlJugador.x, 0, direccionAlJugador.z));
 
                 // Aplica la rotación a sifo
-                puck.transform.rotation = rotacionDeseada;   
+                puck.transform.rotation = rotacionDeseada;
+
             }
             //almacen.monedaCogida = false;
             // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
