@@ -179,5 +179,10 @@ public class DragAndDrop : MonoBehaviour
             transform.position = new Vector3(anchorPoint.transform.position.x+(transform.position.x-transform.GetChild(0).position.x), anchorPoint.transform.position.y, transform.position.z);
         if (tipoPieza == 2)
             transform.position = new Vector3(anchorPoint.transform.position.x+ (transform.position.x - transform.GetChild(0).position.x), anchorPoint.transform.position.y+ (transform.position.y - transform.GetChild(0).position.y), transform.position.z);
+        if (tipoPieza == 3) {
+            Debug.Log("Tipo 3: " + (transform.position.y - transform.GetChild(0).position.y));
+            transform.position = new Vector3(anchorPoint.transform.position.x, anchorPoint.transform.position.y + (transform.position.y - transform.GetChild(0).position.y), transform.position.z);
+        }
+            
     }
 }

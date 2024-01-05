@@ -18578,7 +18578,7 @@ MonoBehaviour:
   rectangleSize: {x: 0.145, y: 0.355}
   casillas: {fileID: 0}
   anchorPoint: {fileID: 0}
-  tipoPieza: 1
+  tipoPieza: 3
 --- !u!50 &642501370
 Rigidbody2D:
   serializedVersion: 4
@@ -26966,7 +26966,7 @@ Transform:
   m_GameObject: {fileID: 895854828}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 0, z: 0}
+  m_LocalPosition: {x: -2.7, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
