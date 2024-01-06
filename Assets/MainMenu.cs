@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void EscenaJuego(){
-	    SceneManager.LoadScene("Escenario Pruebas");
+	    SceneManager.LoadScene("Andres");
     }
 
     public void EscenaOpciones(){
