@@ -69,7 +69,9 @@
                 // } else if (discoInterno.inventory == null){
                 //     Debug.Log("discoInterno.inventory es null");
                 // }else{
-                discoInterno.inventory.DestroyItem(discoInterno.inventory.contains("DiscoAlbertiPequeno"));
+                int aux = discoInterno.inventory.contains("DiscoAlbertiPequeno");
+                discoInterno.inventory.nowActive = aux;
+                discoInterno.inventory.DestroyItem();
                 transform.GetChild(1).gameObject.SetActive(true);
                     
                 // }

@@ -42744,7 +42744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gema: {fileID: 572608955}
   agujero: {fileID: 1127282096}
-  almacen: {fileID: 0}
+  almacen: {fileID: 1998041209}
 --- !u!65 &1463221877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56338,7 +56338,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1960361775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d83f1808b7b8b49b2e58ababe66285, type: 3}
+  m_Script: {fileID: 11500000, guid: 453ee09020aaf1e44b8417314a8bfc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textoCompletado: {fileID: 1981939048}
@@ -59227,7 +59227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d83f1808b7b8b49b2e58ababe66285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoCompletado: {fileID: 1981939048}
 --- !u!81 &2083960276
 AudioListener:
   m_ObjectHideFlags: 0
