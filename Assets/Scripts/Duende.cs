@@ -100,6 +100,14 @@ public class Duende : MonoBehaviour
                 // Aplica la rotación a sifo
                 puck.transform.rotation = rotacionDeseada;
 
+                if (almacen.cameraLocked)
+                {
+                    textoDialogo.gameObject.SetActive(false);
+                }
+                if (!almacen.cameraLocked)
+                {
+                    textoDialogo.gameObject.SetActive(true);
+                }
             }
             //almacen.monedaCogida = false;
             // Si el jugador está en rango y si se presiona la tecla F y si el panel de diálogo no está activo
